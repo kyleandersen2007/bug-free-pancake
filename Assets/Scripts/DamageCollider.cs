@@ -39,6 +39,7 @@ namespace KA
             {
                 PlayerStats playerStats = other.GetComponent<PlayerStats>();
                 CharacterManager enemyCharacterManager = other.GetComponent<CharacterManager>();
+                BlockingCollider shield = other.transform.GetComponentInChildren<BlockingCollider>();
 
                 if(enemyCharacterManager != null)
                 {
@@ -46,6 +47,16 @@ namespace KA
                     {
                         characterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Parried", true);
                         return;
+                    }
+                    else if(shield != null && enemyCharacterManager.isBlocking)
+                    {
+                        float physicalDamageAfterBlock = currentWeaponDamage - (currentWeaponDamage * shield.blockingPhysicalDamageAbsorption) / 100;
+
+                        if(playerStats != null)
+                        {
+                            playerStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), "Block Guard");
+                            return;
+                        }
                     }
                 }
 

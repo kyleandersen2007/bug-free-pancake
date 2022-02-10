@@ -16,5 +16,6 @@ namespace KA
         public bool canBeRiposted;
         public bool isParrying;
         public bool canBeParried;
+        public bool isBlocking;
     }
 }

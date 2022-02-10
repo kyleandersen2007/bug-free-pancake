@@ -35,6 +35,7 @@ MonoBehaviour:
   baseStamina: 0
   lightAttackMultiplier: 0
   heavyAttackMultiplier: 0
+  physicalDamageAbsorption: 95
   isSpellCaster: 0
   isPyroCaster: 0
   isFaithCaster: 0

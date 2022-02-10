@@ -7,6 +7,7 @@ namespace KA
     public class PlayerAttacker : MonoBehaviour
     {
         PlayerManager playerManager;
+        PlayerEquipmentManager playerEquipmentManager;
         PlayerStats playerStats;
         PlayerInventory playerInventory;
         AnimatorHandler animatorHandler;
@@ -25,6 +26,7 @@ namespace KA
             playerInventory = GetComponentInParent<PlayerInventory>();
             weaponSlotManager = GetComponent<WeaponSlotManager>();
             inputHandler = GetComponentInParent<InputHandler>();
+            playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
         }
 
         public void HandleWeaponCombo(WeaponItem weapon)
@@ -109,6 +111,11 @@ namespace KA
             }
         }
 
+        public void HandleLBAction()
+        {
+            PerformLBBlockingAction();
+        }
+
         private void PerformRBMeleeAction()
         {
             if (playerManager.canDoCombo)
@@ -178,6 +185,17 @@ namespace KA
                 animatorHandler.PlayTargetAnimation(playerInventory.leftWeapon.weapon_Art, true);
             }
 
+        }
+
+        private void PerformLBBlockingAction()
+        {
+            if (playerManager.isInteracting)
+                return;
+            if (playerManager.isBlocking)
+                return;
+            animatorHandler.PlayTargetAnimation("Block Start", false, true);
+            playerEquipmentManager.OpenBlockingCollider();
+            playerManager.isBlocking = true;
         }
 
         private void SuccessfullyCastSpell()

@@ -1496,18 +1496,18 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: BasicMotionsDummyModel(Clone)
+    - name: BasicMotionsDummy(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: DummyMesh
-      parentName: BasicMotionsDummyModel(Clone)
+      parentName: BasicMotionsDummy(Clone)
       position: {x: -0, y: -1e-17, z: 1.4901161e-10}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: DummyRig
-      parentName: BasicMotionsDummyModel(Clone)
+      parentName: BasicMotionsDummy(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -1822,7 +1822,7 @@ ModelImporter:
       rotation: {x: -0.97024214, y: -0.036458813, z: -0.23912175, w: 0.01103542}
       scale: {x: 0.99999905, y: 1.0000006, z: 1.000002}
     - name: Retargeters
-      parentName: BasicMotionsDummyModel(Clone)
+      parentName: BasicMotionsDummy(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}

@@ -40,6 +40,9 @@ namespace KA
         public float lightAttackMultiplier;
         public float heavyAttackMultiplier;
 
+        [Header("Absorption")]
+        public float physicalDamageAbsorption;
+
         [Header("Weapon Type")]
         public bool isSpellCaster;
         public bool isPyroCaster;

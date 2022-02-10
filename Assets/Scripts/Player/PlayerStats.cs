@@ -62,7 +62,7 @@ namespace KA
             return maxFocusPoints;
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(int damage, string damageAnimation = "Damage")
         {
             if (playerManager.isInvulnerable)
                 return;
@@ -73,7 +73,7 @@ namespace KA
             currentHealth = currentHealth - damage;
             healthBar.SetCurrentHealth(currentHealth);
 
-            animatorHandler.PlayTargetAnimation("Damage", true);
+            animatorHandler.PlayTargetAnimation(damageAnimation, true);
 
             if (currentHealth <= 0)
             {

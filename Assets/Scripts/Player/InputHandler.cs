@@ -15,6 +15,7 @@ namespace KA
         public bool x_Input;
         public bool rb_Input;
         public bool lt_Input;
+        public bool lb_Input;
         public bool critical_Attack_Input;
         public bool rt_Input;
         public bool jump_Input;
@@ -44,6 +45,7 @@ namespace KA
         UIManager uiManager;
         WeaponSlotManager weaponSlotManager;
         AnimatorHandler animatorHandler;
+        BlockingCollider blockingCollider;
 
         public Transform criticalAttackRayCastStartPoint;
 
@@ -60,6 +62,7 @@ namespace KA
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
             animatorHandler = GetComponentInChildren<AnimatorHandler>();
+            blockingCollider = GetComponentInChildren<BlockingCollider>();
         }
 
         public void OnEnable()
@@ -82,6 +85,8 @@ namespace KA
                 inputActions.PlayerActions.X.performed += i => x_Input = true;
                 inputActions.PlayerActions.CriticalAttack.performed += i => critical_Attack_Input = true;
                 inputActions.PlayerActions.LT.performed += i => lt_Input = true;
+                inputActions.PlayerActions.LB.performed += i => lb_Input = true;
+                inputActions.PlayerActions.LB.canceled += i => lb_Input = false;
             }
 
             inputActions.Enable();
@@ -96,7 +101,7 @@ namespace KA
         {
             HandleMoveInput(delta);
             HandleRollInput(delta);
-            HandleAttackInput(delta);
+            HandleCombatInput(delta);
             HandleQuickSlotsInput();
             HandleInventoryInput();
             HandleLockOnInput();
@@ -134,11 +139,25 @@ namespace KA
             }
         }
 
-        private void HandleAttackInput(float delta)
+        private void HandleCombatInput(float delta)
         {
             if (rb_Input)
             {
                 playerAttacker.HandleRBAction();
+            }
+
+            if(lb_Input)
+            {
+                playerAttacker.HandleLBAction();
+            }
+            else
+            {
+                playerManager.isBlocking = false;
+
+                if(blockingCollider.blockingCollider.enabled)
+                {
+                    blockingCollider.DisableBlockingCollider();
+                }
             }
 
             if(lt_Input)
