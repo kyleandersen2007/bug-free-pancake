@@ -79,7 +79,7 @@ namespace KA
             }
             else
             {
-                if (inputHandler.twoHandFlag)
+                if (inputHandler.twoHandFlag || weaponItem.isTwoHandedWeapon)
                 {
                     backSlot.LoadWeaponModel(leftHandSlot.currentWeapon);
                     leftHandSlot.UnloadWeaponAndDestroy();

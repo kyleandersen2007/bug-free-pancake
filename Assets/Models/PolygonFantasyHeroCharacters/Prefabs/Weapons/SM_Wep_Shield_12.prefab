@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33007167860562442}
   - component: {fileID: 23848161581317070}
   - component: {fileID: 714803165053155218}
+  - component: {fileID: 9166181792054464593}
   m_Layer: 0
   m_Name: SM_Wep_Shield_12
   m_TagString: Untagged
@@ -95,3 +96,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6684103, y: 0.9774382, z: 0.20072956}
   m_Center: {x: 0.00000009313226, y: -0.09400557, z: -0.0000005113849}
+--- !u!114 &9166181792054464593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397866801264990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff936f6c73be684fb25a8ea664f9410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterManager: {fileID: 0}
+  currentWeaponDamage: 30

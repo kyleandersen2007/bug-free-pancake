@@ -31,6 +31,7 @@ namespace KA
         public string TH_Light_Attack_3;
         public string TH_Heavy_Attack_1;
         public string TH_Heavy_Attack_2;
+        public string TH_Long_Attack1;
 
         [Header("Weapon Art")]
         public string weapon_Art;
@@ -48,6 +49,7 @@ namespace KA
         public bool isPyroCaster;
         public bool isFaithCaster;
         public bool isMeleeWeapon;
+        public bool isTwoHandedWeapon;
         public bool isShieldWeapon;
     }
 }
