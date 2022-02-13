@@ -2354,7 +2354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightHandWeapon: {fileID: 11400000, guid: 2e99b59755987da45821141d8b1254bc, type: 2}
-  leftHandWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
+  leftHandWeapon: {fileID: 11400000, guid: 2e99b59755987da45821141d8b1254bc, type: 2}
 --- !u!1 &6064437561473908443
 GameObject:
   m_ObjectHideFlags: 0

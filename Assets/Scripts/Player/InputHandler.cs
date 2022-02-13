@@ -16,6 +16,7 @@ namespace KA
         public bool rb_Input;
         public bool lt_Input;
         public bool lb_Input;
+        public bool use_Input;
         public bool critical_Attack_Input;
         public bool rt_Input;
         public bool jump_Input;
@@ -87,6 +88,7 @@ namespace KA
                 inputActions.PlayerActions.LT.performed += i => lt_Input = true;
                 inputActions.PlayerActions.LB.performed += i => lb_Input = true;
                 inputActions.PlayerActions.LB.canceled += i => lb_Input = false;
+                inputActions.PlayerActions.Use.performed += i => use_Input = true;
             }
 
             inputActions.Enable();
@@ -107,6 +109,7 @@ namespace KA
             HandleLockOnInput();
             HandleTwoHandInput();
             HandleCriticalAttackInput();
+            HandleUseConsumableInput();
         }
 
         private void HandleMoveInput(float delta)
@@ -293,6 +296,14 @@ namespace KA
             {
                 critical_Attack_Input = false;
                 playerAttacker.AttemptBackStabOrReposte();
+            }
+        }
+
+        private void HandleUseConsumableInput()
+        {
+            if(use_Input)
+            {
+                use_Input = false;
             }
         }
     }

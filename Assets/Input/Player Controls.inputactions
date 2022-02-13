@@ -264,6 +264,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Use",
+                    "type": "Button",
+                    "id": "ef58f813-d462-4acc-9e9a-786e593db004",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -304,7 +312,7 @@
                     "name": "",
                     "id": "af4be6b0-62ce-4e62-a6ef-30f96da4f457",
                     "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
                     "action": "RB",
@@ -412,6 +420,17 @@
                 },
                 {
                     "name": "",
+                    "id": "db84282e-52c3-4d56-b876-3c9092bb4643",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Lock On",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "36f17560-26db-43d6-b18e-818ba53f39ca",
                     "path": "<Keyboard>/v",
                     "interactions": "",
@@ -447,7 +466,7 @@
                     "name": "",
                     "id": "0d4e579e-c4bb-4fef-bbc6-d871a64b0058",
                     "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "",
                     "action": "Critical Attack",
@@ -458,6 +477,17 @@
                     "name": "",
                     "id": "b1dc9dd5-eb92-4278-b59c-115cd744ad7b",
                     "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dcd42dc5-334c-433b-b476-8bbc2474f002",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -484,6 +514,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "LB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f8948b1-44c5-42d6-937c-5f8debc4fa92",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
