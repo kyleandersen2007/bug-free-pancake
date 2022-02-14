@@ -7,13 +7,17 @@ namespace KA
     public class PlayerInventory : MonoBehaviour
     {
         WeaponSlotManager weaponSlotManager;
-
+        [Header("Quick Slot Items")]
         public SpellItem currentSpell;
         public WeaponItem rightWeapon;
         public WeaponItem leftWeapon;
         public ConsumableItem currentConsumbale;
-
         public WeaponItem unarmedWeapon; 
+
+        [Header("Current Equipment")]
+        public HelmetEquipment currentHelmetEquipment;
+        public TorsoEquipment currentTorsoEquipment;
+        public LegEquipment currentLegEquipment;
 
         public WeaponItem[] weaponsInRightHandSlots = new WeaponItem[1];
         public WeaponItem[] weaponsInLeftHandSlots = new WeaponItem[1];

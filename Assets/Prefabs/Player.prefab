@@ -10759,7 +10759,7 @@ GameObject:
   - component: {fileID: 7536127587807897263}
   - component: {fileID: 7593840583368614367}
   m_Layer: 12
-  m_Name: Chr_Head_No_Elements_Male_09
+  m_Name: Helmet07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10777,7 +10777,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7535836828555450601}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7593840583368614367
 SkinnedMeshRenderer:
@@ -16223,6 +16223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7535816823902359997}
+  - component: {fileID: 1783314210}
   m_Layer: 12
   m_Name: Male_11_Leg_Right
   m_TagString: Untagged
@@ -16264,6 +16265,18 @@ Transform:
   m_Father: {fileID: 7535787210651713765}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1783314210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530256747369514619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa4b282ce33c3e44852b06c58fb579b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7530257636250083729
 GameObject:
   m_ObjectHideFlags: 0
@@ -17831,7 +17844,7 @@ GameObject:
   - component: {fileID: 7532894979744060831}
   - component: {fileID: 7596868889368814245}
   m_Layer: 12
-  m_Name: Chr_Head_No_Elements_Male_07
+  m_Name: Helmet06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17849,7 +17862,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7535836828555450601}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7596868889368814245
 SkinnedMeshRenderer:
@@ -26512,7 +26525,7 @@ GameObject:
   - component: {fileID: 7536077035389172269}
   - component: {fileID: 7593712582506661461}
   m_Layer: 12
-  m_Name: Chr_Head_No_Elements_Male_03
+  m_Name: Helmet02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26530,7 +26543,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7535836828555450601}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7593712582506661461
 SkinnedMeshRenderer:
@@ -29804,6 +29817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7535667013545004431}
+  - component: {fileID: 178620883745915901}
   m_Layer: 12
   m_Name: Male_10_Hips
   m_TagString: Untagged
@@ -29854,6 +29868,19 @@ Transform:
   m_Father: {fileID: 7535787210651713765}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &178620883745915901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530453966690246355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80961ebf9dfd474b92cb620a68dc257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hipModels: []
 --- !u!1 &7530455269778164095
 GameObject:
   m_ObjectHideFlags: 0
@@ -36884,6 +36911,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e18b89f59830a4f9dac128b3e8f8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nakedHeadModel: {fileID: 7530145870708448765}
+  nakedTorsoModel: Chr_Torso_Male_00
+  nakedHipModel: Chr_Hips_Male_00
   blockingCollider: {fileID: 6522285178992779619}
 --- !u!114 &7911406350464741963
 MonoBehaviour:
@@ -38043,6 +38073,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7535703042520247203}
+  - component: {fileID: 5209235080739138402}
   m_Layer: 12
   m_Name: Male_03_Torso
   m_TagString: Untagged
@@ -38093,6 +38124,19 @@ Transform:
   m_Father: {fileID: 7535787210651713765}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5209235080739138402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530563065295470957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8470eb9acdfdb414e92cedac192ee0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torsoModels: []
 --- !u!1 &7530563176722760055
 GameObject:
   m_ObjectHideFlags: 0
@@ -39576,7 +39620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7533159354725527363
 Transform:
   m_ObjectHideFlags: 0
@@ -45615,8 +45659,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7535836828555450601}
+  - component: {fileID: 5198606534355096679}
   m_Layer: 12
-  m_Name: Male_Head_No_Elements
+  m_Name: Male_Helmets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45633,7 +45678,6 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7533374244090087471}
   - {fileID: 7535693136418540241}
   - {fileID: 7536077035389172269}
   - {fileID: 7535944573640005001}
@@ -45649,6 +45693,19 @@ Transform:
   m_Father: {fileID: 7536210390497462693}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5198606534355096679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530960677318434423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6282cbc913f914fbf937280186ea88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helmetModels: []
 --- !u!1 &7530961458023045827
 GameObject:
   m_ObjectHideFlags: 0
@@ -47122,7 +47179,7 @@ GameObject:
   - component: {fileID: 7536058872082958897}
   - component: {fileID: 7597466221117764951}
   m_Layer: 12
-  m_Name: Chr_Head_No_Elements_Male_13
+  m_Name: Helmet11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47140,7 +47197,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7535836828555450601}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7597466221117764951
 SkinnedMeshRenderer:
@@ -52185,7 +52242,7 @@ GameObject:
   - component: {fileID: 7532867673741493381}
   - component: {fileID: 7594043870829133559}
   m_Layer: 12
-  m_Name: Chr_Head_No_Elements_Male_06
+  m_Name: Helmet05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52203,7 +52260,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7535836828555450601}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7594043870829133559
 SkinnedMeshRenderer:
@@ -53902,7 +53959,7 @@ GameObject:
   - component: {fileID: 7535944573640005001}
   - component: {fileID: 7596839889947335269}
   m_Layer: 12
-  m_Name: Chr_Head_No_Elements_Male_04
+  m_Name: Helmet03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53920,7 +53977,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7535836828555450601}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7596839889947335269
 SkinnedMeshRenderer:
@@ -56398,7 +56455,7 @@ GameObject:
   - component: {fileID: 7535859507549004233}
   - component: {fileID: 7597500478191905897}
   m_Layer: 12
-  m_Name: Chr_Head_No_Elements_Male_05
+  m_Name: Helmet04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56416,7 +56473,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7535836828555450601}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7597500478191905897
 SkinnedMeshRenderer:
@@ -56996,91 +57053,6 @@ SkinnedMeshRenderer:
   m_AABB:
     m_Center: {x: -0.45812672, y: 0.00037255138, z: 0.018703818}
     m_Extent: {x: 0.15104039, y: 0.08506443, z: 0.0736253}
-  m_DirtyAABB: 0
---- !u!1 &7531123076933133685
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7533374244090087471}
-  - component: {fileID: 7597565447598108281}
-  m_Layer: 12
-  m_Name: Chr_Head_No_Elements_Male_01
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &7533374244090087471
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7531123076933133685}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7535836828555450601}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &7597565447598108281
-SkinnedMeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7531123076933133685}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 3
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 014fbaa82701c3f4bbd9c27c7a0650e5, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  serializedVersion: 2
-  m_Quality: 0
-  m_UpdateWhenOffscreen: 0
-  m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300370, guid: 98a56ff2c8ee98645a4d3f79fa1506c5, type: 3}
-  m_Bones:
-  - {fileID: 7532942279650072217}
-  - {fileID: 7535997413700780157}
-  m_BlendShapeWeights: []
-  m_RootBone: {fileID: 7535997413700780157}
-  m_AABB:
-    m_Center: {x: -0.1908001, y: -0.10166323, z: 0}
-    m_Extent: {x: 0.20146465, y: 0.25504535, z: 0.13306488}
   m_DirtyAABB: 0
 --- !u!1 &7531124023563298043
 GameObject:
@@ -58106,7 +58078,7 @@ GameObject:
   - component: {fileID: 7535693136418540241}
   - component: {fileID: 7593794338494868907}
   m_Layer: 12
-  m_Name: Chr_Head_No_Elements_Male_02
+  m_Name: Helmet01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58124,7 +58096,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7535836828555450601}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7593794338494868907
 SkinnedMeshRenderer:
@@ -61189,6 +61161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7533076561025569845}
+  - component: {fileID: 1516383452}
   m_Layer: 12
   m_Name: Male_12_Leg_Left
   m_TagString: Untagged
@@ -61230,6 +61203,18 @@ Transform:
   m_Father: {fileID: 7535787210651713765}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1516383452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531736784025828275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc1abdcfa1040e24bb841fb8874d05dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7531737130814061157
 GameObject:
   m_ObjectHideFlags: 0
@@ -61963,7 +61948,7 @@ GameObject:
   - component: {fileID: 7533394557306613249}
   - component: {fileID: 7597004385469124411}
   m_Layer: 12
-  m_Name: Chr_Head_No_Elements_Male_12
+  m_Name: Helmet10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61981,7 +61966,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7535836828555450601}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7597004385469124411
 SkinnedMeshRenderer:
@@ -63422,7 +63407,7 @@ GameObject:
   - component: {fileID: 7536172664835546341}
   - component: {fileID: 7596803559375036171}
   m_Layer: 12
-  m_Name: Chr_Head_No_Elements_Male_10
+  m_Name: Helmet08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63440,7 +63425,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7535836828555450601}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7596803559375036171
 SkinnedMeshRenderer:
@@ -63507,7 +63492,7 @@ GameObject:
   - component: {fileID: 7533162838787878913}
   - component: {fileID: 7596742931542368225}
   m_Layer: 12
-  m_Name: Chr_Head_No_Elements_Male_11
+  m_Name: Helmet09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63525,7 +63510,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7535836828555450601}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7596742931542368225
 SkinnedMeshRenderer:
@@ -63795,7 +63780,7 @@ GameObject:
   - component: {fileID: 7535716813239002977}
   - component: {fileID: 7593875277034651473}
   m_Layer: 12
-  m_Name: Chr_Head_No_Elements_Male_08
+  m_Name: Helmet07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63813,7 +63798,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7535836828555450601}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7593875277034651473
 SkinnedMeshRenderer:
@@ -68229,7 +68214,7 @@ MonoBehaviour:
   walkingSpeed: 2.6
   sprintSpeed: 6
   rotationSpeed: 13
-  fallingSpeed: 600
+  fallingSpeed: 200
 --- !u!114 &8918176394304980998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68290,6 +68275,9 @@ MonoBehaviour:
   leftWeapon: {fileID: 11400000, guid: 19121b242eeaa5d4292033f3d9778224, type: 2}
   currentConsumbale: {fileID: 11400000, guid: d83fe55f018682a458e2be97ff964a29, type: 2}
   unarmedWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
+  currentHelmetEquipment: {fileID: 0}
+  currentTorsoEquipment: {fileID: 0}
+  currentLegEquipment: {fileID: 0}
   weaponsInRightHandSlots:
   - {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
   - {fileID: 11400000, guid: d7276fba30da54d47bdfd5215ba79eb1, type: 2}
