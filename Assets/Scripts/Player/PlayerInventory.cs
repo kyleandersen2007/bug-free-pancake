@@ -11,8 +11,9 @@ namespace KA
         public SpellItem currentSpell;
         public WeaponItem rightWeapon;
         public WeaponItem leftWeapon;
+        public ConsumableItem currentConsumbale;
 
-        public WeaponItem unarmedWeapon;
+        public WeaponItem unarmedWeapon; 
 
         public WeaponItem[] weaponsInRightHandSlots = new WeaponItem[1];
         public WeaponItem[] weaponsInLeftHandSlots = new WeaponItem[1];

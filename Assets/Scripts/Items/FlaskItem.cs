@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace KA
 {
+    [CreateAssetMenu(menuName = "Item/Consumables/Flask")]
     public class FlaskItem : ConsumableItem
     {
         [Header("Flask Type")]
@@ -20,10 +21,10 @@ namespace KA
         public override void AttemptToConsumeItem(AnimatorHandler animatorHandler, WeaponSlotManager weaponSlotManager, PlayerEffectsManager playerEffectsManager)
         {
             base.AttemptToConsumeItem(animatorHandler, weaponSlotManager, playerEffectsManager);
+            GameObject flask = Instantiate(itemModel, weaponSlotManager.rightHandSlot.transform);
             playerEffectsManager.currentParticleFX = recoveryFX;
             playerEffectsManager.amountToBeHealed = healthRecoverAmount;
-            playerEffectsManager.instantiatedFXModel = itemModel;
-            GameObject flask = Instantiate(itemModel, weaponSlotManager.rightHandSlot.transform);
+            playerEffectsManager.instantiatedFXModel = flask;
             weaponSlotManager.rightHandSlot.UnloadWeapon();
         }
     }

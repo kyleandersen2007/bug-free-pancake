@@ -6,6 +6,7 @@ namespace KA
 {
     public class CharacterManager : MonoBehaviour
     {
+        [Header("Methods")]
         public Transform lockOnTransform;
         public CriticalDamageCollider backStabCollider;
         public CriticalDamageCollider riposteCollider;

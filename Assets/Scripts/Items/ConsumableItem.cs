@@ -22,7 +22,7 @@ namespace KA
         {
             if(currentItemAmount > 0)
             {
-                animatorHandler.PlayTargetAnimation(consumeAnimation, isInteracting);
+                animatorHandler.PlayTargetAnimation(consumeAnimation, isInteracting, true);
             }
             else
             {

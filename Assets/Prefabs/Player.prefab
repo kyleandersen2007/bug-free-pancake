@@ -36778,6 +36778,7 @@ GameObject:
   - component: {fileID: 1616581270666903903}
   - component: {fileID: 1193263150014817275}
   - component: {fileID: 182367275810593633}
+  - component: {fileID: 7911406350464741963}
   m_Layer: 12
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -36884,6 +36885,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockingCollider: {fileID: 6522285178992779619}
+--- !u!114 &7911406350464741963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530553769879398475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494a2c9e27f5b2c4b8b7c413005b6328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentParticleFX: {fileID: 0}
+  instantiatedFXModel: {fileID: 0}
+  amountToBeHealed: 0
 --- !u!1 &7530553773082755889
 GameObject:
   m_ObjectHideFlags: 0
@@ -39560,7 +39576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7533159354725527363
 Transform:
   m_ObjectHideFlags: 0
@@ -68237,6 +68253,7 @@ MonoBehaviour:
   rb_Input: 0
   lt_Input: 0
   lb_Input: 0
+  use_Input: 0
   critical_Attack_Input: 0
   rt_Input: 0
   jump_Input: 0
@@ -68271,6 +68288,7 @@ MonoBehaviour:
   currentSpell: {fileID: 11400000, guid: 21d7451f4d8b4fc48ab9eeb5bcac6310, type: 2}
   rightWeapon: {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
   leftWeapon: {fileID: 11400000, guid: 19121b242eeaa5d4292033f3d9778224, type: 2}
+  currentConsumbale: {fileID: 11400000, guid: d83fe55f018682a458e2be97ff964a29, type: 2}
   unarmedWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
   weaponsInRightHandSlots:
   - {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}

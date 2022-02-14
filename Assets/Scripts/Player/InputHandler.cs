@@ -41,6 +41,7 @@ namespace KA
         PlayerControls inputActions;
         PlayerAttacker playerAttacker;
         PlayerInventory playerInventory;
+        PlayerEffectsManager playerEffectsManager;
         PlayerManager playerManager;
         CameraHandler cameraHandler;
         UIManager uiManager;
@@ -60,6 +61,7 @@ namespace KA
             playerInventory = GetComponent<PlayerInventory>();
             weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
             playerManager = GetComponent<PlayerManager>();
+            playerEffectsManager = GetComponentInChildren<PlayerEffectsManager>();
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
             animatorHandler = GetComponentInChildren<AnimatorHandler>();
@@ -304,6 +306,7 @@ namespace KA
             if(use_Input)
             {
                 use_Input = false;
+                playerInventory.currentConsumbale.AttemptToConsumeItem(animatorHandler, weaponSlotManager, playerEffectsManager);
             }
         }
     }
