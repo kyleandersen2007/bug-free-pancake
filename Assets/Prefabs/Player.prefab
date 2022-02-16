@@ -1532,7 +1532,7 @@ GameObject:
   - component: {fileID: 7532979970940025783}
   - component: {fileID: 7596470647043806249}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_00
+  m_Name: MaleLeftLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2475,7 +2475,7 @@ GameObject:
   - component: {fileID: 7536032036597351507}
   - component: {fileID: 7593730381464942701}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_09
+  m_Name: MaleRightLeg10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5712,7 +5712,7 @@ GameObject:
   - component: {fileID: 7535983656708515087}
   - component: {fileID: 7593720414694328553}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_02
+  m_Name: MaleRightLeg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12382,7 +12382,7 @@ GameObject:
   - component: {fileID: 7532945213136914197}
   - component: {fileID: 7594009711222733609}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_05
+  m_Name: MaleRightLeg6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15107,7 +15107,7 @@ GameObject:
   - component: {fileID: 7533364578093148507}
   - component: {fileID: 7593888945420873407}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_05
+  m_Name: MaleLeftLeg6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15624,7 +15624,7 @@ GameObject:
   - component: {fileID: 7533146866110802633}
   - component: {fileID: 7596761994930343549}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_04
+  m_Name: MaleRightLeg5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16277,6 +16277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa4b282ce33c3e44852b06c58fb579b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  legModels: []
 --- !u!1 &7530257636250083729
 GameObject:
   m_ObjectHideFlags: 0
@@ -22776,7 +22777,7 @@ GameObject:
   - component: {fileID: 7535886904563146617}
   - component: {fileID: 7594019566021117645}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_03
+  m_Name: MaleLeftLeg4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27531,7 +27532,7 @@ GameObject:
   - component: {fileID: 7533120430738591553}
   - component: {fileID: 7596572267052246669}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_04
+  m_Name: MaleLeftLeg5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28273,7 +28274,7 @@ GameObject:
   - component: {fileID: 7532964028368597459}
   - component: {fileID: 7596920553493527685}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_07
+  m_Name: MaleLeftLeg8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28631,7 +28632,7 @@ GameObject:
   - component: {fileID: 7535869309764495147}
   - component: {fileID: 7593636350576526871}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_08
+  m_Name: MaleLeftLeg9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32990,7 +32991,7 @@ GameObject:
   - component: {fileID: 7532915828238781495}
   - component: {fileID: 7593990032693275351}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_06
+  m_Name: MaleLeftLeg7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34238,7 +34239,7 @@ GameObject:
   - component: {fileID: 7532901677366439475}
   - component: {fileID: 7597002569481280939}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_09
+  m_Name: MaleLeftLeg10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36914,6 +36915,8 @@ MonoBehaviour:
   nakedHeadModel: {fileID: 7530145870708448765}
   nakedTorsoModel: Chr_Torso_Male_00
   nakedHipModel: Chr_Hips_Male_00
+  nakedLeftLeg: MaleLeftLeg1
+  nakedRightLeg: MaleRightLeg1
   blockingCollider: {fileID: 6522285178992779619}
 --- !u!114 &7911406350464741963
 MonoBehaviour:
@@ -36941,7 +36944,7 @@ GameObject:
   - component: {fileID: 7533177155393467677}
   - component: {fileID: 7596548030647698597}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_07
+  m_Name: MaleRightLeg8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37474,7 +37477,7 @@ GameObject:
   - component: {fileID: 7535650709772679547}
   - component: {fileID: 7597470939521767263}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_00
+  m_Name: MaleRightLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46781,7 +46784,7 @@ GameObject:
   - component: {fileID: 7535869296170453257}
   - component: {fileID: 7596960036592204757}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_08
+  m_Name: MaleRightLeg9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51431,7 +51434,7 @@ GameObject:
   - component: {fileID: 7535835514306450967}
   - component: {fileID: 7596657592874927517}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_03
+  m_Name: MaleRightLeg4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54654,7 +54657,7 @@ GameObject:
   - component: {fileID: 7535884907946783373}
   - component: {fileID: 7596657441158606463}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_06
+  m_Name: MaleRightLeg7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57780,7 +57783,7 @@ GameObject:
   - component: {fileID: 7532949806683621839}
   - component: {fileID: 7593733124450735223}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_01
+  m_Name: MaleRightLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59349,7 +59352,7 @@ GameObject:
   - component: {fileID: 7535686758302181087}
   - component: {fileID: 7596842504707784871}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_01
+  m_Name: MaleLeftLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60436,7 +60439,7 @@ GameObject:
   - component: {fileID: 7535949181974178595}
   - component: {fileID: 7596989347194236973}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_02
+  m_Name: MaleLeftLeg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61215,6 +61218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1abdcfa1040e24bb841fb8874d05dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  legModels: []
 --- !u!1 &7531737130814061157
 GameObject:
   m_ObjectHideFlags: 0
@@ -68275,9 +68279,9 @@ MonoBehaviour:
   leftWeapon: {fileID: 11400000, guid: 19121b242eeaa5d4292033f3d9778224, type: 2}
   currentConsumbale: {fileID: 11400000, guid: d83fe55f018682a458e2be97ff964a29, type: 2}
   unarmedWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
-  currentHelmetEquipment: {fileID: 0}
-  currentTorsoEquipment: {fileID: 0}
-  currentLegEquipment: {fileID: 0}
+  currentHelmetEquipment: {fileID: 11400000, guid: d3d0bebca506275468b39fc73ae7c196, type: 2}
+  currentTorsoEquipment: {fileID: 11400000, guid: 1e125767bbf1e4b47ac775cc8b1f267e, type: 2}
+  currentLegEquipment: {fileID: 11400000, guid: b04423ffe402a8d408d659bba26769b8, type: 2}
   weaponsInRightHandSlots:
   - {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
   - {fileID: 11400000, guid: d7276fba30da54d47bdfd5215ba79eb1, type: 2}

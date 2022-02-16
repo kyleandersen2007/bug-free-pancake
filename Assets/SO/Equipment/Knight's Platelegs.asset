@@ -16,5 +16,5 @@ MonoBehaviour:
   itemName: Knight's Platelegs
   physicalDefense: 0
   hipModelName: Chr_Hips_Male_04
-  leftLegName: 
-  rightLegName: 
+  leftLegName: MaleLeftLeg9
+  rightLegName: MaleRightLeg9

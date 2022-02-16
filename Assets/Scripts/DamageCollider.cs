@@ -68,7 +68,6 @@ namespace KA
 
             if(other.tag == "Enemy")
             {
-                Debug.Log("Hit");
                 EnemyStats enemyStats = other.GetComponent<EnemyStats>();
                 CharacterManager enemyCharacterManager = other.GetComponent<CharacterManager>();
 
