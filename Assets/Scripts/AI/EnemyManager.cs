@@ -18,7 +18,7 @@ namespace KA
         public bool isPreformingAction;
         public bool isInteracting;
         public float rotationSpeed = 15;
-        public float maximumAttackRange = 1.5f;
+        public float maximumAggroRadius = 1.5f;
 
         public bool canDoCombo;
 
@@ -53,9 +53,10 @@ namespace KA
         {
             HandleRecoveryTimer();
             HandleStateMachine();
-
+            isRotatingWithRootMotion = enemyAnimatorHandler.anim.GetBool("isRotatingWithRootMotion");
             isInteracting = enemyAnimatorHandler.anim.GetBool("isInteracting");
             canDoCombo = enemyAnimatorHandler.anim.GetBool("canDoCombo");
+            canRotate = enemyAnimatorHandler.anim.GetBool("canRotate");
             enemyAnimatorHandler.anim.SetBool("isDead", enemyStats.isDead);
         }
 

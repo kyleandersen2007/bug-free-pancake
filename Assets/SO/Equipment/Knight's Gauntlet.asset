@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
   itemName: Soul Gauntlet
-  physicalDefense: 0.5
+  physicalDefense: 10
   leftHandModelName: Chr_HandLeft_Male_12
   rightHandModelName: Chr_HandRight_Male_12
   lowerLeftArmModelName: Chr_ArmLowerLeft_Male_11

@@ -325,7 +325,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""af4be6b0-62ce-4e62-a6ef-30f96da4f457"",
                     ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": ""Tap"",
+                    ""interactions"": ""Tap(duration=0.2,pressPoint=0.5)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""RB"",

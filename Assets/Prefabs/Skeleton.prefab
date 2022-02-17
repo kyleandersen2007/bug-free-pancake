@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &136645416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 136645417}
+  - component: {fileID: 136645418}
+  m_Layer: 9
+  m_Name: Rotate Towards Target State
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &136645417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136645416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3584505832153878367}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &136645418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136645416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50caab2653a2df44ae88f54829103ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatStanceState: {fileID: 6655633418488051306}
 --- !u!1 &363082952
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,10 +523,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatStanceState: {fileID: 6655633418488051306}
-  enemyAttacks:
-  - {fileID: 11400000, guid: 7393f97959a03174cac8188455739e44, type: 2}
-  - {fileID: 11400000, guid: ae03b8e7faf6a564c80bef95f3f54004, type: 2}
   currentAttack: {fileID: 0}
+  pursueTargetState: {fileID: 1836513825279549701}
+  rotateTowardsTargetState: {fileID: 136645418}
+  hasPerformedAttack: 0
 --- !u!1 &3815176026045359401
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatStanceState: {fileID: 6655633418488051306}
+  rotateTowardsTargetState: {fileID: 136645418}
 --- !u!1 &4093008179261089654
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +693,7 @@ Transform:
   - {fileID: 3935205432216270231}
   - {fileID: 5611314999117164003}
   - {fileID: 2155670784478283696}
+  - {fileID: 136645417}
   m_Father: {fileID: 8240806565352093284}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -824,6 +870,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackState: {fileID: 4426780800973763214}
   pursueTargetState: {fileID: 1836513825279549701}
+  enemyAttacks:
+  - {fileID: 11400000, guid: 7393f97959a03174cac8188455739e44, type: 2}
+  - {fileID: 11400000, guid: ae03b8e7faf6a564c80bef95f3f54004, type: 2}
 --- !u!1 &6064123976593420629
 GameObject:
   m_ObjectHideFlags: 0
@@ -5837,6 +5886,8 @@ MonoBehaviour:
   isParrying: 0
   canBeParried: 0
   isBlocking: 0
+  isRotatingWithRootMotion: 0
+  canRotate: 0
   currentState: {fileID: 6624920980001010084}
   currentTarget: {fileID: 0}
   navmeshAgent: {fileID: 0}
@@ -5844,7 +5895,7 @@ MonoBehaviour:
   isPreformingAction: 0
   isInteracting: 0
   rotationSpeed: 25
-  maximumAttackRange: 3
+  maximumAggroRadius: 1.5
   canDoCombo: 0
   detectionRadius: 20
   maximumDetectionAngle: 50
@@ -5873,6 +5924,10 @@ MonoBehaviour:
   focusLevel: 0
   maxFocusPoints: 0
   currentFocusPoints: 0
+  physicalDamageAbsorptionHead: 0
+  physicalDamageAbsorptionBody: 0
+  physicalDamageAbsorptionLegs: 0
+  physicalDamageAbsorptionHands: 0
   soulCount: 0
   isDead: 0
   enemyHealthBar: {fileID: 3712854950195863802}
