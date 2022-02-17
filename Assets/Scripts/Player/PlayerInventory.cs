@@ -18,6 +18,7 @@ namespace KA
         public HelmetEquipment currentHelmetEquipment;
         public TorsoEquipment currentTorsoEquipment;
         public LegEquipment currentLegEquipment;
+        public HandEquipment currentHandEquipment;
 
         public WeaponItem[] weaponsInRightHandSlots = new WeaponItem[1];
         public WeaponItem[] weaponsInLeftHandSlots = new WeaponItem[1];

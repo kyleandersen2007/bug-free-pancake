@@ -198,7 +198,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 652107f36a28e44479c0b827dee5852a, type: 2}
+  - {fileID: 2100000, guid: c852af001dae0064e9acaa832f1dadb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -716,7 +716,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-15576
+  m_Name: pb_Mesh17276
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1197,6 +1197,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8195003761832990611, guid: 6eebd2dd628a9ef45ae2b37240324a14, type: 3}
+      propertyPath: currentLegEquipment
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195003761832990611, guid: 6eebd2dd628a9ef45ae2b37240324a14, type: 3}
+      propertyPath: currentHandEquipment
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195003761832990611, guid: 6eebd2dd628a9ef45ae2b37240324a14, type: 3}
+      propertyPath: currentTorsoEquipment
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e125767bbf1e4b47ac775cc8b1f267e, type: 2}
     - target: {fileID: 8918176394304981048, guid: 6eebd2dd628a9ef45ae2b37240324a14, type: 3}
       propertyPath: m_RootOrder
       value: 0

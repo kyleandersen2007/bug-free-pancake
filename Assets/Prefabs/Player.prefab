@@ -10759,7 +10759,7 @@ GameObject:
   - component: {fileID: 7536127587807897263}
   - component: {fileID: 7593840583368614367}
   m_Layer: 12
-  m_Name: Helmet07
+  m_Name: Helmet08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21279,8 +21279,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7535715937580937071}
+  - component: {fileID: 1041587356174599590}
   m_Layer: 12
-  m_Name: Male_04_Arm_Upper_Right
+  m_Name: Male Upper Right Arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21321,6 +21322,19 @@ Transform:
   m_Father: {fileID: 7535787210651713765}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1041587356174599590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530323510674569339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 359bbcbfb52f570418887d5fed1f2310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  models: []
 --- !u!1 &7530323960769792727
 GameObject:
   m_ObjectHideFlags: 0
@@ -36440,8 +36454,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7533328283260553083}
+  - component: {fileID: 5212104368996118186}
   m_Layer: 12
-  m_Name: Male_05_Arm_Upper_Left
+  m_Name: Male Upper Left Arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36482,6 +36497,19 @@ Transform:
   m_Father: {fileID: 7535787210651713765}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5212104368996118186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530544886695120745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3edd0c909720b439d732a162fc59f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  models: []
 --- !u!1 &7530546605860962259
 GameObject:
   m_ObjectHideFlags: 0
@@ -36915,6 +36943,12 @@ MonoBehaviour:
   nakedHeadModel: {fileID: 7530145870708448765}
   nakedTorsoModel: Chr_Torso_Male_00
   nakedHipModel: Chr_Hips_Male_00
+  nakedUpperLeftArm: Chr_ArmUpperLeft_Male_00
+  nakedUpperRightArm: Chr_ArmUpperRight_Male_00
+  nakedLowerLeftArm: Chr_ArmLowerLeft_Male_00
+  nakedLowerRightArm: Chr_ArmLowerRight_Male_00
+  nakedLeftHand: Chr_HandLeft_Male_00
+  nakedRightHand: Chr_HandRight_Male_00
   nakedLeftLeg: MaleLeftLeg1
   nakedRightLeg: MaleRightLeg1
   blockingCollider: {fileID: 6522285178992779619}
@@ -39921,8 +39955,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7535702212350729425}
+  - component: {fileID: 6780870858070849609}
   m_Layer: 12
-  m_Name: Male_07_Arm_Lower_Left
+  m_Name: Male Lower Left Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39961,6 +39996,19 @@ Transform:
   m_Father: {fileID: 7535787210651713765}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6780870858070849609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530781785866776743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcdc174e1111114188f8fa96893c91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  models: []
 --- !u!1 &7530782667947916873
 GameObject:
   m_ObjectHideFlags: 0
@@ -41655,8 +41703,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7533121453735989807}
+  - component: {fileID: 3856854368725717762}
   m_Layer: 12
-  m_Name: Male_08_Hand_Right
+  m_Name: Male Right Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41694,6 +41743,19 @@ Transform:
   m_Father: {fileID: 7535787210651713765}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3856854368725717762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530887015872814943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c314750ed7d8af488a837aa3bcde284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  models: []
 --- !u!1 &7530887105058258403
 GameObject:
   m_ObjectHideFlags: 0
@@ -47182,7 +47244,7 @@ GameObject:
   - component: {fileID: 7536058872082958897}
   - component: {fileID: 7597466221117764951}
   m_Layer: 12
-  m_Name: Helmet11
+  m_Name: Helmet12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53283,8 +53345,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7533239585122647105}
+  - component: {fileID: 3109792009229879367}
   m_Layer: 12
-  m_Name: Male_09_Hand_Left
+  m_Name: Male Left Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53322,6 +53385,19 @@ Transform:
   m_Father: {fileID: 7535787210651713765}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3109792009229879367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531054137418003001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bba6e28ab52dab49892122da20c5816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  models: []
 --- !u!1 &7531055068032793015
 GameObject:
   m_ObjectHideFlags: 0
@@ -55089,8 +55165,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7535656938715569865}
+  - component: {fileID: 3147643723970880492}
   m_Layer: 12
-  m_Name: Male_06_Arm_Lower_Right
+  m_Name: Male Lower Right Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55129,6 +55206,19 @@ Transform:
   m_Father: {fileID: 7535787210651713765}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3147643723970880492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531081892581678109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8298940f14e2ad43b62d4464344c49e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  models: []
 --- !u!1 &7531082742443582589
 GameObject:
   m_ObjectHideFlags: 0
@@ -61952,7 +62042,7 @@ GameObject:
   - component: {fileID: 7533394557306613249}
   - component: {fileID: 7597004385469124411}
   m_Layer: 12
-  m_Name: Helmet10
+  m_Name: Helmet11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63411,7 +63501,7 @@ GameObject:
   - component: {fileID: 7536172664835546341}
   - component: {fileID: 7596803559375036171}
   m_Layer: 12
-  m_Name: Helmet08
+  m_Name: Helmet09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63496,7 +63586,7 @@ GameObject:
   - component: {fileID: 7533162838787878913}
   - component: {fileID: 7596742931542368225}
   m_Layer: 12
-  m_Name: Helmet09
+  m_Name: Helmet10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68279,9 +68369,10 @@ MonoBehaviour:
   leftWeapon: {fileID: 11400000, guid: 19121b242eeaa5d4292033f3d9778224, type: 2}
   currentConsumbale: {fileID: 11400000, guid: d83fe55f018682a458e2be97ff964a29, type: 2}
   unarmedWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
-  currentHelmetEquipment: {fileID: 11400000, guid: d3d0bebca506275468b39fc73ae7c196, type: 2}
+  currentHelmetEquipment: {fileID: 0}
   currentTorsoEquipment: {fileID: 11400000, guid: 1e125767bbf1e4b47ac775cc8b1f267e, type: 2}
   currentLegEquipment: {fileID: 11400000, guid: b04423ffe402a8d408d659bba26769b8, type: 2}
+  currentHandEquipment: {fileID: 11400000, guid: 7802b1264c3705041ba344b1232fbade, type: 2}
   weaponsInRightHandSlots:
   - {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
   - {fileID: 11400000, guid: d7276fba30da54d47bdfd5215ba79eb1, type: 2}

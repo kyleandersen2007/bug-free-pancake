@@ -8,5 +8,7 @@ namespace KA
     public class TorsoEquipment : EquipmentItem
     {
         public string torsoModelName;
+        public string upperLeftArmModelName;
+        public string upperRightArmModelName;
     }
 }

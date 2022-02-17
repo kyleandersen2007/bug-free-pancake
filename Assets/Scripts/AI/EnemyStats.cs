@@ -42,17 +42,13 @@ namespace KA
             }
         }
 
-        public void TakeDamage(int damage)
+        public override void TakeDamage(int physicalDamage, string damageAnimation = "Damage")
         {
-            if (isDead)
-                return;
-
-            currentHealth = currentHealth - damage;
+            base.TakeDamage(physicalDamage, damageAnimation);
             enemyHealthBar.SetHealth(currentHealth);
+            enemyAnimatorHandler.PlayTargetAnimation(damageAnimation, true);
 
-            enemyAnimatorHandler.anim.Play("Damage");
-
-            if (currentHealth <= 0)
+            if(currentHealth <= 0)
             {
                 HandleDeath();
             }

@@ -25,9 +25,9 @@ namespace KA
 
         public void UnEquipAllTorsoModels()
         {
-            foreach (GameObject torsoModel in torsoModels)
+            foreach (GameObject helmetModel in torsoModels)
             {
-                torsoModel.SetActive(false);
+                helmetModel.SetActive(false);
             }
         }
 

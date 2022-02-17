@@ -62,15 +62,12 @@ namespace KA
             return maxFocusPoints;
         }
 
-        public void TakeDamage(int damage, string damageAnimation = "Damage")
+        public override void TakeDamage(int damage, string damageAnimation = "Damage")
         {
             if (playerManager.isInvulnerable)
                 return;
 
-            if (isDead)
-                return;
-
-            currentHealth = currentHealth - damage;
+            base.TakeDamage(damage, damageAnimation);
             healthBar.SetCurrentHealth(currentHealth);
 
             animatorHandler.PlayTargetAnimation(damageAnimation, true);
@@ -78,8 +75,8 @@ namespace KA
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                animatorHandler.PlayTargetAnimation("Dead", true);
                 isDead = true;
+                animatorHandler.PlayTargetAnimation("Dead", true);
                 //HANDLE PLAYER DEATH
             }
         }

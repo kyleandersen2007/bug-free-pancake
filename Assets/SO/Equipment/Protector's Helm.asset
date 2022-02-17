@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de5ba32429e1caf4e98a173ce8948716, type: 3}
-  m_Name: Knight's Chestplate
+  m_Script: {fileID: 11500000, guid: 83b2d42c93dedc645baa92809d4ff288, type: 3}
+  m_Name: Protector's Helm
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
-  itemName: Knight's Chestplate
-  physicalDefense: 10.5
-  torsoModelName: Chr_Torso_Male_21
-  upperLeftArmModelName: Chr_ArmUpperLeft_Male_14
-  upperRightArmModelName: Chr_ArmUpperRight_Male_14
+  itemName: Protector's Helm
+  physicalDefense: 0
+  helmetModelName: Helmet05
