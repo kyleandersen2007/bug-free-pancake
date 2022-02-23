@@ -46,8 +46,9 @@ namespace KA
         CameraHandler cameraHandler;
         UIManager uiManager;
         WeaponSlotManager weaponSlotManager;
-        AnimatorHandler animatorHandler;
+        PlayerAnimatorManager animatorHandler;
         BlockingCollider blockingCollider;
+        PlayerStats playerStats;
 
         public Transform criticalAttackRayCastStartPoint;
 
@@ -64,8 +65,9 @@ namespace KA
             playerEffectsManager = GetComponentInChildren<PlayerEffectsManager>();
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
-            animatorHandler = GetComponentInChildren<AnimatorHandler>();
+            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
             blockingCollider = GetComponentInChildren<BlockingCollider>();
+            playerStats = GetComponent<PlayerStats>();
         }
 
         public void OnEnable()
@@ -77,6 +79,8 @@ namespace KA
                 inputActions.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
                 inputActions.PlayerActions.RB.performed += i => rb_Input = true;
                 inputActions.PlayerActions.RT.performed += i => rt_Input = true;
+                inputActions.PlayerActions.Roll.performed += i => b_Input = true;
+                inputActions.PlayerActions.Roll.canceled += i => b_Input = false;
                 inputActions.PlayerQuickslots.DPadRight.performed += i => d_Pad_Right = true;
                 inputActions.PlayerQuickslots.DPadLeft.performed += i => d_Pad_Left = true;
                 inputActions.PlayerActions.Y.performed += i => y_Input = true;
@@ -125,18 +129,27 @@ namespace KA
 
         private void HandleRollInput(float delta)
         {
-            b_Input = inputActions.PlayerActions.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Started;
-            sprintFlag = b_Input;
-
             if (b_Input)
             {
                 rollInputTimer += delta;
+
+                if (playerStats.currentStamina <= 0)
+                {
+                    b_Input = false;
+                    sprintFlag = false;
+                }
+
+                if (moveAmount > 0.5f && playerStats.currentStamina > 0)
+                {
+                    sprintFlag = true;
+                }
             }
             else
             {
+                sprintFlag = false;
+
                 if (rollInputTimer > 0 && rollInputTimer < 0.5f)
                 {
-                    sprintFlag = false;
                     rollFlag = true;
                 }
 

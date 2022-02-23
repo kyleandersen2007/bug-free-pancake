@@ -36830,11 +36830,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7535708095004621329}
   - component: {fileID: 7625731675827634601}
-  - component: {fileID: 537425721960644156}
   - component: {fileID: 1616581270666903903}
   - component: {fileID: 1193263150014817275}
   - component: {fileID: 182367275810593633}
   - component: {fileID: 7911406350464741963}
+  - component: {fileID: 499437524919599080}
   m_Layer: 12
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -36877,20 +36877,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &537425721960644156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7530553769879398475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71b884fbfe1190f43ad8ed2a803c7e83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 7625731675827634601}
-  canRotate: 1
 --- !u!114 &1616581270666903903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36967,6 +36953,20 @@ MonoBehaviour:
   currentParticleFX: {fileID: 0}
   instantiatedFXModel: {fileID: 0}
   amountToBeHealed: 0
+--- !u!114 &499437524919599080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530553769879398475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97d787f37553ec94fb8bc4c6d8152535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  canRotate: 1
 --- !u!1 &7530553773082755889
 GameObject:
   m_ObjectHideFlags: 0
@@ -68308,7 +68308,8 @@ MonoBehaviour:
   walkingSpeed: 2.6
   sprintSpeed: 6
   rotationSpeed: 13
-  fallingSpeed: 200
+  fallingSpeed: 400
+  rollStaminaCost: 15
 --- !u!114 &8918176394304980998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68369,9 +68370,9 @@ MonoBehaviour:
   leftWeapon: {fileID: 11400000, guid: 19121b242eeaa5d4292033f3d9778224, type: 2}
   currentConsumbale: {fileID: 11400000, guid: d83fe55f018682a458e2be97ff964a29, type: 2}
   unarmedWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
-  currentHelmetEquipment: {fileID: 11400000, guid: d3d0bebca506275468b39fc73ae7c196, type: 2}
-  currentTorsoEquipment: {fileID: 11400000, guid: 1e125767bbf1e4b47ac775cc8b1f267e, type: 2}
-  currentLegEquipment: {fileID: 11400000, guid: b04423ffe402a8d408d659bba26769b8, type: 2}
+  currentHelmetEquipment: {fileID: 0}
+  currentTorsoEquipment: {fileID: 0}
+  currentLegEquipment: {fileID: 0}
   currentHandEquipment: {fileID: 11400000, guid: 7802b1264c3705041ba344b1232fbade, type: 2}
   weaponsInRightHandSlots:
   - {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
@@ -68402,6 +68403,8 @@ MonoBehaviour:
   isParrying: 0
   canBeParried: 0
   isBlocking: 0
+  isRotatingWithRootMotion: 0
+  canRotate: 0
   interactableUIGameObject: {fileID: 0}
   itemInteractableGameObject: {fileID: 0}
   isInteracting: 0

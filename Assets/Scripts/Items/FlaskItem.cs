@@ -18,7 +18,7 @@ namespace KA
         [Header("Recovery FX")]
         public GameObject recoveryFX;
 
-        public override void AttemptToConsumeItem(AnimatorHandler animatorHandler, WeaponSlotManager weaponSlotManager, PlayerEffectsManager playerEffectsManager)
+        public override void AttemptToConsumeItem(PlayerAnimatorManager animatorHandler, WeaponSlotManager weaponSlotManager, PlayerEffectsManager playerEffectsManager)
         {
             base.AttemptToConsumeItem(animatorHandler, weaponSlotManager, playerEffectsManager);
             GameObject flask = Instantiate(itemModel, weaponSlotManager.rightHandSlot.transform);

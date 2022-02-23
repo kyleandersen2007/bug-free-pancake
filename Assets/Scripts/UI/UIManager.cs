@@ -6,6 +6,7 @@ namespace KA
 {
     public class UIManager : MonoBehaviour
     {
+        [Header("Classes")]
         public PlayerInventory playerInventory;
         public EquipmentWindowUI equipmentWindowUI;
 
@@ -28,7 +29,7 @@ namespace KA
 
         private void Awake()
         {
-
+            playerInventory = FindObjectOfType<PlayerInventory>();
         }
 
         private void Start()

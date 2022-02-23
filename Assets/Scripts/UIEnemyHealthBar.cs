@@ -29,6 +29,7 @@ namespace KA
 
         private void Update()
         {
+            transform.rotation = Camera.main.transform.rotation;
             timeUntilBarIsHidden = timeUntilBarIsHidden - Time.deltaTime;
 
             if(slider != null)

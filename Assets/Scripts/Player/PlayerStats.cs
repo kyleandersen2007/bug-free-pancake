@@ -11,7 +11,7 @@ namespace KA
         HealthBar healthBar;
         StaminaBar staminaBar;
         FocusPointBar focusPointBar;
-        AnimatorHandler animatorHandler;
+        PlayerAnimatorManager animatorHandler;
 
         public float staminaRegenerationAmount = 1;
         [HideInInspector] public float staminaRegenTimer = 0;
@@ -23,7 +23,7 @@ namespace KA
             healthBar = FindObjectOfType<HealthBar>();
             staminaBar = FindObjectOfType<StaminaBar>();
             focusPointBar = FindObjectOfType<FocusPointBar>();
-            animatorHandler = GetComponentInChildren<AnimatorHandler>();
+            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
         }
 
         private void Start()
@@ -62,7 +62,7 @@ namespace KA
             return maxFocusPoints;
         }
 
-        public override void TakeDamage(int damage, string damageAnimation = "Damage")
+        public override void TakeDamage(int damage, string damageAnimation = "Damage01")
         {
             if (playerManager.isInvulnerable)
                 return;
@@ -76,7 +76,7 @@ namespace KA
             {
                 currentHealth = 0;
                 isDead = true;
-                animatorHandler.PlayTargetAnimation("Dead", true);
+                animatorHandler.PlayTargetAnimation("Player Death", true);
                 //HANDLE PLAYER DEATH
             }
         }

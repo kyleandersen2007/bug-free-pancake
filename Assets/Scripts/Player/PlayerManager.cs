@@ -10,7 +10,7 @@ namespace KA
         CameraHandler cameraHandler;
         PlayerLocomotion playerLocomotion;
         PlayerStats playerStats;
-        AnimatorHandler animatorHandler;
+        PlayerAnimatorManager animatorHandler;
 
         InteractableUI interactableUI;
         public GameObject interactableUIGameObject;
@@ -35,7 +35,7 @@ namespace KA
             playerLocomotion = GetComponent<PlayerLocomotion>();
             interactableUI = FindObjectOfType<InteractableUI>();
             playerStats = GetComponent<PlayerStats>();
-            animatorHandler = GetComponentInChildren<AnimatorHandler>();
+            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
         }
 
         private void Update()

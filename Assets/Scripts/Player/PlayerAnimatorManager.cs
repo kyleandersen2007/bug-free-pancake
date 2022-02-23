@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace KA
 {
-    public class AnimatorHandler : AnimatorManager
+    public class PlayerAnimatorManager : AnimatorManager
     {
         PlayerManager playerManager;
         PlayerStats playerStats;

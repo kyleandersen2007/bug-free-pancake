@@ -7,23 +7,24 @@ namespace KA
         PlayerManager playerManager;
         Transform cameraObject;
         InputHandler inputHandler;
+        PlayerStats playerStats;
         public Vector3 moveDirection;
 
         [HideInInspector]
         public Transform myTransform;
         [HideInInspector]
-        public AnimatorHandler animatorHandler;
+        public PlayerAnimatorManager animatorHandler;
 
         public new Rigidbody rigidbody;
         public GameObject normalCamera;
 
         [Header("Ground & Air Detection Stats")]
         [SerializeField]
-        float groundDetectionRayStartPoint = 0.5f;
+        private float groundDetectionRayStartPoint = 0.5f;
         [SerializeField]
-        float minimumDistanceNeededToBeginFall = 1f;
+        private float minimumDistanceNeededToBeginFall = 1f;
         [SerializeField]
-        float groundDirectionRayDistance = 0.2f;
+        private float groundDirectionRayDistance = 0.2f;
         LayerMask ignoreForGroundCheck;
         public float inAirTimer;
 
@@ -39,17 +40,24 @@ namespace KA
         [SerializeField]
         float fallingSpeed = 45;
 
+        [Header("Stamina Costs")]
+        [SerializeField]
+        int rollStaminaCost = 15;
+        int backstepStaminaCost = 12;
+        int sprintStaminaCost = 1;
+
         private void Awake()
         {
             cameraHandler = FindObjectOfType<CameraHandler>();
         }
 
-        void Start()
+        private void Start()
         {
             playerManager = GetComponent<PlayerManager>();
             rigidbody = GetComponent<Rigidbody>();
             inputHandler = GetComponent<InputHandler>();
-            animatorHandler = GetComponentInChildren<AnimatorHandler>();
+            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
+            playerStats = GetComponent<PlayerStats>();
             cameraObject = Camera.main.transform;
             myTransform = transform;
             animatorHandler.Initialize();
@@ -141,6 +149,7 @@ namespace KA
                 speed = sprintSpeed;
                 playerManager.isSprinting = true;
                 moveDirection *= speed;
+                playerStats.TakeStaminaDamage(sprintStaminaCost);
             }
             else
             {
@@ -174,6 +183,9 @@ namespace KA
             if (animatorHandler.anim.GetBool("isInteracting"))
                 return;
 
+            if (playerStats.currentStamina <= 0)
+                return;
+
             if (inputHandler.rollFlag)
             {
                 moveDirection = cameraObject.forward * inputHandler.vertical;
@@ -185,10 +197,12 @@ namespace KA
                     moveDirection.y = 0;
                     Quaternion rollRotation = Quaternion.LookRotation(moveDirection);
                     myTransform.rotation = rollRotation;
+                    playerStats.TakeStaminaDamage(rollStaminaCost);
                 }
                 else
                 {
                     animatorHandler.PlayTargetAnimation("Backstep", true);
+                    playerStats.TakeStaminaDamage(backstepStaminaCost);
                 }
             }
         }
