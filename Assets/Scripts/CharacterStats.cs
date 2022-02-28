@@ -19,6 +19,13 @@ namespace KA
         public float maxFocusPoints;
         public float currentFocusPoints;
 
+        [Header("Poise")]
+        public float totalPoiseDefence;
+        public float offensivePoiseBonus;
+        public float armorPoiseBonus;
+        public float totalPoiseResetTime;
+        public float poiseResetTimer;
+
         [Header("Armor Absorptions")]
         public float physicalDamageAbsorptionHead;
         public float physicalDamageAbsorptionBody;
@@ -28,6 +35,16 @@ namespace KA
         public int soulCount = 0;   
 
         public bool isDead;
+
+        protected virtual void Update()
+        {
+            HandlePoiseResetTimer();
+        }
+
+        private void Start()
+        {
+            totalPoiseDefence = armorPoiseBonus;
+        }
 
         public virtual void TakeDamage(int physicalDamage, string damageAnimation = "Damage")
         {
@@ -53,6 +70,18 @@ namespace KA
             {
                 currentHealth = 0;
                 isDead = true;
+            }
+        }
+
+        public virtual void HandlePoiseResetTimer()
+        {
+            if(poiseResetTimer > 0)
+            {
+                poiseResetTimer = poiseResetTimer - Time.deltaTime;
+            }
+            else
+            {
+                totalPoiseDefence = armorPoiseBonus;
             }
         }
     }

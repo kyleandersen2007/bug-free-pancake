@@ -12,7 +12,6 @@ namespace KA
         public WeaponItem rightWeapon;
         public WeaponItem leftWeapon;
         public ConsumableItem currentConsumbale;
-        public WeaponItem unarmedWeapon; 
 
         [Header("Current Equipment")]
         public HelmetEquipment currentHelmetEquipment;
@@ -66,8 +65,8 @@ namespace KA
             if(currentRightWeaponIndex > weaponsInRightHandSlots.Length - 1)
             {
                 currentRightWeaponIndex = -1;
-                rightWeapon = unarmedWeapon;
-                weaponSlotManager.LoadWeaponOnSlot(unarmedWeapon, false);
+                rightWeapon = weaponSlotManager.unarmedWeapon;
+                weaponSlotManager.LoadWeaponOnSlot(weaponSlotManager.unarmedWeapon, false);
             }
         }
 
@@ -97,8 +96,8 @@ namespace KA
             if (currentLeftWeaponIndex > weaponsInLeftHandSlots.Length - 1)
             {
                 currentLeftWeaponIndex = -1;
-                leftWeapon = unarmedWeapon;
-                weaponSlotManager.LoadWeaponOnSlot(unarmedWeapon, true);
+                leftWeapon = weaponSlotManager.unarmedWeapon;
+                weaponSlotManager.LoadWeaponOnSlot(weaponSlotManager.unarmedWeapon, true);
             }
         }
         #endregion

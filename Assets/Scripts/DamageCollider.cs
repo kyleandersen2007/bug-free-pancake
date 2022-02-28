@@ -10,6 +10,11 @@ namespace KA
 
         Collider damageCollider;
 
+        [Header("Poise")]
+        public float poiseBreak;
+        public float offensivePoiseDefence;
+
+        [Header("Damage")]
         public int currentWeaponDamage = 30;
 
         private void Awake()
@@ -62,7 +67,18 @@ namespace KA
 
                 if(playerStats != null)
                 {
-                    playerStats.TakeDamage(currentWeaponDamage);
+                    playerStats.poiseResetTimer = playerStats.totalPoiseResetTime;
+                    playerStats.totalPoiseResetTime = playerStats.totalPoiseDefence - poiseBreak;
+                    Debug.Log("Player's Poise is Currently " + playerStats.totalPoiseDefence);
+
+                    if (playerStats.totalPoiseDefence > poiseBreak)
+                    {
+                        playerStats.TakeDamageNoAnimation(currentWeaponDamage);
+                    }
+                    else
+                    {
+                        playerStats.TakeDamage(currentWeaponDamage);
+                    }
                 }
             }
 
@@ -82,7 +98,18 @@ namespace KA
 
                 if (enemyStats != null)
                 {
-                    enemyStats.TakeDamage(currentWeaponDamage);
+                    enemyStats.poiseResetTimer = enemyStats.totalPoiseResetTime;
+                    enemyStats.totalPoiseResetTime = enemyStats.totalPoiseDefence - poiseBreak;
+                    Debug.Log("Enemy's Poise is Currently " + enemyStats.totalPoiseDefence);
+
+                    if (enemyStats.totalPoiseDefence > poiseBreak)
+                    {
+                        enemyStats.TakeDamageNoAnimation(currentWeaponDamage);
+                    }
+                    else
+                    {
+                        enemyStats.TakeDamage(currentWeaponDamage);
+                    }
                 }
             }
         }

@@ -42,6 +42,11 @@ namespace KA
             }
         }
 
+        public void BreakGuard()
+        {
+            enemyAnimatorHandler.PlayTargetAnimation("Break Guard", true);
+        }
+
         public override void TakeDamage(int physicalDamage, string damageAnimation = "Damage02")
         {
             base.TakeDamage(physicalDamage, damageAnimation);

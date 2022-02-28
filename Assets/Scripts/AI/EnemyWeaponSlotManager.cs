@@ -6,6 +6,7 @@ namespace KA
 {
     public class EnemyWeaponSlotManager : MonoBehaviour
     {
+        EnemyStats enemyStats;
         public WeaponItem rightHandWeapon;
         public WeaponItem leftHandWeapon;
 
@@ -16,6 +17,17 @@ namespace KA
         DamageCollider rightHandDamageCollider;
 
         private void Awake()
+        {
+            enemyStats = GetComponentInParent<EnemyStats>();
+            LoadWeaponHolderSlot();
+        }
+
+        private void Start()
+        {
+            LoadWeaponsOnBothHands();
+        }
+
+        private void LoadWeaponHolderSlot()
         {
             WeaponSlotHolder[] weaponHolderSlots = GetComponentsInChildren<WeaponSlotHolder>();
             foreach (WeaponSlotHolder weaponSlot in weaponHolderSlots)
@@ -29,11 +41,6 @@ namespace KA
                     rightHandSlot = weaponSlot;
                 }
             }
-        }
-
-        private void Start()
-        {
-            LoadWeaponsOnBothHands();
         }
 
         public void LoadWeaponOnSlot(WeaponItem weapon, bool isLeft)
@@ -107,5 +114,17 @@ namespace KA
         {
             //anim.SetBool("canDoCombo", false);
         }
+
+        #region Handle Weapon's Poise Bonus
+        public void GrantWeaponAttackingPoiseBonus()
+        {
+            enemyStats.totalPoiseDefence = enemyStats.totalPoiseDefence + enemyStats.offensivePoiseBonus;
+        }
+
+        public void ResetWeaponAttackingPoiseBonus()
+        {
+            enemyStats.totalPoiseDefence = enemyStats.armorPoiseBonus;
+        }
+        #endregion
     }
 }

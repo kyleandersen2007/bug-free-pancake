@@ -35,7 +35,7 @@ namespace KA
             playerLocomotion = GetComponent<PlayerLocomotion>();
             interactableUI = FindObjectOfType<InteractableUI>();
             playerStats = GetComponent<PlayerStats>();
-            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
+            animatorHandler = GetComponent<PlayerAnimatorManager>();
         }
 
         private void Update()

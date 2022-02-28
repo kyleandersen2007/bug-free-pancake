@@ -14,11 +14,11 @@ namespace KA
 
         public void Initialize()
         {
-            playerManager = GetComponentInParent<PlayerManager>();
-            playerStats = GetComponentInParent<PlayerStats>();
-            anim = GetComponent<Animator>();
-            inputHandler = GetComponentInParent<InputHandler>();
-            playerLocomotion = GetComponentInParent<PlayerLocomotion>();
+            playerManager = GetComponent<PlayerManager>();
+            playerStats = GetComponent<PlayerStats>();
+            anim = GetComponentInChildren<Animator>();
+            inputHandler = GetComponent<InputHandler>();
+            playerLocomotion = GetComponent<PlayerLocomotion>();
             vertical = Animator.StringToHash("Vertical");
             horizontal = Animator.StringToHash("Horizontal");
         }

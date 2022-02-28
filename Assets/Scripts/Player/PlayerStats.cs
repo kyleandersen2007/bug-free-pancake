@@ -23,7 +23,7 @@ namespace KA
             healthBar = FindObjectOfType<HealthBar>();
             staminaBar = FindObjectOfType<StaminaBar>();
             focusPointBar = FindObjectOfType<FocusPointBar>();
-            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
+            animatorHandler = GetComponent<PlayerAnimatorManager>();
         }
 
         private void Start()
@@ -60,6 +60,18 @@ namespace KA
         {
             maxFocusPoints = focusLevel * 10;
             return maxFocusPoints;
+        }
+
+        public override void HandlePoiseResetTimer()
+        {
+            if (poiseResetTimer > 0)
+            {
+                poiseResetTimer = poiseResetTimer - Time.deltaTime;
+            }
+            else if(poiseResetTimer <= 0 && playerManager.isInteracting)
+            {
+                totalPoiseDefence = armorPoiseBonus;
+            }
         }
 
         public override void TakeDamage(int damage, string damageAnimation = "Damage01")
@@ -102,6 +114,19 @@ namespace KA
                     currentStamina += staminaRegenerationAmount * Time.deltaTime;
                     staminaBar.SetCurrentStamina(Mathf.RoundToInt(currentStamina));
                 }
+            }
+        }
+
+        public void TakeDamageNoAnimation(int damage)
+        {
+            currentHealth = currentHealth - damage;
+
+            healthBar.SetCurrentHealth(currentHealth);
+
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                isDead = true;
             }
         }
 

@@ -56,7 +56,7 @@ namespace KA
             playerManager = GetComponent<PlayerManager>();
             rigidbody = GetComponent<Rigidbody>();
             inputHandler = GetComponent<InputHandler>();
-            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
+            animatorHandler = GetComponent<PlayerAnimatorManager>();
             playerStats = GetComponent<PlayerStats>();
             cameraObject = Camera.main.transform;
             myTransform = transform;

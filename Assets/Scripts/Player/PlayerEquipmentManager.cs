@@ -42,9 +42,9 @@ namespace KA
 
         private void Awake()
         {
-            playerStats = GetComponentInParent<PlayerStats>();
-            inputHandler = GetComponentInParent<InputHandler>();
-            playerInventory = GetComponentInParent<PlayerInventory>();
+            playerStats = GetComponent<PlayerStats>();
+            inputHandler = GetComponent<InputHandler>();
+            playerInventory = GetComponent<PlayerInventory>();
             helmetModelChanger = GetComponentInChildren<HelmetModelChanger>();
             torsoEquipmentChanger = GetComponentInChildren<TorsoEquipmentChanger>();
             hipModelChanger = GetComponentInChildren<HipModelChanger>();

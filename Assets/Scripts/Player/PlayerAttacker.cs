@@ -21,11 +21,11 @@ namespace KA
         private void Awake()
         {
             animatorHandler = GetComponent<PlayerAnimatorManager>();
-            playerManager = GetComponentInParent<PlayerManager>();
-            playerStats = GetComponentInParent<PlayerStats>();
-            playerInventory = GetComponentInParent<PlayerInventory>();
+            playerManager = GetComponent<PlayerManager>();
+            playerStats = GetComponent<PlayerStats>();
+            playerInventory = GetComponent<PlayerInventory>();
             weaponSlotManager = GetComponent<WeaponSlotManager>();
-            inputHandler = GetComponentInParent<InputHandler>();
+            inputHandler = GetComponent<InputHandler>();
             playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
         }
 

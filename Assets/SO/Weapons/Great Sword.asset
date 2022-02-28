@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 432725bbdd8b16a458951dc289138876, type: 3}
-  m_Name: Sword
+  m_Name: Great Sword
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 815a721f08be39648b518316561da954, type: 3}
-  itemName: Sword
-  modelPrefab: {fileID: 606200968384958666, guid: 4cbd2f2b1ecb12b46987017514d9966a, type: 3}
+  itemIcon: {fileID: 0}
+  itemName: Great Sword
+  modelPrefab: {fileID: 2084216577784126970, guid: d6ba25e72022ff54aa513bd0e5eab5c4, type: 3}
   isUnarmed: 0
-  baseDamage: 30
+  baseDamage: 40
   criticalDamageMultiplier: 4
   poiseBreak: 0
-  offensivePoiseBonus: 20
+  offensivePoiseBonus: 0
   right_Hand_Idle: Right_Arm_Idle_01
   left_Hand_Idle: Left_Arm_Idle_01
   TH_Idle: TH_Idle_01
@@ -35,7 +35,7 @@ MonoBehaviour:
   TH_Heavy_Attack_2: TH_Sword_HeavyAttack2
   TH_Long_Attack1: 
   weapon_Art: 
-  baseStamina: 15
+  baseStamina: 30
   lightAttackMultiplier: 1
   heavyAttackMultiplier: 2
   physicalDamageAbsorption: 0

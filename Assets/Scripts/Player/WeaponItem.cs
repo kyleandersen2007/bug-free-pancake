@@ -13,6 +13,10 @@ namespace KA
         public int baseDamage = 30;
         public int criticalDamageMultiplier = 4;
 
+        [Header("Poise")]
+        public float poiseBreak;
+        public float offensivePoiseBonus;
+
         [Header("Idle Animations")]
         public string right_Hand_Idle;
         public string left_Hand_Idle;

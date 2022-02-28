@@ -8,37 +8,39 @@ namespace KA
     {
         private PlayerManager playerManager;
 
+        private Animator animator;
+
+        private QuickSlotsUI quickSlotsUI;
+
+        private PlayerStats playerStats;
+        private InputHandler inputHandler;
+
         private PlayerInventory playerInventory;
 
         public WeaponSlotHolder leftHandSlot;
         public WeaponSlotHolder rightHandSlot;
         public WeaponSlotHolder backSlot;
 
+        public WeaponItem unarmedWeapon;
+
         public DamageCollider leftHandDamageCollider;
         public DamageCollider rightHandDamageCollider;
 
         public WeaponItem attackingWeapon;
 
-        private Animator animator;
-
-        private QuickSlotsUI quickSlotsUI;
-
-        private PlayerStats playerStats;
-        InputHandler inputHandler;
-
         private void Awake()
         {
-            playerManager = GetComponentInParent<PlayerManager>();
+            playerManager = GetComponent<PlayerManager>();
 
-            playerInventory = GetComponentInParent<PlayerInventory>();
+            playerInventory = GetComponent<PlayerInventory>();
 
-            animator = GetComponent<Animator>();
+            animator = GetComponentInChildren<Animator>();
 
             quickSlotsUI = FindObjectOfType<QuickSlotsUI>();
 
-            playerStats = GetComponentInParent<PlayerStats>();
+            playerStats = GetComponent<PlayerStats>();
 
-            inputHandler = GetComponentInParent<InputHandler>();
+            inputHandler = GetComponent<InputHandler>();
 
             WeaponSlotHolder[] weaponHolderSlots = GetComponentsInChildren<WeaponSlotHolder>();
             foreach (WeaponSlotHolder weaponSlot in weaponHolderSlots)
@@ -66,51 +68,58 @@ namespace KA
 
         public void LoadWeaponOnSlot(WeaponItem weaponItem, bool isLeft)
         {
-            if (isLeft)
+            if(weaponItem != null)
             {
-                leftHandSlot.currentWeapon = weaponItem;
-                leftHandSlot.LoadWeaponModel(weaponItem);
-                LoadLeftWeaponDamageCollider();
-                quickSlotsUI.UpdateWeaponQuickSlotsUI(true, weaponItem);
-                #region Handle Left Weapon Idle Animations
-                if (weaponItem != null)
+                if (isLeft)
                 {
+                    leftHandSlot.currentWeapon = weaponItem;
+                    leftHandSlot.LoadWeaponModel(weaponItem);
+                    LoadLeftWeaponDamageCollider();
+                    quickSlotsUI.UpdateWeaponQuickSlotsUI(true, weaponItem);
                     animator.CrossFade(weaponItem.left_Hand_Idle, 0.2f);
                 }
                 else
                 {
-                    animator.CrossFade("Left Arm Empty", 0.2f);
-                }
-                #endregion
-            }
-            else
-            {
-                if (inputHandler.twoHandFlag || weaponItem.isTwoHandedWeapon)
-                {
-                    backSlot.LoadWeaponModel(leftHandSlot.currentWeapon);
-                    leftHandSlot.UnloadWeaponAndDestroy();
-                    animator.CrossFade(weaponItem.TH_Idle, 0.2f);
-                }
-                else
-                {
-                    #region Handle Right Weapon Idle Animations
-
-                    animator.CrossFade("Both Arms Empty", 0.2f);
-                    backSlot.UnloadWeaponAndDestroy();
-                    if (weaponItem != null)
+                    if (inputHandler.twoHandFlag || weaponItem.isTwoHandedWeapon)
                     {
-                        animator.CrossFade(weaponItem.right_Hand_Idle, 0.2f);
+                        backSlot.LoadWeaponModel(leftHandSlot.currentWeapon);
+                        leftHandSlot.UnloadWeaponAndDestroy();
+                        animator.CrossFade(weaponItem.TH_Idle, 0.2f);
                     }
                     else
                     {
-                        animator.CrossFade("Right Arm Empty", 0.2f);
+                        animator.CrossFade("Both Arms Empty", 0.2f);
+                        backSlot.UnloadWeaponAndDestroy();
+                        animator.CrossFade(weaponItem.right_Hand_Idle, 0.2f);
                     }
-                    #endregion
+                    rightHandSlot.currentWeapon = weaponItem;
+                    rightHandSlot.LoadWeaponModel(weaponItem);
+                    LoadRightWeaponDamageCollider();
+                    quickSlotsUI.UpdateWeaponQuickSlotsUI(false, weaponItem);
                 }
-                rightHandSlot.currentWeapon = weaponItem;
-                rightHandSlot.LoadWeaponModel(weaponItem);
-                LoadRightWeaponDamageCollider();
-                quickSlotsUI.UpdateWeaponQuickSlotsUI(false, weaponItem);
+            }
+            else
+            {
+                
+
+                if(isLeft)
+                {
+                    animator.CrossFade("Left Arm Empty", 0.2f);
+                    playerInventory.leftWeapon = unarmedWeapon;
+                    leftHandSlot.currentWeapon = unarmedWeapon;
+                    leftHandSlot.LoadWeaponModel(weaponItem);
+                    LoadLeftWeaponDamageCollider();
+                    quickSlotsUI.UpdateWeaponQuickSlotsUI(true, weaponItem);
+                }
+                else
+                {
+                    animator.CrossFade("Right Arm Empty", 0.2f);
+                    playerInventory.rightWeapon = unarmedWeapon;
+                    rightHandSlot.currentWeapon = unarmedWeapon;
+                    rightHandSlot.LoadWeaponModel(weaponItem);
+                    LoadLeftWeaponDamageCollider();
+                    quickSlotsUI.UpdateWeaponQuickSlotsUI(false, weaponItem);
+                }
             }
         }
 
@@ -120,25 +129,43 @@ namespace KA
         {
             leftHandDamageCollider = leftHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
             leftHandDamageCollider.currentWeaponDamage = playerInventory.leftWeapon.baseDamage;
+            leftHandDamageCollider.poiseBreak = playerInventory.leftWeapon.poiseBreak;
         }
 
         private void LoadRightWeaponDamageCollider()
         {
             rightHandDamageCollider = rightHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
             rightHandDamageCollider.currentWeaponDamage = playerInventory.rightWeapon.baseDamage;
+            rightHandDamageCollider.poiseBreak = playerInventory.rightWeapon.poiseBreak;
         }
 
         public void OpenDamageCollider()
         {
-            rightHandDamageCollider.EnableDamageCollider();
+            if(playerManager.isUsingRightHand)
+            {
+                rightHandDamageCollider.EnableDamageCollider();
+            }
+            else if(playerManager.isUsingLeftHand)
+            {
+                leftHandDamageCollider.EnableDamageCollider();
+            }
         }
 
         public void CloseDamageCollider()
         {
-            rightHandDamageCollider.DisableDamageCollider();
+            if(rightHandDamageCollider != null)
+            {
+                rightHandDamageCollider.DisableDamageCollider();
+            }
+
+            if(leftHandDamageCollider != null)
+            {
+                leftHandDamageCollider.DisableDamageCollider();
+            }
         }
         #endregion
 
+        #region Handle Weapon Stamina Drain
         public void DrainStaminaLightAttack()
         {
             playerStats.TakeStaminaDamage(Mathf.RoundToInt(attackingWeapon.baseStamina * attackingWeapon.lightAttackMultiplier));
@@ -148,5 +175,18 @@ namespace KA
         {
             playerStats.TakeStaminaDamage(Mathf.RoundToInt(attackingWeapon.baseStamina * attackingWeapon.heavyAttackMultiplier));
         }
+        #endregion
+
+        #region Handle Weapon's Poise Bonus
+        public void GrantWeaponAttackingPoiseBonus()
+        {
+            playerStats.totalPoiseDefence = playerStats.totalPoiseDefence + attackingWeapon.offensivePoiseBonus;
+        }
+
+        public void ResetWeaponAttackingPoiseBonus()
+        {
+            playerStats.totalPoiseDefence = playerStats.armorPoiseBonus;
+        }
+        #endregion
     }
 }
