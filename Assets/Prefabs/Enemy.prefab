@@ -3075,6 +3075,7 @@ MonoBehaviour:
   leftHandSlot: {fileID: 0}
   rightHandSlot: {fileID: 0}
   backSlot: {fileID: 0}
+  backShieldSlot: {fileID: 0}
   leftHandDamageCollider: {fileID: 0}
   rightHandDamageCollider: {fileID: 0}
   rightHandWeapon: {fileID: 11400000, guid: 2e99b59755987da45821141d8b1254bc, type: 2}
@@ -3901,6 +3902,7 @@ MonoBehaviour:
   isLeftHandSlot: 1
   isRightHandSlot: 0
   isBackSlot: 0
+  isShieldBackSlot: 0
   currentWeaponModel: {fileID: 0}
 --- !u!1 &5804405687880973561
 GameObject:
@@ -5333,6 +5335,7 @@ MonoBehaviour:
   isLeftHandSlot: 0
   isRightHandSlot: 1
   isBackSlot: 0
+  isShieldBackSlot: 0
   currentWeaponModel: {fileID: 0}
 --- !u!1 &5805012548428285049
 GameObject:

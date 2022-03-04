@@ -13,6 +13,7 @@ namespace KA
         public WeaponSlotHolder leftHandSlot;
         public WeaponSlotHolder rightHandSlot;
         public WeaponSlotHolder backSlot;
+        public WeaponSlotHolder backShieldSlot;
 
         [Header("Damage Colliders")]
         public DamageCollider leftHandDamageCollider;

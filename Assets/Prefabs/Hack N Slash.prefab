@@ -54,14 +54,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7981489544998908848}
-  m_LocalRotation: {x: -0.4686676, y: 0.47567225, z: -0.47141528, w: 0.576068}
-  m_LocalPosition: {x: 0.0733, y: 0.0546, z: -0.0324}
+  m_LocalRotation: {x: -0.51192224, y: 0.4093345, z: -0.4488688, w: 0.6073696}
+  m_LocalPosition: {x: 0.079, y: 0.041, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8470032501972034720}
   m_Father: {fileID: 2770173711278050773}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -5.249, y: 83.764, z: -83.297}
+  m_LocalEulerAnglesHint: {x: -14.737, y: 81.631, z: -85.677}
 --- !u!1 &8470032501971822166
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,4 +171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterManager: {fileID: 0}
+  poiseBreak: 0
+  offensivePoiseDefence: 0
   currentWeaponDamage: 50

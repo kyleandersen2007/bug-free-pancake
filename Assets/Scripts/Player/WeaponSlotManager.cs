@@ -57,6 +57,10 @@ namespace KA
                 {
                     backSlot = weaponSlot;
                 }
+                else if(weaponSlot.isShieldBackSlot)
+                {
+                    backShieldSlot = weaponSlot;
+                }
             }
         }
 
@@ -82,14 +86,24 @@ namespace KA
                 {
                     if (inputHandler.twoHandFlag || weaponItem.isTwoHandedWeapon)
                     {
-                        backSlot.LoadWeaponModel(leftHandSlot.currentWeapon);
-                        leftHandSlot.UnloadWeaponAndDestroy();
-                        animator.CrossFade(weaponItem.TH_Idle, 0.2f);
+                        if(playerInventory.leftWeapon.isShieldWeapon)
+                        {
+                            backShieldSlot.LoadWeaponModel(leftHandSlot.currentWeapon);
+                            leftHandSlot.UnloadWeaponAndDestroy();
+                            animator.CrossFade(weaponItem.TH_Idle, 0.2f);
+                        }
+                        else
+                        {
+                            backSlot.LoadWeaponModel(leftHandSlot.currentWeapon);
+                            leftHandSlot.UnloadWeaponAndDestroy();
+                            animator.CrossFade(weaponItem.TH_Idle, 0.2f);
+                        }  
                     }
                     else
                     {
                         animator.CrossFade("Both Arms Empty", 0.2f);
                         backSlot.UnloadWeaponAndDestroy();
+                        backShieldSlot.UnloadWeaponAndDestroy();
                         animator.CrossFade(weaponItem.right_Hand_Idle, 0.2f);
                     }
                     rightHandSlot.currentWeapon = weaponItem;
@@ -100,8 +114,6 @@ namespace KA
             }
             else
             {
-                
-
                 if(isLeft)
                 {
                     animator.CrossFade("Left Arm Empty", 0.2f);
