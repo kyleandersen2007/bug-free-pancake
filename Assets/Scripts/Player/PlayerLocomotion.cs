@@ -41,10 +41,9 @@ namespace KA
         float fallingSpeed = 45;
 
         [Header("Stamina Costs")]
-        [SerializeField]
-        int rollStaminaCost = 15;
-        int backstepStaminaCost = 12;
-        int sprintStaminaCost = 1;
+        [SerializeField] private int rollStaminaCost = 15;
+        [SerializeField] private int backstepStaminaCost = 12;
+        [SerializeField] private int sprintStaminaCost = 1;
 
         private void Awake()
         {

@@ -39,7 +39,7 @@ namespace KA
         public float rollInputTimer;
 
         PlayerControls inputActions;
-        PlayerAttacker playerAttacker;
+        PlayerCombatManager playerAttacker;
         PlayerInventory playerInventory;
         PlayerEffectsManager playerEffectsManager;
         PlayerManager playerManager;
@@ -58,7 +58,7 @@ namespace KA
 
         private void Awake()
         {
-            playerAttacker = GetComponentInChildren<PlayerAttacker>();
+            playerAttacker = GetComponentInChildren<PlayerCombatManager>();
             playerInventory = GetComponent<PlayerInventory>();
             weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
             playerManager = GetComponent<PlayerManager>();

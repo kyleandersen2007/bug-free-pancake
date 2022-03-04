@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace KA
 {
-    public class WeaponSlotManager : MonoBehaviour
+    public class WeaponSlotManager : CharacterWeaponSlotManager
     {
         private PlayerManager playerManager;
 
@@ -16,15 +16,8 @@ namespace KA
         private InputHandler inputHandler;
 
         private PlayerInventory playerInventory;
+        private PlayerEffectsManager playerEffectsManager;
 
-        public WeaponSlotHolder leftHandSlot;
-        public WeaponSlotHolder rightHandSlot;
-        public WeaponSlotHolder backSlot;
-
-        public WeaponItem unarmedWeapon;
-
-        public DamageCollider leftHandDamageCollider;
-        public DamageCollider rightHandDamageCollider;
 
         public WeaponItem attackingWeapon;
 
@@ -34,7 +27,7 @@ namespace KA
 
             playerInventory = GetComponent<PlayerInventory>();
 
-            animator = GetComponentInChildren<Animator>();
+            animator = GetComponent<Animator>();
 
             quickSlotsUI = FindObjectOfType<QuickSlotsUI>();
 
@@ -42,6 +35,13 @@ namespace KA
 
             inputHandler = GetComponent<InputHandler>();
 
+            playerEffectsManager = GetComponent<PlayerEffectsManager>();
+
+            LoadWeaponHolderSlots();
+        }
+
+        private void LoadWeaponHolderSlots()
+        {
             WeaponSlotHolder[] weaponHolderSlots = GetComponentsInChildren<WeaponSlotHolder>();
             foreach (WeaponSlotHolder weaponSlot in weaponHolderSlots)
             {
@@ -53,7 +53,7 @@ namespace KA
                 {
                     rightHandSlot = weaponSlot;
                 }
-                else if(weaponSlot.isBackSlot)
+                else if (weaponSlot.isBackSlot)
                 {
                     backSlot = weaponSlot;
                 }
@@ -130,6 +130,7 @@ namespace KA
             leftHandDamageCollider = leftHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
             leftHandDamageCollider.currentWeaponDamage = playerInventory.leftWeapon.baseDamage;
             leftHandDamageCollider.poiseBreak = playerInventory.leftWeapon.poiseBreak;
+            playerEffectsManager.leftWeaponFX = leftHandSlot.currentWeaponModel.GetComponentInChildren<WeaponFX>();
         }
 
         private void LoadRightWeaponDamageCollider()
@@ -137,6 +138,7 @@ namespace KA
             rightHandDamageCollider = rightHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
             rightHandDamageCollider.currentWeaponDamage = playerInventory.rightWeapon.baseDamage;
             rightHandDamageCollider.poiseBreak = playerInventory.rightWeapon.poiseBreak;
+            playerEffectsManager.rightWeaponFX = rightHandSlot.currentWeaponModel.GetComponentInChildren<WeaponFX>();
         }
 
         public void OpenDamageCollider()

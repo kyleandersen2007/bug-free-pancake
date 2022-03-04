@@ -43,17 +43,18 @@ namespace KA
             if(other.tag == "Player")
             {
                 PlayerStats playerStats = other.GetComponent<PlayerStats>();
-                CharacterManager enemyCharacterManager = other.GetComponent<CharacterManager>();
+                CharacterManager playerCharacterManager = other.GetComponent<CharacterManager>();
+                CharacterEffectsManager playerEffectsManager = other.GetComponent<CharacterEffectsManager>();
                 BlockingCollider shield = other.transform.GetComponentInChildren<BlockingCollider>();
 
-                if(enemyCharacterManager != null)
+                if(playerCharacterManager != null)
                 {
-                    if(enemyCharacterManager.isParrying)
+                    if(playerCharacterManager.isParrying)
                     {
                         characterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Parried", true);
                         return;
                     }
-                    else if(shield != null && enemyCharacterManager.isBlocking)
+                    else if(shield != null && playerCharacterManager.isBlocking)
                     {
                         float physicalDamageAfterBlock = currentWeaponDamage - (currentWeaponDamage * shield.blockingPhysicalDamageAbsorption) / 100;
 
@@ -71,6 +72,9 @@ namespace KA
                     playerStats.totalPoiseResetTime = playerStats.totalPoiseDefence - poiseBreak;
                     Debug.Log("Player's Poise is Currently " + playerStats.totalPoiseDefence);
 
+                    Vector3 contactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
+                    playerEffectsManager.PlayBloodSplatterFX(contactPoint);
+
                     if (playerStats.totalPoiseDefence > poiseBreak)
                     {
                         playerStats.TakeDamageNoAnimation(currentWeaponDamage);
@@ -86,6 +90,7 @@ namespace KA
             {
                 EnemyStats enemyStats = other.GetComponent<EnemyStats>();
                 CharacterManager enemyCharacterManager = other.GetComponent<CharacterManager>();
+                CharacterEffectsManager enemyEffectsManager = other.GetComponent<CharacterEffectsManager>();
 
                 if (enemyCharacterManager != null)
                 {
@@ -100,7 +105,8 @@ namespace KA
                 {
                     enemyStats.poiseResetTimer = enemyStats.totalPoiseResetTime;
                     enemyStats.totalPoiseResetTime = enemyStats.totalPoiseDefence - poiseBreak;
-                    Debug.Log("Enemy's Poise is Currently " + enemyStats.totalPoiseDefence);
+                    Vector3 contactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
+                    enemyEffectsManager.PlayBloodSplatterFX(contactPoint);
 
                     if (enemyStats.totalPoiseDefence > poiseBreak)
                     {

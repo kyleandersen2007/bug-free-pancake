@@ -4,21 +4,18 @@ using UnityEngine;
 
 namespace KA
 {
-    public class EnemyWeaponSlotManager : MonoBehaviour
+    public class EnemyWeaponSlotManager : CharacterWeaponSlotManager
     {
-        EnemyStats enemyStats;
         public WeaponItem rightHandWeapon;
         public WeaponItem leftHandWeapon;
 
-        WeaponSlotHolder rightHandSlot;
-        WeaponSlotHolder leftHandSlot;
-
-        DamageCollider leftHandDamageCollider;
-        DamageCollider rightHandDamageCollider;
+        EnemyStats enemyStats;
+        EnemyEffectsManager enemyEffectsManager;
 
         private void Awake()
         {
-            enemyStats = GetComponentInParent<EnemyStats>();
+            enemyStats = GetComponent<EnemyStats>();
+            enemyEffectsManager = GetComponent<EnemyEffectsManager>();
             LoadWeaponHolderSlot();
         }
 
@@ -77,11 +74,13 @@ namespace KA
             {
                 leftHandDamageCollider = leftHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
                 leftHandDamageCollider.characterManager = GetComponentInParent<CharacterManager>();
+                enemyEffectsManager.leftWeaponFX = leftHandSlot.currentWeaponModel.GetComponentInChildren<WeaponFX>();
             }
             else
             {
                 rightHandDamageCollider = rightHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
                 rightHandDamageCollider.characterManager = GetComponentInParent<CharacterManager>();
+                enemyEffectsManager.rightWeaponFX = rightHandSlot.currentWeaponModel.GetComponentInChildren<WeaponFX>();
             }
         }
 

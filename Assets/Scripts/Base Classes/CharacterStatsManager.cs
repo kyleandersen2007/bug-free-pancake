@@ -4,27 +4,29 @@ using UnityEngine;
 
 namespace KA
 {
-    public class CharacterStats : MonoBehaviour
+    public class CharacterStatsManager : MonoBehaviour
     {
-        [Header("Health Stats")]
-        public int healthLevel;
+        public int healthLevel = 10;
         public int maxHealth;
         public int currentHealth;
-        [Header("Stamina Stats")]
-        public int staminaLevel;
-        public int maxStamina;
+
+        public int staminaLevel = 10;
+        public float maxStamina;
         public float currentStamina;
-        [Header("Focus Points Stats")]
-        public int focusLevel;
+
+        public int focusLevel = 10;
         public float maxFocusPoints;
         public float currentFocusPoints;
 
+        public int soulCount = 0;
+        public int soulsAwardedOnDeath = 50;
+
         [Header("Poise")]
-        public float totalPoiseDefence;
-        public float offensivePoiseBonus;
-        public float armorPoiseBonus;
-        public float totalPoiseResetTime;
-        public float poiseResetTimer;
+        public float totalPoiseDefence; //The TOTAL poise during damage calculation
+        public float offensivePoiseBonus; //The poise you GAIN during an attack with a weapon
+        public float armorPoiseBonus; //The poise you GAIN from wearing what ever you have equipped
+        public float totalPoiseResetTime = 15;
+        public float poiseResetTimer = 0;
 
         [Header("Armor Absorptions")]
         public float physicalDamageAbsorptionHead;
@@ -32,7 +34,10 @@ namespace KA
         public float physicalDamageAbsorptionLegs;
         public float physicalDamageAbsorptionHands;
 
-        public int soulCount = 0;   
+        //Fire Absorption
+        //Lightning Absorption
+        //Magic Absorption
+        //Dark Absorption
 
         public bool isDead;
 
@@ -46,10 +51,11 @@ namespace KA
             totalPoiseDefence = armorPoiseBonus;
         }
 
-        public virtual void TakeDamage(int physicalDamage, string damageAnimation = "Damage")
+        public virtual void TakeDamage(int physicalDamage, string damageAnimation = "Damage_01")
         {
             if (isDead)
                 return;
+
             float totalPhysicalDamageAbsorption = 1 -
                 (1 - physicalDamageAbsorptionHead / 100) *
                 (1 - physicalDamageAbsorptionBody / 100) *
@@ -58,13 +64,21 @@ namespace KA
 
             physicalDamage = Mathf.RoundToInt(physicalDamage - (physicalDamage * totalPhysicalDamageAbsorption));
 
-            Debug.Log("Total Damage Absorption is " + totalPhysicalDamageAbsorption + "%");
-
             float finalDamage = physicalDamage; //+ fireDamage + magicDamage + lightningDamage + darkDamage
 
             currentHealth = Mathf.RoundToInt(currentHealth - finalDamage);
 
-            Debug.Log("Total Damage Dealt is " + finalDamage);
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                isDead = true;
+            }
+
+        }
+
+        public virtual void TakeDamageNoAnimation(int damage)
+        {
+            currentHealth = currentHealth - damage;
 
             if (currentHealth <= 0)
             {
@@ -75,7 +89,7 @@ namespace KA
 
         public virtual void HandlePoiseResetTimer()
         {
-            if(poiseResetTimer > 0)
+            if (poiseResetTimer > 0)
             {
                 poiseResetTimer = poiseResetTimer - Time.deltaTime;
             }

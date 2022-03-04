@@ -28,7 +28,7 @@ namespace KA
 
             playerLocomotion.rigidbody.velocity = Vector3.zero; //STOPS ALL VELOCITY
             playerInventory.weaponInventory.Add(weapon);
-            playerManager.itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>().text = weapon.name;
+            playerManager.itemInteractableGameObject.GetComponentInChildren<Text>().text = weapon.name;
             playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture = weapon.itemIcon.texture;
             playerManager.itemInteractableGameObject.SetActive(true);
             Destroy(gameObject);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace KA
 {
-    public class PlayerEffectsManager : MonoBehaviour
+    public class PlayerEffectsManager : CharacterEffectsManager
     {
         PlayerStats playerStats;
         WeaponSlotManager weaponSlotManager;

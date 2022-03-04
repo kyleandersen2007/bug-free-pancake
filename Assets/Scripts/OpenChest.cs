@@ -30,7 +30,7 @@ namespace KA
             playerManager.transform.rotation = targetRotation;
 
             playerManager.OpenChestInteraction(playerStandingPosition);
-            animator.Play("Chest Open");
+            animator.Play("Big Chest Open");
             StartCoroutine(SpawnItemInChest());
 
             WeaponPickUp weaponPickUp = itemSpawner.GetComponent<WeaponPickUp>();

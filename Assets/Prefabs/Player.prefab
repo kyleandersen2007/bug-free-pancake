@@ -274,8 +274,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.25
-  m_Height: 1.7
+  m_Radius: 0.3
+  m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &6474700193062196515
@@ -68140,13 +68140,13 @@ GameObject:
   - component: {fileID: 8195003761832990611}
   - component: {fileID: 6210010102106405742}
   - component: {fileID: 6808860019063928319}
-  - component: {fileID: 8918176394304981051}
-  - component: {fileID: 8918176394304981049}
   - component: {fileID: 474233326009355866}
   - component: {fileID: 5856393853024905223}
   - component: {fileID: 7666798645532598775}
   - component: {fileID: 465055293895581962}
   - component: {fileID: 3182431455288311271}
+  - component: {fileID: 8918176394304981051}
+  - component: {fileID: 8918176394304981049}
   - component: {fileID: 725445529270018716}
   m_Layer: 12
   m_Name: Player
@@ -68195,12 +68195,14 @@ MonoBehaviour:
   minimumDistanceNeededToBeginFall: 1
   groundDirectionRayDistance: 0.2
   inAirTimer: 0
-  movementSpeed: 4
+  movementSpeed: 6
   walkingSpeed: 2.6
-  sprintSpeed: 6
+  sprintSpeed: 8
   rotationSpeed: 13
   fallingSpeed: 400
   rollStaminaCost: 15
+  backstepStaminaCost: 12
+  sprintStaminaCost: 1
 --- !u!114 &8918176394304980998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68260,12 +68262,12 @@ MonoBehaviour:
   rightWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
   leftWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
   currentConsumbale: {fileID: 11400000, guid: d83fe55f018682a458e2be97ff964a29, type: 2}
-  currentHelmetEquipment: {fileID: 11400000, guid: 0cb10962fa90b9d4f960b9b117f95f6f, type: 2}
-  currentTorsoEquipment: {fileID: 11400000, guid: 1e125767bbf1e4b47ac775cc8b1f267e, type: 2}
-  currentLegEquipment: {fileID: 11400000, guid: b04423ffe402a8d408d659bba26769b8, type: 2}
-  currentHandEquipment: {fileID: 11400000, guid: 7802b1264c3705041ba344b1232fbade, type: 2}
+  currentHelmetEquipment: {fileID: 0}
+  currentTorsoEquipment: {fileID: 0}
+  currentLegEquipment: {fileID: 0}
+  currentHandEquipment: {fileID: 0}
   weaponsInRightHandSlots:
-  - {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
+  - {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
   - {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
   weaponsInLeftHandSlots:
   - {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
@@ -68326,19 +68328,114 @@ MonoBehaviour:
   focusLevel: 10
   maxFocusPoints: 0
   currentFocusPoints: 0
-  totalPoiseDefence: 0
+  soulCount: 0
+  soulsAwardedOnDeath: 50
+  totalPoiseDefence: 100
   offensivePoiseBonus: 0
   armorPoiseBonus: 0
-  totalPoiseResetTime: 0
+  totalPoiseResetTime: 15
   poiseResetTimer: 0
   physicalDamageAbsorptionHead: 0
   physicalDamageAbsorptionBody: 0
   physicalDamageAbsorptionLegs: 0
   physicalDamageAbsorptionHands: 0
-  soulCount: 0
   isDead: 0
   staminaRegenerationAmount: 30
   staminaRegenTimer: 0
+--- !u!114 &474233326009355866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8918176394304981050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66532f251c0a664da3c394c1577b1ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unarmedWeapon: {fileID: 0}
+  leftHandSlot: {fileID: 0}
+  rightHandSlot: {fileID: 0}
+  backSlot: {fileID: 0}
+  leftHandDamageCollider: {fileID: 0}
+  rightHandDamageCollider: {fileID: 0}
+  attackingWeapon: {fileID: 0}
+--- !u!114 &5856393853024905223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8918176394304981050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e18b89f59830a4f9dac128b3e8f8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nakedHeadModel: {fileID: 7530145870708448765}
+  nakedTorsoModel: Chr_Torso_Male_00
+  nakedHipModel: Chr_Hips_Male_00
+  nakedUpperLeftArm: Chr_ArmUpperLeft_Male_00
+  nakedUpperRightArm: Chr_ArmUpperRight_Male_00
+  nakedLowerLeftArm: Chr_ArmLowerLeft_Male_00
+  nakedLowerRightArm: Chr_ArmLowerRight_Male_00
+  nakedLeftHand: Chr_HandLeft_Male_00
+  nakedRightHand: Chr_HandRight_Male_00
+  nakedLeftLeg: MaleLeftLeg1
+  nakedRightLeg: MaleRightLeg1
+  blockingCollider: {fileID: 6522285178992779619}
+--- !u!114 &7666798645532598775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8918176394304981050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b523b757c1ce1874788577cf60149786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastAttack: 
+  backStabLayer:
+    serializedVersion: 2
+    m_Bits: 8192
+  riposteLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+--- !u!114 &465055293895581962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8918176394304981050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494a2c9e27f5b2c4b8b7c413005b6328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodSplatterFX: {fileID: 758500327497352242, guid: 49496959fc00fd149a397b180ccd6d8e, type: 3}
+  rightWeaponFX: {fileID: 0}
+  leftWeaponFX: {fileID: 0}
+  currentParticleFX: {fileID: 0}
+  instantiatedFXModel: {fileID: 0}
+  amountToBeHealed: 0
+--- !u!114 &3182431455288311271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8918176394304981050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97d787f37553ec94fb8bc4c6d8152535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 725445529270018716}
+  canRotate: 1
 --- !u!54 &8918176394304981051
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -68369,97 +68466,6 @@ CapsuleCollider:
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &474233326009355866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918176394304981050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c66532f251c0a664da3c394c1577b1ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftHandSlot: {fileID: 0}
-  rightHandSlot: {fileID: 0}
-  backSlot: {fileID: 0}
-  unarmedWeapon: {fileID: 0}
-  leftHandDamageCollider: {fileID: 0}
-  rightHandDamageCollider: {fileID: 0}
-  attackingWeapon: {fileID: 0}
---- !u!114 &5856393853024905223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918176394304981050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25e18b89f59830a4f9dac128b3e8f8f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nakedHeadModel: {fileID: 7530145870708448765}
-  nakedTorsoModel: 
-  nakedHipModel: 
-  nakedUpperLeftArm: 
-  nakedUpperRightArm: 
-  nakedLowerLeftArm: 
-  nakedLowerRightArm: 
-  nakedLeftHand: 
-  nakedRightHand: 
-  nakedLeftLeg: 
-  nakedRightLeg: 
-  blockingCollider: {fileID: 0}
---- !u!114 &7666798645532598775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918176394304981050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b523b757c1ce1874788577cf60149786, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastAttack: 
-  backStabLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  riposteLayer:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &465055293895581962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918176394304981050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 494a2c9e27f5b2c4b8b7c413005b6328, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentParticleFX: {fileID: 0}
-  instantiatedFXModel: {fileID: 0}
-  amountToBeHealed: 0
---- !u!114 &3182431455288311271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918176394304981050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97d787f37553ec94fb8bc4c6d8152535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 725445529270018716}
-  canRotate: 1
 --- !u!95 &725445529270018716
 Animator:
   serializedVersion: 3

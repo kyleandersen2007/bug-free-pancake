@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 namespace KA
 {
     public class InteractableUI : MonoBehaviour
     {
-        public TextMeshProUGUI text;
+        public Text text;
 
-        public TextMeshProUGUI itemText;
+        public Text itemText;
         public RawImage itemImage;
 
     }

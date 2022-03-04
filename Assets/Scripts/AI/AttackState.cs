@@ -47,6 +47,7 @@ namespace KA
         private void AttackTarget(EnemyAnimatorHandler enemyAnimatorHandler, EnemyManager enemyManager)
         {
             enemyAnimatorHandler.PlayTargetAnimation(currentAttack.actionAnimation, true);
+            enemyAnimatorHandler.PlayWeaponTrailFX();
             enemyManager.currentRecoveryTime = currentAttack.recoveryTime;
             hasPerformedAttack = true;
         }
@@ -55,6 +56,7 @@ namespace KA
         {
             willDoComboOnNextAttack = false;
             enemyAnimatorHandler.PlayTargetAnimation(currentAttack.actionAnimation, true);
+            enemyAnimatorHandler.PlayWeaponTrailFX();
             enemyManager.currentRecoveryTime = currentAttack.recoveryTime;
             currentAttack = null;
         }

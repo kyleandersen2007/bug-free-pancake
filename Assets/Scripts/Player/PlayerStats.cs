@@ -4,17 +4,17 @@ using UnityEngine;
 
 namespace KA
 {
-    public class PlayerStats : CharacterStats
+    public class PlayerStats : CharacterStatsManager
     {
         PlayerManager playerManager;
 
         HealthBar healthBar;
         StaminaBar staminaBar;
-        FocusPointBar focusPointBar;
-        PlayerAnimatorManager animatorHandler;
+        FocusPointBar focusPointsBar;
+        PlayerAnimatorManager playerAnimatorManager;
 
         public float staminaRegenerationAmount = 1;
-        [HideInInspector] public float staminaRegenTimer = 0;
+        public float staminaRegenTimer = 0;
 
         private void Awake()
         {
@@ -22,11 +22,11 @@ namespace KA
 
             healthBar = FindObjectOfType<HealthBar>();
             staminaBar = FindObjectOfType<StaminaBar>();
-            focusPointBar = FindObjectOfType<FocusPointBar>();
-            animatorHandler = GetComponent<PlayerAnimatorManager>();
+            focusPointsBar = FindObjectOfType<FocusPointBar>();
+            playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
         }
 
-        private void Start()
+        void Start()
         {
             maxHealth = SetMaxHealthFromHealthLevel();
             currentHealth = maxHealth;
@@ -40,8 +40,20 @@ namespace KA
 
             maxFocusPoints = SetMaxFocusPointsFromFocusLevel();
             currentFocusPoints = maxFocusPoints;
-            focusPointBar.SetMaxFocusPoints(maxFocusPoints);
-            focusPointBar.SetCurrentFocusPoints(currentFocusPoints);
+            focusPointsBar.SetMaxFocusPoints(maxFocusPoints);
+            focusPointsBar.SetCurrentFocusPoints(currentFocusPoints);
+        }
+
+        public override void HandlePoiseResetTimer()
+        {
+            if (poiseResetTimer > 0)
+            {
+                poiseResetTimer = poiseResetTimer - Time.deltaTime;
+            }
+            else if (poiseResetTimer <= 0 && !playerManager.isInteracting)
+            {
+                totalPoiseDefence = armorPoiseBonus;
+            }
         }
 
         private int SetMaxHealthFromHealthLevel()
@@ -50,7 +62,7 @@ namespace KA
             return maxHealth;
         }
 
-        private int SetMaxStaminaFromStaminaLevel()
+        private float SetMaxStaminaFromStaminaLevel()
         {
             maxStamina = staminaLevel * 10;
             return maxStamina;
@@ -62,35 +74,27 @@ namespace KA
             return maxFocusPoints;
         }
 
-        public override void HandlePoiseResetTimer()
-        {
-            if (poiseResetTimer > 0)
-            {
-                poiseResetTimer = poiseResetTimer - Time.deltaTime;
-            }
-            else if(poiseResetTimer <= 0 && playerManager.isInteracting)
-            {
-                totalPoiseDefence = armorPoiseBonus;
-            }
-        }
-
-        public override void TakeDamage(int damage, string damageAnimation = "Damage01")
+        public override void TakeDamage(int damage, string damageAnimation = "Damage_01")
         {
             if (playerManager.isInvulnerable)
                 return;
 
-            base.TakeDamage(damage, damageAnimation);
+            base.TakeDamage(damage, damageAnimation = "Damage01");
             healthBar.SetCurrentHealth(currentHealth);
-
-            animatorHandler.PlayTargetAnimation(damageAnimation, true);
+            playerAnimatorManager.PlayTargetAnimation(damageAnimation, true);
 
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
                 isDead = true;
-                animatorHandler.PlayTargetAnimation("Player Death", true);
-                //HANDLE PLAYER DEATH
+                playerAnimatorManager.PlayTargetAnimation("Player Death", true);
             }
+        }
+
+        public override void TakeDamageNoAnimation(int damage)
+        {
+            base.TakeDamageNoAnimation(damage);
+            healthBar.SetCurrentHealth(currentHealth);
         }
 
         public void TakeStaminaDamage(int damage)
@@ -117,24 +121,11 @@ namespace KA
             }
         }
 
-        public void TakeDamageNoAnimation(int damage)
-        {
-            currentHealth = currentHealth - damage;
-
-            healthBar.SetCurrentHealth(currentHealth);
-
-            if (currentHealth <= 0)
-            {
-                currentHealth = 0;
-                isDead = true;
-            }
-        }
-
         public void HealPlayer(int healAmount)
         {
             currentHealth = currentHealth + healAmount;
 
-            if(currentHealth > maxHealth)
+            if (currentHealth > maxHealth)
             {
                 currentHealth = maxHealth;
             }
@@ -146,12 +137,12 @@ namespace KA
         {
             currentFocusPoints = currentFocusPoints - focusPoints;
 
-            if(currentFocusPoints < 0)
+            if (currentFocusPoints < 0)
             {
                 currentFocusPoints = 0;
             }
 
-            focusPointBar.SetCurrentFocusPoints(currentFocusPoints);
+            focusPointsBar.SetCurrentFocusPoints(currentFocusPoints);
         }
 
         public void AddSouls(int souls)

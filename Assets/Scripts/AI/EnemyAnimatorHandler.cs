@@ -5,61 +5,15 @@ namespace KA
 {
     public class EnemyAnimatorHandler : AnimatorManager
     {
-        public EnemyLocomotion enemyLocomotion;
-        EnemyStats enemyStats;
-        public EnemyManager enemyManager;
+        EnemyManager enemyManager;
+        EnemyEffectsManager enemyEffectsManager;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             anim = GetComponent<Animator>();
-            enemyLocomotion = GetComponentInParent<EnemyLocomotion>();
-            enemyStats = GetComponentInParent<EnemyStats>();
-        }
-
-        public override void TakeCriticalDamageAnimationEvent()
-        {
-            enemyStats.TakeDamageNoAnimation(enemyManager.pendingCriticalDamage);
-            enemyManager.pendingCriticalDamage = 0;
-        }
-
-        public void CanRotate()
-        {
-            anim.SetBool("canRotate", true);
-        }
-
-        public void StopRotation()
-        {
-            anim.SetBool("canRotate", false);
-        }
-
-        public void EnableCombo()
-        {
-            anim.SetBool("canDoCombo", true);
-        }
-
-        public void DisableCombo()
-        {
-            anim.SetBool("canDoCombo", false);
-        }
-
-        public void EnableIsInvulnerable()
-        {
-            anim.SetBool("isInvulnerable", true);
-        }
-
-        public void DisableIsInvulnerable()
-        {
-            anim.SetBool("isInvulnerable", false);
-        }
-
-        public void EnableCanBeRiposted()
-        {
-            enemyManager.canBeRiposted = true;
-        }
-
-        public void DisableCanBeRiposted()
-        {
-            enemyManager.canBeRiposted = false;
+            enemyManager = GetComponent<EnemyManager>();
+            enemyEffectsManager = GetComponent<EnemyEffectsManager>();
         }
 
         public void AwardSoulsOnDeath()
@@ -69,13 +23,18 @@ namespace KA
 
             if (playerStats != null)
             {
-                playerStats.AddSouls(enemyStats.soulsAwardedOnDeath);
+                playerStats.AddSouls(characterStatsManager.soulsAwardedOnDeath);
 
                 if (soulCountBar != null)
                 {
                     soulCountBar.SetSoulCountText(playerStats.soulCount);
                 }
             }
+        }
+
+        public void PlayWeaponTrailFX()
+        {
+            enemyEffectsManager.PlayWeaponFX(false);
         }
 
         private void OnAnimatorMove()
@@ -87,7 +46,7 @@ namespace KA
             Vector3 velocity = deltaPosition / delta;
             enemyManager.enemyRigidBody.velocity = velocity;
 
-            if(enemyManager.isRotatingWithRootMotion)
+            if (enemyManager.isRotatingWithRootMotion)
             {
                 enemyManager.transform.rotation *= anim.deltaRotation;
             }

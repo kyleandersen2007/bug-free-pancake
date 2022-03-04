@@ -11,7 +11,7 @@ namespace KA
         EnemyStats enemyStats;
 
         public State currentState;
-        public CharacterStats currentTarget;
+        public CharacterStatsManager currentTarget;
         public NavMeshAgent navmeshAgent;
         public Rigidbody enemyRigidBody;
 

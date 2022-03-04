@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace KA
 {
-    public class PlayerAttacker : MonoBehaviour
+    public class PlayerCombatManager : MonoBehaviour
     {
         PlayerManager playerManager;
         PlayerEquipmentManager playerEquipmentManager;
@@ -13,6 +13,8 @@ namespace KA
         PlayerAnimatorManager animatorHandler;
         InputHandler inputHandler;
         WeaponSlotManager weaponSlotManager;
+        PlayerEffectsManager playerEffectsManager;
+
         public string lastAttack;
 
         public LayerMask backStabLayer;
@@ -27,6 +29,7 @@ namespace KA
             weaponSlotManager = GetComponent<WeaponSlotManager>();
             inputHandler = GetComponent<InputHandler>();
             playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
+            playerEffectsManager = GetComponent<PlayerEffectsManager>();
         }
 
         public void HandleWeaponCombo(WeaponItem weapon)
@@ -144,6 +147,8 @@ namespace KA
                 animatorHandler.anim.SetBool("isUsingRightHand", true);
                 HandleLightAttack(playerInventory.rightWeapon);
             }
+
+            playerEffectsManager.PlayWeaponFX(false);
         }
 
         private void PerformRBMagicAction(WeaponItem weapon)

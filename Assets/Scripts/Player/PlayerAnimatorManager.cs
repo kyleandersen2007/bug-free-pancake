@@ -79,61 +79,6 @@ namespace KA
             anim.SetFloat(horizontal, h, 0.1f, Time.deltaTime);
         }
 
-        public void CanRotate()
-        {
-            anim.SetBool("canRotate", true);
-        }
-
-        public void StopRotation()
-        {
-            anim.SetBool("canRotate", false);
-        }
-
-        public void EnableCombo()
-        {
-            anim.SetBool("canDoCombo", true);
-        }
-
-        public void DisableCombo()
-        {
-            anim.SetBool("canDoCombo", false);
-        }
-
-        public void EnableIsInvulnerable()
-        {
-            anim.SetBool("isInvulnerable", true);
-        }
-
-        public void DisableIsInvulnerable()
-        {
-            anim.SetBool("isInvulnerable", false);
-        }
-
-        public void EnableIsParrying()
-        {
-            playerManager.isParrying = true;
-        }
-
-        public void DisableIsParrying()
-        {
-            playerManager.isParrying = false;
-        }
-
-        public void EnableCanBeRiposted()
-        {
-            playerManager.canBeRiposted = true;
-        }
-
-        public void DisableCanBeRiposted()
-        {
-            playerManager.canBeRiposted = false;
-        }
-
-        public override void TakeCriticalDamageAnimationEvent()
-        {
-
-        }
-
         private void OnAnimatorMove()
         {
             if (playerManager.isInteracting == false) return;

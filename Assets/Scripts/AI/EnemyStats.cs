@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace KA
 {
-    public class EnemyStats : CharacterStats
+    public class EnemyStats : CharacterStatsManager
     {
         EnemyAnimatorHandler enemyAnimatorHandler;
 
         public UIEnemyHealthBar enemyHealthBar;
-
-        public int soulsAwardedOnDeath = 50;
 
         private void Awake()
         {
@@ -29,17 +27,11 @@ namespace KA
             return maxHealth;
         }
 
-        public void TakeDamageNoAnimation(int damage)
+        public override void TakeDamageNoAnimation(int damage)
         {
-            currentHealth = currentHealth - damage;
+            base.TakeDamageNoAnimation(damage);
 
             enemyHealthBar.SetHealth(currentHealth);
-
-            if (currentHealth <= 0)
-            {
-                currentHealth = 0;
-                isDead = true;
-            }
         }
 
         public void BreakGuard()
@@ -62,7 +54,7 @@ namespace KA
         private void HandleDeath()
         {
             currentHealth = 0;
-            enemyAnimatorHandler.PlayTargetAnimation("Death02", true);
+            enemyAnimatorHandler.PlayTargetAnimation("Death01", true);
             isDead = true;
         }
     }

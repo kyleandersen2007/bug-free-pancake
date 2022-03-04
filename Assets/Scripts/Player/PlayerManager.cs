@@ -31,7 +31,7 @@ namespace KA
         {
             cameraHandler = FindObjectOfType<CameraHandler>();
             inputHandler = GetComponent<InputHandler>();
-            anim = GetComponentInChildren<Animator>();
+            anim = GetComponent<Animator>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
             interactableUI = FindObjectOfType<InteractableUI>();
             playerStats = GetComponent<PlayerStats>();
@@ -109,8 +109,8 @@ namespace KA
 
                     if (interactableObject != null)
                     {
-                        string interactableText = interactableObject.interactableText;
-                        interactableUI.itemText.text = interactableText;
+                        string currentInteractableText = interactableObject.interactableText;
+                        interactableUI.text.text = currentInteractableText;
                         interactableUIGameObject.SetActive(true);
 
                         if (inputHandler.y_Input)
