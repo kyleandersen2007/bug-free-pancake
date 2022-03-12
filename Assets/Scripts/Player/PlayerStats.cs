@@ -8,7 +8,7 @@ namespace KA
     {
         PlayerManager playerManager;
 
-        HealthBar healthBar;
+        public HealthBar healthBar;
         StaminaBar staminaBar;
         FocusPointBar focusPointsBar;
         PlayerAnimatorManager playerAnimatorManager;
@@ -74,12 +74,12 @@ namespace KA
             return maxFocusPoints;
         }
 
-        public override void TakeDamage(int damage, string damageAnimation = "Damage_01")
+        public override void TakeDamage(int physicalDamage, int fireDamage, string damageAnimation = "Damage_01")
         {
             if (playerManager.isInvulnerable)
                 return;
 
-            base.TakeDamage(damage, damageAnimation = "Damage01");
+            base.TakeDamage(physicalDamage, fireDamage, damageAnimation = "Damage_01");
             healthBar.SetCurrentHealth(currentHealth);
             playerAnimatorManager.PlayTargetAnimation(damageAnimation, true);
 
@@ -91,9 +91,9 @@ namespace KA
             }
         }
 
-        public override void TakeDamageNoAnimation(int damage)
+        public override void TakeDamageNoAnimation(int physicalDamage, int fireDamage)
         {
-            base.TakeDamageNoAnimation(damage);
+            base.TakeDamageNoAnimation(physicalDamage, fireDamage);
             healthBar.SetCurrentHealth(currentHealth);
         }
 

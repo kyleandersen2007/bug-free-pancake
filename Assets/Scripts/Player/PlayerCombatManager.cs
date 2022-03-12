@@ -15,6 +15,18 @@ namespace KA
         WeaponSlotManager weaponSlotManager;
         PlayerEffectsManager playerEffectsManager;
 
+        [Header("Attack Animations")]
+        public string oh_light_attack_1;
+        public string oh_light_attack_2;
+        public string oh_heavy_attack_1;
+        public string oh_heavy_attack_2;
+        public string th_light_attack_1;
+        public string th_light_attack_2;
+        public string th_heavy_attack_1;
+        public string th_heavy_attack_2;
+
+        public string weaponArt;
+
         public string lastAttack;
 
         public LayerMask backStabLayer;
@@ -41,22 +53,22 @@ namespace KA
             {
                 animatorHandler.anim.SetBool("canDoCombo", false);
 
-                if (lastAttack == weapon.OH_Light_Attack_1)
+                if (lastAttack == oh_light_attack_1)
                 {
-                    animatorHandler.PlayTargetAnimation(weapon.OH_Light_Attack_2, true);
+                    animatorHandler.PlayTargetAnimation(oh_light_attack_2, true);
                 }
-                else if (lastAttack == weapon.TH_Light_Attack_1)
+                else if (lastAttack == th_light_attack_1)
                 {
-                    animatorHandler.PlayTargetAnimation(weapon.TH_Light_Attack_2, true);
+                    animatorHandler.PlayTargetAnimation(th_light_attack_2, true);
                 }
 
-                if(lastAttack == weapon.OH_Heavy_Attack_1)
+                if (lastAttack == oh_heavy_attack_1)
                 {
-                    animatorHandler.PlayTargetAnimation(weapon.OH_Heavy_Attack_2, true);
+                    animatorHandler.PlayTargetAnimation(oh_heavy_attack_2, true);
                 }
-                else if(lastAttack == weapon.TH_Heavy_Attack_1)
+                else if (lastAttack == th_heavy_attack_1)
                 {
-                    animatorHandler.PlayTargetAnimation(weapon.TH_Heavy_Attack_2, true);
+                    animatorHandler.PlayTargetAnimation(th_heavy_attack_2, true);
                 }
             }
         }
@@ -70,13 +82,13 @@ namespace KA
 
             if (inputHandler.twoHandFlag)
             {
-                animatorHandler.PlayTargetAnimation(weapon.TH_Light_Attack_1, true);
-                lastAttack = weapon.TH_Light_Attack_1;
+                animatorHandler.PlayTargetAnimation(th_light_attack_1, true);
+                lastAttack = th_light_attack_2;
             }
             else
             {
-                animatorHandler.PlayTargetAnimation(weapon.OH_Light_Attack_1, true);
-                lastAttack = weapon.OH_Light_Attack_1;
+                animatorHandler.PlayTargetAnimation(oh_light_attack_1, true);
+                lastAttack = oh_light_attack_1;
             }
         }
 
@@ -89,23 +101,23 @@ namespace KA
 
             if (inputHandler.twoHandFlag)
             {
-                animatorHandler.PlayTargetAnimation(weapon.TH_Heavy_Attack_1, true);
-                lastAttack = weapon.TH_Heavy_Attack_1;
+                animatorHandler.PlayTargetAnimation(th_heavy_attack_1, true);
+                lastAttack = th_heavy_attack_1;
             }
             else
             {
-                animatorHandler.PlayTargetAnimation(weapon.OH_Heavy_Attack_1, true);
-                lastAttack = weapon.OH_Heavy_Attack_1;
+                animatorHandler.PlayTargetAnimation(oh_heavy_attack_1, true);
+                lastAttack = oh_heavy_attack_1;
             }
         }
 
         public void HandleRBAction()
         {
-            if(playerInventory.rightWeapon.isMeleeWeapon)
+            if (playerInventory.rightWeapon.weaponType == WeaponType.StraightSword || playerInventory.rightWeapon.weaponType == WeaponType.Unarmed)
             {
                 PerformRBMeleeAction();
             }
-            else if(playerInventory.rightWeapon.isSpellCaster || playerInventory.rightWeapon.isFaithCaster || playerInventory.rightWeapon.isPyroCaster)
+            else if(playerInventory.rightWeapon.weaponType == WeaponType.SpellCaster || playerInventory.rightWeapon.weaponType == WeaponType.FaithCaster || playerInventory.rightWeapon.weaponType == WeaponType.PyroCaster)
             {
                 PerformRBMagicAction(playerInventory.rightWeapon);
             }
@@ -113,11 +125,11 @@ namespace KA
 
         public void HandleLTAction()
         {
-            if(playerInventory.leftWeapon.isShieldWeapon)
+            if(playerInventory.leftWeapon.weaponType == WeaponType.Shield || playerInventory.rightWeapon.weaponType == WeaponType.Unarmed)
             {
                 PerformLTWeaponArt(inputHandler.twoHandFlag);
             }
-            else if(playerInventory.leftWeapon.isMeleeWeapon)
+            else if(playerInventory.leftWeapon.weaponType == WeaponType.StraightSword)
             {
                 //Do Left Melee
             }
@@ -155,7 +167,7 @@ namespace KA
         {
             if (playerManager.isInteracting)
                 return;
-            if(weapon.isFaithCaster)
+            if(weapon.weaponType == WeaponType.FaithCaster)
             {
                 if (playerInventory.currentSpell != null && playerInventory.currentSpell.isFaithSpell)
                 {
@@ -169,7 +181,7 @@ namespace KA
                     }
                 }
             }
-            else if (weapon.isPyroCaster)
+            else if (weapon.weaponType == WeaponType.PyroCaster)
             {
                 if (playerInventory.currentSpell != null && playerInventory.currentSpell.isPyroSpell)
                 {
@@ -196,7 +208,7 @@ namespace KA
             }
             else
             {
-                animatorHandler.PlayTargetAnimation(playerInventory.leftWeapon.weapon_Art, true);
+                animatorHandler.PlayTargetAnimation(weaponArt, true);
             }
 
         }
@@ -241,7 +253,7 @@ namespace KA
                     Quaternion targetRotation = Quaternion.Slerp(playerManager.transform.rotation, tr, 500 * Time.deltaTime);
                     playerManager.transform.rotation = targetRotation;
 
-                    int criticalDamage = playerInventory.rightWeapon.criticalDamageMultiplier * rightWeapon.currentWeaponDamage;
+                    int criticalDamage = playerInventory.rightWeapon.criticalDamageMultiplier * rightWeapon.physicalDamage;
                     enemyCharacterManager.pendingCriticalDamage = criticalDamage;
 
                     animatorHandler.PlayTargetAnimation("Backstab", true);
@@ -265,7 +277,7 @@ namespace KA
                     Quaternion targetRotation = Quaternion.Slerp(playerManager.transform.rotation, tr, 500 * Time.deltaTime);
                     playerManager.transform.rotation = targetRotation;
 
-                    int criticalDamage = playerInventory.rightWeapon.criticalDamageMultiplier * rightWeapon.currentWeaponDamage;
+                    int criticalDamage = playerInventory.rightWeapon.criticalDamageMultiplier * rightWeapon.physicalDamage;
                     enemyCharacterManager.pendingCriticalDamage = criticalDamage;
 
                     animatorHandler.PlayTargetAnimation("Riposte", true);

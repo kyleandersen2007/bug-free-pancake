@@ -75,12 +75,18 @@ namespace KA
                 leftHandDamageCollider = leftHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
                 leftHandDamageCollider.characterManager = GetComponentInParent<CharacterManager>();
                 enemyEffectsManager.leftWeaponFX = leftHandSlot.currentWeaponModel.GetComponentInChildren<WeaponFX>();
+                leftHandDamageCollider.physicalDamage = leftHandWeapon.physicalDamage;
+                leftHandDamageCollider.fireDamage = leftHandWeapon.fireDamage;
+                leftHandDamageCollider.teamIDNumber = enemyStats.teamIDNumber;
             }
             else
             {
                 rightHandDamageCollider = rightHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
                 rightHandDamageCollider.characterManager = GetComponentInParent<CharacterManager>();
                 enemyEffectsManager.rightWeaponFX = rightHandSlot.currentWeaponModel.GetComponentInChildren<WeaponFX>();
+                rightHandDamageCollider.physicalDamage = rightHandWeapon.physicalDamage;
+                rightHandDamageCollider.fireDamage = rightHandWeapon.fireDamage;
+                rightHandDamageCollider.teamIDNumber = enemyStats.teamIDNumber;
             }
         }
 

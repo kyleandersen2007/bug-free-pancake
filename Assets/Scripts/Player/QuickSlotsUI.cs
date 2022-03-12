@@ -8,6 +8,8 @@ namespace KA
     {
         public Image rightWeaponIcon;
         public Image leftWeaponIcon;
+        public Image currentConsumableIcon;
+        public Image currentSpellIcon;
 
         public void UpdateWeaponQuickSlotsUI(bool isLeft, WeaponItem weapon)
         {
@@ -39,5 +41,32 @@ namespace KA
             }
         }
 
+        public void UpdateCurrentSpellIcon(SpellItem spell)
+        {
+            if(spell.itemIcon != null)
+            {
+                currentSpellIcon.sprite = spell.itemIcon;
+                currentSpellIcon.enabled = true;
+            }
+            else
+            {
+                currentSpellIcon.sprite = null;
+                currentSpellIcon.enabled = false;
+            }
+        }
+
+        public void UpdateCurrentConsumableIcon(ConsumableItem consumableItem)
+        {
+            if (consumableItem.itemIcon != null)
+            {
+                currentConsumableIcon.sprite = consumableItem.itemIcon;
+                currentConsumableIcon.enabled = true;
+            }
+            else
+            {
+                currentConsumableIcon.sprite = null;
+                currentConsumableIcon.enabled = false;
+            }
+        }
     }
 }

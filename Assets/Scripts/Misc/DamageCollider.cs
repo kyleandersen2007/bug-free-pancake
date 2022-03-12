@@ -8,16 +8,21 @@ namespace KA
     {
         public CharacterManager characterManager;
 
-        Collider damageCollider;
+        protected Collider damageCollider;
+
+        [Header("Team ID")]
+        public int teamIDNumber = 0;
 
         [Header("Poise")]
         public float poiseBreak;
         public float offensivePoiseDefence;
 
         [Header("Damage")]
-        public int currentWeaponDamage = 30;
+        public int physicalDamage = 30;
+        public int fireDamage;
+        public int magicDamage;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             damageCollider = GetComponent<Collider>();
             damageCollider.gameObject.SetActive(true);
@@ -40,81 +45,55 @@ namespace KA
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.tag == "Player")
+            if(other.tag == "Character")
             {
-                PlayerStats playerStats = other.GetComponent<PlayerStats>();
-                CharacterManager playerCharacterManager = other.GetComponent<CharacterManager>();
-                CharacterEffectsManager playerEffectsManager = other.GetComponent<CharacterEffectsManager>();
+                CharacterStatsManager enemyStats = other.GetComponent<CharacterStatsManager>();
+                CharacterManager enemyCharacterManager = other.GetComponent<CharacterManager>();
+                CharacterEffectsManager enemyEffectsManager = other.GetComponent<CharacterEffectsManager>();
                 BlockingCollider shield = other.transform.GetComponentInChildren<BlockingCollider>();
 
-                if(playerCharacterManager != null)
+                if(enemyCharacterManager != null)
                 {
-                    if(playerCharacterManager.isParrying)
+                    if (enemyStats.teamIDNumber == teamIDNumber)
+                        return;
+
+                    if(enemyCharacterManager.isParrying)
                     {
                         characterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Parried", true);
                         return;
                     }
-                    else if(shield != null && playerCharacterManager.isBlocking)
+                    else if(shield != null && enemyCharacterManager.isBlocking)
                     {
-                        float physicalDamageAfterBlock = currentWeaponDamage - (currentWeaponDamage * shield.blockingPhysicalDamageAbsorption) / 100;
+                        float physicalDamageAfterBlock = physicalDamage - (physicalDamage * shield.blockingPhysicalDamageAbsorption) / 100;
+                        float fireDamageAfterBlock = fireDamage - (fireDamage * shield.blockingFireDamageAbsorption) / 100;
 
-                        if(playerStats != null)
+                        if(enemyStats != null)
                         {
-                            playerStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), "Block Guard");
+                            enemyStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), 0, "Block Guard");
                             return;
                         }
                     }
                 }
 
-                if(playerStats != null)
+                if(enemyStats != null)
                 {
-                    playerStats.poiseResetTimer = playerStats.totalPoiseResetTime;
-                    playerStats.totalPoiseResetTime = playerStats.totalPoiseDefence - poiseBreak;
-                    Debug.Log("Player's Poise is Currently " + playerStats.totalPoiseDefence);
-
-                    Vector3 contactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
-                    playerEffectsManager.PlayBloodSplatterFX(contactPoint);
-
-                    if (playerStats.totalPoiseDefence > poiseBreak)
-                    {
-                        playerStats.TakeDamageNoAnimation(currentWeaponDamage);
-                    }
-                    else
-                    {
-                        playerStats.TakeDamage(currentWeaponDamage);
-                    }
-                }
-            }
-
-            if(other.tag == "Enemy")
-            {
-                EnemyStats enemyStats = other.GetComponent<EnemyStats>();
-                CharacterManager enemyCharacterManager = other.GetComponent<CharacterManager>();
-                CharacterEffectsManager enemyEffectsManager = other.GetComponent<CharacterEffectsManager>();
-
-                if (enemyCharacterManager != null)
-                {
-                    if (enemyCharacterManager.isParrying)
-                    {
-                        characterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Parried", true);
+                    if (enemyStats.teamIDNumber == teamIDNumber)
                         return;
-                    }
-                }
 
-                if (enemyStats != null)
-                {
                     enemyStats.poiseResetTimer = enemyStats.totalPoiseResetTime;
                     enemyStats.totalPoiseResetTime = enemyStats.totalPoiseDefence - poiseBreak;
+                    Debug.Log("Player's Poise is Currently " + enemyStats.totalPoiseDefence);
+
                     Vector3 contactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
                     enemyEffectsManager.PlayBloodSplatterFX(contactPoint);
 
                     if (enemyStats.totalPoiseDefence > poiseBreak)
                     {
-                        enemyStats.TakeDamageNoAnimation(currentWeaponDamage);
+                        enemyStats.TakeDamageNoAnimation(physicalDamage, fireDamage);
                     }
                     else
                     {
-                        enemyStats.TakeDamage(currentWeaponDamage);
+                        enemyStats.TakeDamage(physicalDamage, 0);
                     }
                 }
             }

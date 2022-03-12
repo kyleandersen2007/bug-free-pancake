@@ -206,13 +206,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1486839669875213351}
-  m_LocalRotation: {x: -0.812277, y: -0.04233774, z: -0.5782731, w: -0.06335393}
-  m_LocalPosition: {x: 0.188, y: 0.083, z: 0.2}
+  m_LocalRotation: {x: 0.9964039, y: 0.08351988, z: 0.006093725, w: -0.012905129}
+  m_LocalPosition: {x: 0.305, y: 0.105, z: 0.021}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7535949413677269857}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 3.093, y: 108.883, z: -188.179}
+  m_LocalEulerAnglesHint: {x: -1.532, y: -180.572, z: -189.575}
 --- !u!114 &5810134581994546833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,6 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockingCollider: {fileID: 0}
   blockingPhysicalDamageAbsorption: 0
+  blockingFireDamageAbsorption: 0
 --- !u!1 &7530019366976766293
 GameObject:
   m_ObjectHideFlags: 0
@@ -9793,7 +9794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7533255917021741159
 Transform:
   m_ObjectHideFlags: 0
@@ -52251,7 +52252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7532867673741493381
 Transform:
   m_ObjectHideFlags: 0
@@ -54763,7 +54764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7532893398723290847
 Transform:
   m_ObjectHideFlags: 0
@@ -68204,7 +68205,7 @@ GameObject:
   - component: {fileID: 725445529270018716}
   m_Layer: 12
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68312,10 +68313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d26eafcb4f2dee4aaa221a579c62ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSpell: {fileID: 11400000, guid: 21d7451f4d8b4fc48ab9eeb5bcac6310, type: 2}
+  currentSpell: {fileID: 11400000, guid: 9eedd7ae57d29d34e96e2ac47ec6b00d, type: 2}
   rightWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
   leftWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
-  currentConsumbale: {fileID: 11400000, guid: d83fe55f018682a458e2be97ff964a29, type: 2}
+  currentConsumbale: {fileID: 11400000, guid: f32b64e28bd73d74e9f7ede9a5976453, type: 2}
   currentHelmetEquipment: {fileID: 0}
   currentTorsoEquipment: {fileID: 0}
   currentLegEquipment: {fileID: 0}
@@ -68349,6 +68350,7 @@ MonoBehaviour:
   isParrying: 0
   canBeParried: 0
   isBlocking: 0
+  isTwoHandingWeapon: 0
   isRotatingWithRootMotion: 0
   canRotate: 0
   interactableUIGameObject: {fileID: 0}
@@ -68373,6 +68375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293ab1a1e84cd4c47975d2853391504e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teamIDNumber: 1
   healthLevel: 10
   maxHealth: 10
   currentHealth: 0
@@ -68393,7 +68396,12 @@ MonoBehaviour:
   physicalDamageAbsorptionBody: 0
   physicalDamageAbsorptionLegs: 0
   physicalDamageAbsorptionHands: 0
+  flameDamageAbsorptionHead: 0
+  flameDamageAbsorptionBody: 0
+  flameDamageAbsorptionLegs: 0
+  flameDamageAbsorptionHands: 0
   isDead: 0
+  healthBar: {fileID: 0}
   staminaRegenerationAmount: 30
   staminaRegenTimer: 0
 --- !u!114 &474233326009355866
@@ -68452,6 +68460,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b523b757c1ce1874788577cf60149786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oh_light_attack_1: 
+  oh_light_attack_2: 
+  oh_heavy_attack_1: 
+  oh_heavy_attack_2: 
+  th_light_attack_1: 
+  th_light_attack_2: 
+  th_heavy_attack_1: 
+  th_heavy_attack_2: 
+  weaponArt: 
   lastAttack: 
   backStabLayer:
     serializedVersion: 2

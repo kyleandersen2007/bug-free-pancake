@@ -9,6 +9,7 @@ namespace KA
         public BoxCollider blockingCollider;
 
         public float blockingPhysicalDamageAbsorption;
+        public float blockingFireDamageAbsorption;
 
         private void Awake()
         {

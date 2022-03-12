@@ -6,6 +6,9 @@ namespace KA
 {
     public class CharacterStatsManager : MonoBehaviour
     {
+        [Header("Team ID")]
+        public int teamIDNumber = 0;
+
         public int healthLevel = 10;
         public int maxHealth;
         public int currentHealth;
@@ -34,6 +37,11 @@ namespace KA
         public float physicalDamageAbsorptionLegs;
         public float physicalDamageAbsorptionHands;
 
+        public float flameDamageAbsorptionHead;
+        public float flameDamageAbsorptionBody;
+        public float flameDamageAbsorptionLegs;
+        public float flameDamageAbsorptionHands;
+
         //Fire Absorption
         //Lightning Absorption
         //Magic Absorption
@@ -51,7 +59,7 @@ namespace KA
             totalPoiseDefence = armorPoiseBonus;
         }
 
-        public virtual void TakeDamage(int physicalDamage, string damageAnimation = "Damage_01")
+        public virtual void TakeDamage(int physicalDamage, int fireDamage, string damageAnimation = "Damage_01")
         {
             if (isDead)
                 return;
@@ -64,7 +72,15 @@ namespace KA
 
             physicalDamage = Mathf.RoundToInt(physicalDamage - (physicalDamage * totalPhysicalDamageAbsorption));
 
-            float finalDamage = physicalDamage; //+ fireDamage + magicDamage + lightningDamage + darkDamage
+            float totalFireDamageAbsorption = 1 -
+                (1 - flameDamageAbsorptionHead / 100) *
+                (1 - flameDamageAbsorptionBody / 100) *
+                (1 - flameDamageAbsorptionLegs / 100) *
+                (1 - flameDamageAbsorptionHands / 100);
+
+            fireDamage = Mathf.RoundToInt(fireDamage - (fireDamage * totalFireDamageAbsorption));
+
+            float finalDamage = physicalDamage + fireDamage; //+ magicDamage + lightningDamage + darkDamage
 
             currentHealth = Mathf.RoundToInt(currentHealth - finalDamage);
 
@@ -76,9 +92,30 @@ namespace KA
 
         }
 
-        public virtual void TakeDamageNoAnimation(int damage)
+        public virtual void TakeDamageNoAnimation(int physicalDamage, int fireDamage)
         {
-            currentHealth = currentHealth - damage;
+            if (isDead)
+                return;
+
+            float totalPhysicalDamageAbsorption = 1 -
+                (1 - physicalDamageAbsorptionHead / 100) *
+                (1 - physicalDamageAbsorptionBody / 100) *
+                (1 - physicalDamageAbsorptionLegs / 100) *
+                (1 - physicalDamageAbsorptionHands / 100);
+
+            physicalDamage = Mathf.RoundToInt(physicalDamage - (physicalDamage * totalPhysicalDamageAbsorption));
+
+            float totalFireDamageAbsorption = 1 -
+                (1 - flameDamageAbsorptionHead / 100) *
+                (1 - flameDamageAbsorptionBody / 100) *
+                (1 - flameDamageAbsorptionLegs / 100) *
+                (1 - flameDamageAbsorptionHands / 100);
+
+            fireDamage = Mathf.RoundToInt(fireDamage - (fireDamage * totalFireDamageAbsorption));
+
+            float finalDamage = physicalDamage + fireDamage; //+ magicDamage + lightningDamage + darkDamage
+
+            currentHealth = Mathf.RoundToInt(currentHealth - finalDamage);
 
             if (currentHealth <= 0)
             {

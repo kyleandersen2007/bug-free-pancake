@@ -18,6 +18,7 @@ namespace KA
         public bool isParrying;
         public bool canBeParried;
         public bool isBlocking;
+        public bool isTwoHandingWeapon;
 
         public bool isRotatingWithRootMotion;
         public bool canRotate;

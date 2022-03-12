@@ -19,15 +19,16 @@ namespace KA
 
                 if (characterStats != null)
                 {
-                    //CHECK FOR TEAM ID
-
-                    Vector3 targetDirection = characterStats.transform.position - transform.position;
-                    float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
-
-                    if (viewableAngle > enemyManager.minimumDetectionAngle && viewableAngle < enemyManager.maximumDetectionAngle)
+                    if (characterStats.teamIDNumber != enemyStats.teamIDNumber)
                     {
-                        if(!enemyStats.isDead)
-                          enemyManager.currentTarget = characterStats;
+                        Vector3 targetDirection = characterStats.transform.position - transform.position;
+                        float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
+
+                        if (viewableAngle > enemyManager.minimumDetectionAngle && viewableAngle < enemyManager.maximumDetectionAngle)
+                        {
+                            if (!enemyStats.isDead)
+                                enemyManager.currentTarget = characterStats;
+                        }
                     }
                 }
             }
@@ -43,7 +44,6 @@ namespace KA
                 return this;
             }
             #endregion
-
         }
     }
 }

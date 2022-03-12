@@ -27,9 +27,9 @@ namespace KA
             return maxHealth;
         }
 
-        public override void TakeDamageNoAnimation(int damage)
+        public override void TakeDamageNoAnimation(int physicalDamage, int fireDamage)
         {
-            base.TakeDamageNoAnimation(damage);
+            base.TakeDamageNoAnimation(physicalDamage, fireDamage);
 
             enemyHealthBar.SetHealth(currentHealth);
         }
@@ -39,9 +39,9 @@ namespace KA
             enemyAnimatorHandler.PlayTargetAnimation("Break Guard", true);
         }
 
-        public override void TakeDamage(int physicalDamage, string damageAnimation = "Damage02")
+        public override void TakeDamage(int physicalDamage, int fireDamage, string damageAnimation = "Damage_02")
         {
-            base.TakeDamage(physicalDamage, damageAnimation);
+            base.TakeDamage(physicalDamage, fireDamage, damageAnimation);
             enemyHealthBar.SetHealth(currentHealth);
             enemyAnimatorHandler.PlayTargetAnimation(damageAnimation, true);
 

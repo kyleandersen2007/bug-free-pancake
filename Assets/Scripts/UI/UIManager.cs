@@ -6,9 +6,9 @@ namespace KA
 {
     public class UIManager : MonoBehaviour
     {
-        [Header("Classes")]
         public PlayerInventory playerInventory;
         public EquipmentWindowUI equipmentWindowUI;
+        private QuickSlotsUI quickSlotsUI;
 
         [Header("UI Windows")]
         public GameObject hudWindow;
@@ -30,12 +30,15 @@ namespace KA
         private void Awake()
         {
             playerInventory = FindObjectOfType<PlayerInventory>();
+            quickSlotsUI = GetComponentInChildren<QuickSlotsUI>();
         }
 
         private void Start()
         {
             weaponInventorySlots = weaponInventorySlotsParent.GetComponentsInChildren<WeaponInventorySlot>();
             equipmentWindowUI.LoadWeaponOnEquipmentScreen(playerInventory);
+            quickSlotsUI.UpdateCurrentSpellIcon(playerInventory.currentSpell);
+            quickSlotsUI.UpdateCurrentConsumableIcon(playerInventory.currentConsumbale);
         }
 
         public void UpdateUI()

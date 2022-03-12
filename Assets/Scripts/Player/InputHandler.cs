@@ -296,11 +296,13 @@ namespace KA
                 if(twoHandFlag)
                 {
                     weaponSlotManager.LoadWeaponOnSlot(playerInventory.rightWeapon, false);
+                    playerManager.isTwoHandingWeapon = true;
                 }
                 else
                 {
                     weaponSlotManager.LoadWeaponOnSlot(playerInventory.rightWeapon, false);
                     weaponSlotManager.LoadWeaponOnSlot(playerInventory.leftWeapon, true);
+                    playerManager.isTwoHandingWeapon = false;
                 }
             }
         }

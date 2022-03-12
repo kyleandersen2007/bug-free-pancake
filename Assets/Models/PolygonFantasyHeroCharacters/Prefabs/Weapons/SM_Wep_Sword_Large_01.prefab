@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4624764295001496}
   - component: {fileID: 33150032909788910}
   - component: {fileID: 23450659704716916}
+  - component: {fileID: 8201041722786643549}
+  - component: {fileID: 4015991590036640}
   m_Layer: 0
   m_Name: SM_Wep_Sword_Large_01
   m_TagString: Untagged
@@ -81,3 +83,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8201041722786643549
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440115863494796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.054980524, y: 1.6589355, z: 0.18769541}
+  m_Center: {x: 0.00001678765, y: 0.5937592, z: 0.009623525}
+--- !u!114 &4015991590036640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440115863494796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff936f6c73be684fb25a8ea664f9410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterManager: {fileID: 0}
+  teamIDNumber: 0
+  poiseBreak: 0
+  offensivePoiseDefence: 0
+  physicalDamage: 50
+  fireDamage: 0
+  magicDamage: 0

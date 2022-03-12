@@ -50,6 +50,7 @@ namespace KA
             anim.SetBool("isInAir", isInAir);
             anim.SetBool("isBlocking", isBlocking);
             anim.SetBool("isDead", playerStats.isDead);
+            anim.SetBool("isTwoHandingWeapon", isTwoHandingWeapon);
 
             inputHandler.TickInput(delta);
             animatorHandler.canRotate = anim.GetBool("canRotate");
