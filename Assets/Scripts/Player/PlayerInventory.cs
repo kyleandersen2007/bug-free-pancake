@@ -4,40 +4,10 @@ using UnityEngine;
 
 namespace KA
 {
-    public class PlayerInventory : MonoBehaviour
+    public class PlayerInventory : CharacterInventoryManager
     {
-        WeaponSlotManager weaponSlotManager;
-        [Header("Quick Slot Items")]
-        public SpellItem currentSpell;
-        public WeaponItem rightWeapon;
-        public WeaponItem leftWeapon;
-        public ConsumableItem currentConsumbale;
-
-        [Header("Current Equipment")]
-        public HelmetEquipment currentHelmetEquipment;
-        public TorsoEquipment currentTorsoEquipment;
-        public LegEquipment currentLegEquipment;
-        public HandEquipment currentHandEquipment;
-
-        public WeaponItem[] weaponsInRightHandSlots = new WeaponItem[1];
-        public WeaponItem[] weaponsInLeftHandSlots = new WeaponItem[1];
-
-        public int currentRightWeaponIndex = -1;
-        public int currentLeftWeaponIndex = -1;
-
         public List<WeaponItem> weaponInventory;
 
-        private void Awake()
-        {
-            weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
-        }
-        private void Start()
-        {
-            rightWeapon = weaponsInRightHandSlots[0];
-            leftWeapon = weaponsInLeftHandSlots[0];
-            weaponSlotManager.LoadWeaponOnSlot(rightWeapon, false);
-            weaponSlotManager.LoadWeaponOnSlot(leftWeapon, true);
-        }
         #region Handle Change Weapon
         public void ChangeRightWeapon()
         {
@@ -46,7 +16,7 @@ namespace KA
             if(currentRightWeaponIndex == 0 && weaponsInRightHandSlots[0] != null)
             {
                 rightWeapon = weaponsInRightHandSlots[currentRightWeaponIndex];
-                weaponSlotManager.LoadWeaponOnSlot(weaponsInRightHandSlots[currentRightWeaponIndex], false);
+                characterWeaponSlotManager.LoadWeaponOnSlot(weaponsInRightHandSlots[currentRightWeaponIndex], false);
             }
             else if(currentRightWeaponIndex == 0 && weaponsInRightHandSlots[0] == null)
             {
@@ -55,7 +25,7 @@ namespace KA
             else if(currentRightWeaponIndex == 1 && weaponsInRightHandSlots[1] != null)
             {
                 rightWeapon = weaponsInRightHandSlots[currentRightWeaponIndex];
-                weaponSlotManager.LoadWeaponOnSlot(weaponsInRightHandSlots[currentRightWeaponIndex], false);
+                characterWeaponSlotManager.LoadWeaponOnSlot(weaponsInRightHandSlots[currentRightWeaponIndex], false);
             }
             else if(currentRightWeaponIndex == 1 && weaponsInRightHandSlots[1] == null)
             {
@@ -65,8 +35,8 @@ namespace KA
             if(currentRightWeaponIndex > weaponsInRightHandSlots.Length - 1)
             {
                 currentRightWeaponIndex = -1;
-                rightWeapon = weaponSlotManager.unarmedWeapon;
-                weaponSlotManager.LoadWeaponOnSlot(weaponSlotManager.unarmedWeapon, false);
+                rightWeapon = characterWeaponSlotManager.unarmedWeapon;
+                characterWeaponSlotManager.LoadWeaponOnSlot(characterWeaponSlotManager.unarmedWeapon, false);
             }
         }
 
@@ -77,7 +47,7 @@ namespace KA
             if (currentLeftWeaponIndex == 0 && weaponsInLeftHandSlots[0] != null)
             {
                 leftWeapon = weaponsInLeftHandSlots[currentLeftWeaponIndex];
-                weaponSlotManager.LoadWeaponOnSlot(weaponsInLeftHandSlots[currentLeftWeaponIndex], true);
+                characterWeaponSlotManager.LoadWeaponOnSlot(weaponsInLeftHandSlots[currentLeftWeaponIndex], true);
             }
             else if (currentLeftWeaponIndex == 0 && weaponsInLeftHandSlots[0] == null)
             {
@@ -86,7 +56,7 @@ namespace KA
             else if (currentLeftWeaponIndex == 1 && weaponsInLeftHandSlots[1] != null)
             {
                 leftWeapon = weaponsInLeftHandSlots[currentLeftWeaponIndex];
-                weaponSlotManager.LoadWeaponOnSlot(weaponsInLeftHandSlots[currentLeftWeaponIndex], true);
+                characterWeaponSlotManager.LoadWeaponOnSlot(weaponsInLeftHandSlots[currentLeftWeaponIndex], true);
             }
             else if(currentLeftWeaponIndex == 1 && weaponsInLeftHandSlots[1] == null)
             {
@@ -96,8 +66,8 @@ namespace KA
             if (currentLeftWeaponIndex > weaponsInLeftHandSlots.Length - 1)
             {
                 currentLeftWeaponIndex = -1;
-                leftWeapon = weaponSlotManager.unarmedWeapon;
-                weaponSlotManager.LoadWeaponOnSlot(weaponSlotManager.unarmedWeapon, true);
+                leftWeapon = characterWeaponSlotManager.unarmedWeapon;
+                characterWeaponSlotManager.LoadWeaponOnSlot(characterWeaponSlotManager.unarmedWeapon, true);
             }
         }
         #endregion

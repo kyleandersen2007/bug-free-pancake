@@ -6,6 +6,8 @@ namespace KA
 {
     public class CharacterStatsManager : MonoBehaviour
     {
+        AnimatorManager animatorManager;
+        
         [Header("Team ID")]
         public int teamIDNumber = 0;
 
@@ -49,6 +51,11 @@ namespace KA
 
         public bool isDead;
 
+        protected virtual void Awake()
+        {
+            animatorManager = GetComponent<AnimatorManager>();
+        }
+
         protected virtual void Update()
         {
             HandlePoiseResetTimer();
@@ -63,6 +70,8 @@ namespace KA
         {
             if (isDead)
                 return;
+
+            animatorManager.EraseHandIKForWeapon();
 
             float totalPhysicalDamageAbsorption = 1 -
                 (1 - physicalDamageAbsorptionHead / 100) *

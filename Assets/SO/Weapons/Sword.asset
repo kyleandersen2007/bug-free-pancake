@@ -18,6 +18,7 @@ MonoBehaviour:
   isUnarmed: 0
   weaponController: {fileID: 22100000, guid: 4e063763b02c98a4b91be368312c5eed, type: 2}
   offHandIdleAnimation: Left_Arm_Idle_01
+  heavyWeaponAttackMultiplier: 2
   physicalDamage: 30
   fireDamage: 0
   criticalDamageMultiplier: 4
@@ -26,5 +27,5 @@ MonoBehaviour:
   offensivePoiseBonus: 25
   baseStamina: 10
   lightAttackMultiplier: 1
-  heavyAttackMultiplier: 2
+  heavyAttackStaminaMultiplier: 2
   physicalDamageAbsorption: 0

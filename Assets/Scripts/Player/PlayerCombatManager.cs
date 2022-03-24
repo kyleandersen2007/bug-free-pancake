@@ -83,7 +83,7 @@ namespace KA
             if (inputHandler.twoHandFlag)
             {
                 animatorHandler.PlayTargetAnimation(th_light_attack_1, true);
-                lastAttack = th_light_attack_2;
+                lastAttack = th_light_attack_1;
             }
             else
             {
@@ -123,6 +123,14 @@ namespace KA
             }
         }
 
+        public void HandleRTAction()
+        {
+            if (playerInventory.rightWeapon.weaponType == WeaponType.StraightSword || playerInventory.rightWeapon.weaponType == WeaponType.Unarmed)
+            {
+                PerformRTMeleeAction();
+            }
+        }
+
         public void HandleLTAction()
         {
             if(playerInventory.leftWeapon.weaponType == WeaponType.Shield || playerInventory.rightWeapon.weaponType == WeaponType.Unarmed)
@@ -137,7 +145,7 @@ namespace KA
 
         public void HandleLBAction()
         {
-            PerformLBBlockingAction();
+            PerformLBBlockingAction(playerInventory.leftWeapon);
         }
 
         private void PerformRBMeleeAction()
@@ -158,6 +166,29 @@ namespace KA
 
                 animatorHandler.anim.SetBool("isUsingRightHand", true);
                 HandleLightAttack(playerInventory.rightWeapon);
+            }
+
+            playerEffectsManager.PlayWeaponFX(false);
+        }
+
+        private void PerformRTMeleeAction()
+        {
+            if (playerManager.canDoCombo)
+            {
+                inputHandler.comboFlag = true;
+                HandleWeaponCombo(playerInventory.rightWeapon);
+                inputHandler.comboFlag = false;
+            }
+            else
+            {
+                if (playerManager.isInteracting)
+                    return;
+
+                if (playerManager.canDoCombo)
+                    return;
+
+                animatorHandler.anim.SetBool("isUsingRightHand", true);
+                HandleHeavyAttack(playerInventory.rightWeapon);
             }
 
             playerEffectsManager.PlayWeaponFX(false);
@@ -213,15 +244,18 @@ namespace KA
 
         }
 
-        private void PerformLBBlockingAction()
+        private void PerformLBBlockingAction(WeaponItem weapon)
         {
             if (playerManager.isInteracting)
                 return;
             if (playerManager.isBlocking)
                 return;
-            animatorHandler.PlayTargetAnimation("Block Start", false, true);
-            playerEquipmentManager.OpenBlockingCollider();
-            playerManager.isBlocking = true;
+            if(weapon.weaponType == WeaponType.Shield)
+            {
+                animatorHandler.PlayTargetAnimation("Block Start", false, true);
+                playerEquipmentManager.OpenBlockingCollider();
+                playerManager.isBlocking = true;
+            }
         }
 
         private void SuccessfullyCastSpell()

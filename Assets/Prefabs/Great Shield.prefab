@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85121407085821339}
-  m_LocalRotation: {x: -0.6034441, y: 0.39454398, z: -0.47189695, w: -0.507448}
-  m_LocalPosition: {x: -0.208, y: -0.033, z: 0.02}
+  m_LocalRotation: {x: -0.20035851, y: 0.6969031, z: -0.65711695, w: 0.20586367}
+  m_LocalPosition: {x: -0.113, y: -0.039, z: -0.006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2358096190155841263}
   m_Father: {fileID: 2095802967657995976}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 79.998, y: 103.186, z: -180.909}
+  m_LocalEulerAnglesHint: {x: 56.45, y: 95.361, z: -84.173}
 --- !u!1 &1124779933736778268
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,9 +158,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterManager: {fileID: 0}
+  teamIDNumber: 0
   poiseBreak: 0
   offensivePoiseDefence: 0
-  currentWeaponDamage: 0
+  physicalDamage: 30
+  fireDamage: 0
+  magicDamage: 0
 --- !u!65 &3570033942246279409
 BoxCollider:
   m_ObjectHideFlags: 0

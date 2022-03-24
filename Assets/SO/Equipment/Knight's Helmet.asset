@@ -15,4 +15,4 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: Knight's Helmet
   physicalDefense: 10
-  helmetModelName: Helmet04
+  helmetModelName: Helmet05

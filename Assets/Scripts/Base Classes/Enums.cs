@@ -12,6 +12,7 @@ namespace KA
         PyroCaster,
         Unarmed,
         SpellCaster,
+        Bow
     }
     public class Enums : MonoBehaviour
     {

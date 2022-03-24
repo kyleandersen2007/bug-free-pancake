@@ -164,6 +164,11 @@ namespace KA
                 playerAttacker.HandleRBAction();
             }
 
+            if(rt_Input)
+            {
+                playerAttacker.HandleRTAction();
+            }
+
             if(lb_Input)
             {
                 playerAttacker.HandleLBAction();
@@ -187,26 +192,6 @@ namespace KA
                 else
                 {
                     playerAttacker.HandleLTAction();
-                }
-            }
-
-            if(rt_Input)
-            {
-                if (playerManager.canDoCombo)
-                {
-                    comboFlag = true;
-                    playerAttacker.HandleWeaponCombo(playerInventory.rightWeapon);
-                    comboFlag = false;
-                }
-                else
-                {
-                    if (playerManager.isInteracting)
-                        return;
-
-                    if (playerManager.canDoCombo)
-                        return;
-
-                    playerAttacker.HandleHeavyAttack(playerInventory.rightWeapon);
                 }
             }
         }
@@ -295,14 +280,16 @@ namespace KA
 
                 if(twoHandFlag)
                 {
-                    weaponSlotManager.LoadWeaponOnSlot(playerInventory.rightWeapon, false);
                     playerManager.isTwoHandingWeapon = true;
+                    weaponSlotManager.LoadWeaponOnSlot(playerInventory.rightWeapon, false);
+                    weaponSlotManager.LoadTwoHandIKTargets(true);
                 }
                 else
                 {
+                    playerManager.isTwoHandingWeapon = false;
                     weaponSlotManager.LoadWeaponOnSlot(playerInventory.rightWeapon, false);
                     weaponSlotManager.LoadWeaponOnSlot(playerInventory.leftWeapon, true);
-                    playerManager.isTwoHandingWeapon = false;
+                    weaponSlotManager.LoadTwoHandIKTargets(false);
                 }
             }
         }

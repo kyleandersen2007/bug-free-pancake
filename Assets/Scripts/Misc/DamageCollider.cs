@@ -59,7 +59,7 @@ namespace KA
 
                     if(enemyCharacterManager.isParrying)
                     {
-                        characterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Parried", true);
+                        characterManager.GetComponent<AnimatorManager>().PlayTargetAnimation("Parried", true);
                         return;
                     }
                     else if(shield != null && enemyCharacterManager.isBlocking)

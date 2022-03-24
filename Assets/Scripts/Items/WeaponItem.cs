@@ -14,6 +14,7 @@ namespace KA
         public string offHandIdleAnimation;
 
         [Header("Damage")]
+        public int heavyWeaponAttackMultiplier;
         public int physicalDamage = 30;
         public int fireDamage;
         public int criticalDamageMultiplier = 4;
@@ -28,7 +29,7 @@ namespace KA
         [Header("Stamina Drain Costs")]
         public int baseStamina;
         public float lightAttackMultiplier;
-        public float heavyAttackMultiplier;
+        public float heavyAttackStaminaMultiplier;
 
         [Header("Absorption")]
         public float physicalDamageAbsorption;

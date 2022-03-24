@@ -16,19 +16,9 @@ namespace KA
         public GameObject interactableUIGameObject;
         public GameObject itemInteractableGameObject;
 
-        public bool isInteracting;
-
-        [Header("Player Flags")]
-        public bool isSprinting;
-        public bool isInAir;
-        public bool isGrounded;
-        public bool canDoCombo;
-        public bool isUsingRightHand;
-        public bool isUsingLeftHand;
-        public bool isInvulnerable;
-
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             cameraHandler = FindObjectOfType<CameraHandler>();
             inputHandler = GetComponent<InputHandler>();
             anim = GetComponent<Animator>();
@@ -50,7 +40,7 @@ namespace KA
             anim.SetBool("isInAir", isInAir);
             anim.SetBool("isBlocking", isBlocking);
             anim.SetBool("isDead", playerStats.isDead);
-            anim.SetBool("isTwoHandingWeapon", isTwoHandingWeapon);
+            anim.SetBool("isTwoHandingWeapon", isTwoHandingWeapon); 
 
             inputHandler.TickInput(delta);
             animatorHandler.canRotate = anim.GetBool("canRotate");
@@ -61,8 +51,9 @@ namespace KA
             CheckForInteractableObject();
         }
 
-        private void FixedUpdate()
+        protected override void FixedUpdate()
         {
+            base.FixedUpdate();
             float delta = Time.fixedDeltaTime;
 
             playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);

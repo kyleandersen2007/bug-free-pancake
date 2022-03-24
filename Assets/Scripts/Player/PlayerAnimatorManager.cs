@@ -16,7 +16,7 @@ namespace KA
         {
             playerManager = GetComponent<PlayerManager>();
             playerStats = GetComponent<PlayerStats>();
-            anim = GetComponentInChildren<Animator>();
+            anim = GetComponent<Animator>();
             inputHandler = GetComponent<InputHandler>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
             vertical = Animator.StringToHash("Vertical");

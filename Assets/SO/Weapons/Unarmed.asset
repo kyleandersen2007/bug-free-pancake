@@ -16,8 +16,8 @@ MonoBehaviour:
   itemName: Unarmed
   modelPrefab: {fileID: 225643447171830138, guid: f5cad449961912548bccaa17d5b50fa0, type: 3}
   isUnarmed: 1
-  weaponController: {fileID: 0}
-  offHandIdleAnimation: 
+  weaponController: {fileID: 22100000, guid: 01ec52c8c888d4f4bb9320770e8efe49, type: 2}
+  offHandIdleAnimation: Empty
   physicalDamage: 30
   fireDamage: 0
   criticalDamageMultiplier: 4

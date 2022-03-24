@@ -19,6 +19,8 @@ namespace KA
 
         UpperLeftArmModelChanger upperLeftArmModelChanger;
         UpperRightArmModelChanger upperRightArmModelChanger;
+        LeftShoulderAttachmentModelChanger leftShoulderAttachmentModelChanger;
+        RightShoulderAttachmentModelChanger rightShoulderAttachmentModelChanger;
 
         LowerLeftArmModelChanger lowerLeftArmModelChanger;
         LowerRightArmModelChanger lowerRightArmModelChanger;
@@ -56,6 +58,8 @@ namespace KA
             lowerRightArmModelChanger = GetComponentInChildren<LowerRightArmModelChanger>();
             leftHandModelChanger = GetComponentInChildren<LeftHandModelChanger>();
             rightHandModelChanger = GetComponentInChildren<RightHandModelChanger>();
+            leftShoulderAttachmentModelChanger = GetComponentInChildren<LeftShoulderAttachmentModelChanger>();
+            rightShoulderAttachmentModelChanger = GetComponentInChildren<RightShoulderAttachmentModelChanger>();
         }
 
         private void Start()
@@ -82,12 +86,17 @@ namespace KA
             torsoEquipmentChanger.UnEquipAllTorsoModels();
             upperLeftArmModelChanger.UnEquipAllModels();
             upperRightArmModelChanger.UnEquipAllModels();
+            leftShoulderAttachmentModelChanger.UnEquipAllModels();
+            rightShoulderAttachmentModelChanger.UnEquipAllModels();
 
             if (playerInventory.currentTorsoEquipment != null)
             {
                 torsoEquipmentChanger.EquipTorsoModelByName(playerInventory.currentTorsoEquipment.torsoModelName);
                 upperLeftArmModelChanger.EquipModelByName(playerInventory.currentTorsoEquipment.upperLeftArmModelName);
                 upperRightArmModelChanger.EquipModelByName(playerInventory.currentTorsoEquipment.upperRightArmModelName);
+                leftShoulderAttachmentModelChanger.EquipModelByName(playerInventory.currentTorsoEquipment.leftShoulderAttachment);
+                rightShoulderAttachmentModelChanger.EquipModelByName(playerInventory.currentTorsoEquipment.rightShoulderAttachment);
+
                 playerStats.physicalDamageAbsorptionBody = playerInventory.currentTorsoEquipment.physicalDefense;   
             }
             else

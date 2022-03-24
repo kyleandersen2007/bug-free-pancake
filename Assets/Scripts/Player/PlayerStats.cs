@@ -16,10 +16,10 @@ namespace KA
         public float staminaRegenerationAmount = 1;
         public float staminaRegenTimer = 0;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             playerManager = GetComponent<PlayerManager>();
-
             healthBar = FindObjectOfType<HealthBar>();
             staminaBar = FindObjectOfType<StaminaBar>();
             focusPointsBar = FindObjectOfType<FocusPointBar>();

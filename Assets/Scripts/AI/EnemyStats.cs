@@ -9,8 +9,9 @@ namespace KA
 
         public UIEnemyHealthBar enemyHealthBar;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             enemyAnimatorHandler = GetComponentInChildren<EnemyAnimatorHandler>();
         }
 

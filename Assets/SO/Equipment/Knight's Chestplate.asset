@@ -18,3 +18,5 @@ MonoBehaviour:
   torsoModelName: Chr_Torso_Male_21
   upperLeftArmModelName: Chr_ArmUpperLeft_Male_14
   upperRightArmModelName: Chr_ArmUpperRight_Male_14
+  leftShoulderAttachment: Chr_ShoulderAttachLeft_21
+  rightShoulderAttachment: Chr_ShoulderAttachRight_21

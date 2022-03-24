@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c226f4f1a68284b8fb8e27b8383ef5, type: 3}
   m_Name: Attack01
   m_EditorClassIdentifier: 
-  actionAnimation: OH_Sword_Attack1
+  actionAnimation: OH_Light_Attack1
+  isRightHandedAction: 1
   canCombo: 1
   comboAction: {fileID: 11400000, guid: ae03b8e7faf6a564c80bef95f3f54004, type: 2}
   attackScore: 3

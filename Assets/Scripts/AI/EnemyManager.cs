@@ -9,18 +9,16 @@ namespace KA
         EnemyLocomotion enemyLocomotion;
         EnemyAnimatorHandler enemyAnimatorHandler;
         EnemyStats enemyStats;
+        public CharacterStatsManager currentTarget;
 
         public State currentState;
-        public CharacterStatsManager currentTarget;
+        
         public NavMeshAgent navmeshAgent;
         public Rigidbody enemyRigidBody;
 
         public bool isPreformingAction;
-        public bool isInteracting;
         public float rotationSpeed = 15;
         public float maximumAggroRadius = 1.5f;
-
-        public bool canDoCombo;
 
         [Header("A.I Settings")]
         public float detectionRadius = 20;
@@ -34,8 +32,9 @@ namespace KA
         public bool allowAIToPerformCombos;
         public float comboLikelyHood;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             enemyLocomotion = GetComponent<EnemyLocomotion>();
             enemyAnimatorHandler = GetComponentInChildren<EnemyAnimatorHandler>();
             enemyStats = GetComponent<EnemyStats>();
@@ -53,6 +52,8 @@ namespace KA
         {
             HandleRecoveryTimer();
             HandleStateMachine();
+            isUsingLeftHand = enemyAnimatorHandler.anim.GetBool("isUsingLeftHand");
+            isUsingRightHand = enemyAnimatorHandler.anim.GetBool("isUsingRightHand");
             isRotatingWithRootMotion = enemyAnimatorHandler.anim.GetBool("isRotatingWithRootMotion");
             isInteracting = enemyAnimatorHandler.anim.GetBool("isInteracting");
             canDoCombo = enemyAnimatorHandler.anim.GetBool("canDoCombo");

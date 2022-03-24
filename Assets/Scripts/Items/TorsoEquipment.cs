@@ -10,5 +10,7 @@ namespace KA
         public string torsoModelName;
         public string upperLeftArmModelName;
         public string upperRightArmModelName;
+        public string leftShoulderAttachment;
+        public string rightShoulderAttachment;
     }
 }
