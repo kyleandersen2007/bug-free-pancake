@@ -15,7 +15,7 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: Knight's Chestplate
   physicalDefense: 20
-  torsoModelName: Chr_Torso_Male_21
+  torsoModelName: Chr_Torso_Male_20
   upperLeftArmModelName: Chr_ArmUpperLeft_Male_14
   upperRightArmModelName: Chr_ArmUpperRight_Male_14
   leftShoulderAttachment: Chr_ShoulderAttachLeft_21

@@ -17,7 +17,7 @@ namespace KA
         public bool lt_Input;
         public bool lb_Input;
         public bool use_Input;
-        public bool critical_Attack_Input;
+        public bool hold_RB_Input;
         public bool rt_Input;
         public bool jump_Input;
         public bool inventory_Input;
@@ -31,6 +31,7 @@ namespace KA
         public bool d_Pad_Right;
         [Header("Player Flags")]
         public bool rollFlag;
+        public bool fireFlag;
         public bool twoHandFlag;
         public bool sprintFlag;
         public bool comboFlag;
@@ -78,6 +79,9 @@ namespace KA
                 inputActions.PlayerMovement.Movement.performed += inputActions => movementInput = inputActions.ReadValue<Vector2>();
                 inputActions.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
                 inputActions.PlayerActions.RB.performed += i => rb_Input = true;
+                inputActions.PlayerActions.HoldRB.performed += i => hold_RB_Input = true;
+                inputActions.PlayerActions.HoldRB.canceled += i => hold_RB_Input = false;
+                inputActions.PlayerActions.HoldRB.canceled += i => fireFlag = true;
                 inputActions.PlayerActions.RT.performed += i => rt_Input = true;
                 inputActions.PlayerActions.Roll.performed += i => b_Input = true;
                 inputActions.PlayerActions.Roll.canceled += i => b_Input = false;
@@ -89,8 +93,7 @@ namespace KA
                 inputActions.PlayerActions.LockOn.performed += i => lockOnInput = true;
                 inputActions.PlayerMovement.LockOnTargetRight.performed += inputActions => right_Stick_Right_Input = true;
                 inputActions.PlayerMovement.LockOnTargetLeft.performed += inputActions => right_Stick_Left_Input = true;
-                inputActions.PlayerActions.X.performed += i => x_Input = true;
-                inputActions.PlayerActions.CriticalAttack.performed += i => critical_Attack_Input = true;
+                inputActions.PlayerActions.X.performed += i => x_Input = true;               
                 inputActions.PlayerActions.LT.performed += i => lt_Input = true;
                 inputActions.PlayerActions.LB.performed += i => lb_Input = true;
                 inputActions.PlayerActions.LB.canceled += i => lb_Input = false;
@@ -110,21 +113,41 @@ namespace KA
             HandleMoveInput(delta);
             HandleRollInput(delta);
             HandleCombatInput(delta);
+            HandleLBInput();
             HandleQuickSlotsInput();
             HandleInventoryInput();
             HandleLockOnInput();
             HandleTwoHandInput();
-            HandleCriticalAttackInput();
+            HandleHoldRBInput();
             HandleUseConsumableInput();
+            HandleFireBowInput();
         }
 
         private void HandleMoveInput(float delta)
         {
-            horizontal = movementInput.x;
-            vertical = movementInput.y;
-            moveAmount = Mathf.Clamp01(Mathf.Abs(horizontal) + Mathf.Abs(vertical));
-            mouseX = cameraInput.x;
-            mouseY = cameraInput.y;
+            if(playerManager.isHoldingArrow)
+            {
+                horizontal = movementInput.x;
+                vertical = movementInput.y;
+                moveAmount = Mathf.Clamp01(Mathf.Abs(horizontal) + Mathf.Abs(vertical));
+
+                if(moveAmount > 0.5f)
+                {
+                    moveAmount = 0.5f;
+                }
+
+                mouseX = cameraInput.x;
+                mouseY = cameraInput.y;
+            }
+            else
+            {
+                horizontal = movementInput.x;
+                vertical = movementInput.y;
+                moveAmount = Mathf.Clamp01(Mathf.Abs(horizontal) + Mathf.Abs(vertical));
+                mouseX = cameraInput.x;
+                mouseY = cameraInput.y;
+            }
+            
         }
 
         private void HandleRollInput(float delta)
@@ -169,20 +192,6 @@ namespace KA
                 playerAttacker.HandleRTAction();
             }
 
-            if(lb_Input)
-            {
-                playerAttacker.HandleLBAction();
-            }
-            else
-            {
-                playerManager.isBlocking = false;
-
-                if(blockingCollider.blockingCollider.enabled)
-                {
-                    blockingCollider.DisableBlockingCollider();
-                }
-            }
-
             if(lt_Input)
             {
                 if(twoHandFlag)
@@ -193,6 +202,31 @@ namespace KA
                 {
                     playerAttacker.HandleLTAction();
                 }
+            }
+        }
+
+        private void HandleLBInput()
+        {
+            if (playerManager.isInAir || playerManager.isSprinting)
+            {
+                lb_Input = false;
+                return;
+            }
+
+            if (lb_Input)
+            {
+                playerAttacker.HandleLBAction();
+            }
+            else if(lb_Input == false)
+            {
+                playerManager.isBlocking = false;
+                playerManager.isAiming = false;
+
+                if (blockingCollider.blockingCollider.enabled)
+                {
+                    blockingCollider.DisableBlockingCollider();
+                }
+
             }
         }
 
@@ -294,12 +328,31 @@ namespace KA
             }
         }
 
-        private void HandleCriticalAttackInput()
+        private void HandleHoldRBInput()
         {
-            if(critical_Attack_Input)
+            if(hold_RB_Input)
             {
-                critical_Attack_Input = false;
-                playerAttacker.AttemptBackStabOrReposte();
+                if(playerInventory.rightWeapon.weaponType == WeaponType.Bow)
+                {
+                    playerAttacker.HandleHoldRBAction();
+                }
+                else
+                {
+                    hold_RB_Input = false;
+                    playerAttacker.AttemptBackStabOrReposte();
+                }
+            }
+        }
+
+        private void HandleFireBowInput()
+        {
+            if(fireFlag)
+            {
+                if(playerManager.isHoldingArrow)
+                {
+                    fireFlag = false;
+                    playerAttacker.FireArrowAction();
+                }
             }
         }
 

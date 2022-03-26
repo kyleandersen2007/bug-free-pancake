@@ -28,6 +28,8 @@ namespace KA
         public bool isUsingRightHand;
         public bool isUsingLeftHand;
         public bool isInvulnerable;
+        public bool isHoldingArrow;
+        public bool isAiming;
 
         public bool isRotatingWithRootMotion;
         public bool canRotate;

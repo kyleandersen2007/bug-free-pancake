@@ -152,7 +152,7 @@ namespace KA
             }
             else
             {
-                if (inputHandler.moveAmount < 0.5)
+                if (inputHandler.moveAmount <= 0.5)
                 {
                     moveDirection *= walkingSpeed;
                     playerManager.isSprinting = false;

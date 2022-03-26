@@ -23,13 +23,13 @@ namespace KA
             rigBuilder = GetComponent<RigBuilder>();
         }
 
-        public void PlayTargetAnimation(string targetAnim, bool isInteracting, bool canRotate = false)
+        public void PlayTargetAnimation(string targetAnim, bool isInteracting, bool canRotate = false, bool mirrorAnim = false)
         {
             anim.applyRootMotion = isInteracting;
             anim.SetBool("canRotate", canRotate);
             anim.SetBool("isInteracting", isInteracting);
+            anim.SetBool("isMirrored", mirrorAnim);
             anim.CrossFade(targetAnim, 0.2f);
-            Debug.Log(targetAnim);
         }
 
         public void PlayTargetAnimationWithRootRotation(string targetAnim, bool isInteracting)
@@ -102,7 +102,6 @@ namespace KA
             {
                 if(rightHandTarget != null)
                 {
-                    Debug.Log("STAGE 2");
                     rightHandConstraint.data.target = rightHandTarget.transform;
                     rightHandConstraint.data.targetPositionWeight = 1; //Assign this from a weapon variable if you'd like
                     rightHandConstraint.data.targetRotationWeight = 1;

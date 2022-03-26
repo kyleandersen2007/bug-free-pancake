@@ -37,6 +37,7 @@ namespace KA
             isUsingRightHand = anim.GetBool("isUsingRightHand");
             isUsingLeftHand = anim.GetBool("isUsingLeftHand");
             isInvulnerable = anim.GetBool("isInvulnerable");
+            isHoldingArrow = anim.GetBool("isHoldingArrow");
             anim.SetBool("isInAir", isInAir);
             anim.SetBool("isBlocking", isBlocking);
             anim.SetBool("isDead", playerStats.isDead);

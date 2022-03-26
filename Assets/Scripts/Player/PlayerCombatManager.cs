@@ -14,6 +14,7 @@ namespace KA
         InputHandler inputHandler;
         WeaponSlotManager weaponSlotManager;
         PlayerEffectsManager playerEffectsManager;
+        CameraHandler cameraHandler;
 
         [Header("Attack Animations")]
         public string oh_light_attack_1;
@@ -42,6 +43,7 @@ namespace KA
             inputHandler = GetComponent<InputHandler>();
             playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
             playerEffectsManager = GetComponent<PlayerEffectsManager>();
+            cameraHandler = FindObjectOfType<CameraHandler>();
         }
 
         public void HandleWeaponCombo(WeaponItem weapon)
@@ -111,6 +113,18 @@ namespace KA
             }
         }
 
+        public void HandleHoldRBAction()
+        {
+            if(playerManager.isTwoHandingWeapon)
+            {
+                PerformRBRangedAction();
+            }
+            else
+            {
+                //Melee Attack (Bow Attack)
+            }
+        }
+
         public void HandleRBAction()
         {
             if (playerInventory.rightWeapon.weaponType == WeaponType.StraightSword || playerInventory.rightWeapon.weaponType == WeaponType.Unarmed)
@@ -119,7 +133,7 @@ namespace KA
             }
             else if(playerInventory.rightWeapon.weaponType == WeaponType.SpellCaster || playerInventory.rightWeapon.weaponType == WeaponType.FaithCaster || playerInventory.rightWeapon.weaponType == WeaponType.PyroCaster)
             {
-                PerformRBMagicAction(playerInventory.rightWeapon);
+                
             }
         }
 
@@ -145,7 +159,25 @@ namespace KA
 
         public void HandleLBAction()
         {
-            PerformLBBlockingAction(playerInventory.leftWeapon);
+            if(playerManager.isTwoHandingWeapon)
+            {
+                if(playerInventory.rightWeapon.weaponType == WeaponType.Bow)
+                {
+                    PerformLBAimingAction();
+                }
+            }
+            else
+            {
+                if(playerInventory.leftWeapon.weaponType == WeaponType.Shield)
+                {
+                    PerformLBBlockingAction(playerInventory.leftWeapon);
+                }
+                else if(playerInventory.leftWeapon.weaponType == WeaponType.FaithCaster || playerInventory.leftWeapon.weaponType == WeaponType.PyroCaster)
+                {
+                    PerformMagicAction(playerInventory.leftWeapon, true);
+                    animatorHandler.anim.SetBool("isUsingLeftHand", true);
+                }
+            }
         }
 
         private void PerformRBMeleeAction()
@@ -171,6 +203,74 @@ namespace KA
             playerEffectsManager.PlayWeaponFX(false);
         }
 
+        private void DrawArrowAction()
+        {
+            animatorHandler.anim.SetBool("isHoldingArrow", true);
+            animatorHandler.PlayTargetAnimation("Bow_TH_Draw_01", true);
+            GameObject loadedArrow = Instantiate(playerInventory.currentAmmo.loadedItemModel, weaponSlotManager.leftHandSlot.transform);
+            Animator bowAnimator = weaponSlotManager.rightHandSlot.GetComponentInChildren<Animator>();
+            bowAnimator.SetBool("isDrawn", true);
+            bowAnimator.Play("Bow_TH_Draw");
+            playerEffectsManager.currentRangeEffects = loadedArrow;
+        }
+
+        public void FireArrowAction()
+        {
+            ArrowInstantiationLocation arrowInstantiationLocation;
+            arrowInstantiationLocation = weaponSlotManager.rightHandSlot.GetComponentInChildren<ArrowInstantiationLocation>();
+
+            Animator bowAnimator = weaponSlotManager.rightHandSlot.GetComponentInChildren<Animator>();
+            bowAnimator.SetBool("isDrawn", false);
+            bowAnimator.Play("Bow_TH_Fire");
+            Destroy(playerEffectsManager.currentRangeEffects);
+
+            animatorHandler.PlayTargetAnimation("Bow_TH_Fire_01", true);
+            animatorHandler.anim.SetBool("isHoldingArrow", false);
+
+            GameObject liveArrow = Instantiate(playerInventory.currentAmmo.liveAmmoModel, arrowInstantiationLocation.transform.position, cameraHandler.cameraPivotTransform.rotation);
+            Rigidbody rigidbody = liveArrow.GetComponentInChildren<Rigidbody>();
+            RangedProjectileDamageCollider damageCollider = liveArrow.GetComponentInChildren<RangedProjectileDamageCollider>();
+            if(cameraHandler.currentLockOnTarget != null)
+            {
+                Quaternion arrowRotation = Quaternion.LookRotation(transform.forward);
+                liveArrow.transform.rotation = arrowRotation;
+            }
+            else
+            {
+                liveArrow.transform.rotation = Quaternion.Euler(cameraHandler.cameraPivotTransform.eulerAngles.x, playerManager.lockOnTransform.eulerAngles.y, 0);
+            }
+            rigidbody.AddForce(liveArrow.transform.forward * playerInventory.currentAmmo.forwardVelocity);
+            rigidbody.AddForce(liveArrow.transform.up * playerInventory.currentAmmo.upwardVelocity);
+            rigidbody.useGravity = playerInventory.currentAmmo.useGravity;
+            rigidbody.mass = playerInventory.currentAmmo.ammoMass;
+            liveArrow.transform.parent = null;
+
+            damageCollider.characterManager = playerManager;
+            damageCollider.ammoItem = playerInventory.currentAmmo;
+            damageCollider.physicalDamage = playerInventory.currentAmmo.physicalDamage;
+        }
+
+        private void PerformRBRangedAction()
+        {
+            if (playerStats.currentStamina <= 0)
+                return;
+
+            animatorHandler.EraseHandIKForWeapon();
+            animatorHandler.anim.SetBool("isUsingRightHand", true);
+
+            if(!playerManager.isHoldingArrow)
+            {
+                if(playerInventory.currentAmmo != null)
+                {
+                    DrawArrowAction();
+                }
+                else
+                {
+                    
+                }
+            }
+        }
+
         private void PerformRTMeleeAction()
         {
             if (playerManager.canDoCombo)
@@ -194,7 +294,7 @@ namespace KA
             playerEffectsManager.PlayWeaponFX(false);
         }
 
-        private void PerformRBMagicAction(WeaponItem weapon)
+        private void PerformMagicAction(WeaponItem weapon, bool isLeftHanded)
         {
             if (playerManager.isInteracting)
                 return;
@@ -204,7 +304,7 @@ namespace KA
                 {
                     if(playerStats.currentFocusPoints >= playerInventory.currentSpell.focusPointCost)
                     {
-                        playerInventory.currentSpell.AttemptToCastSpell(animatorHandler, playerStats, weaponSlotManager);
+                        playerInventory.currentSpell.AttemptToCastSpell(animatorHandler, playerStats, weaponSlotManager, isLeftHanded);
                     }
                     else
                     {
@@ -218,7 +318,7 @@ namespace KA
                 {
                     if (playerStats.currentFocusPoints >= playerInventory.currentSpell.focusPointCost)
                     {
-                        playerInventory.currentSpell.AttemptToCastSpell(animatorHandler, playerStats, weaponSlotManager);
+                        playerInventory.currentSpell.AttemptToCastSpell(animatorHandler, playerStats, weaponSlotManager, isLeftHanded);
                     }
                     else
                     {
@@ -258,9 +358,17 @@ namespace KA
             }
         }
 
+        private void PerformLBAimingAction()
+        {
+            if (playerManager.isAiming)
+                return;
+
+            playerManager.isAiming = true;
+        }
+
         private void SuccessfullyCastSpell()
         {
-            playerInventory.currentSpell.SuccessfullyCastSpell(animatorHandler, playerStats, weaponSlotManager);
+            playerInventory.currentSpell.SuccessfullyCastSpell(animatorHandler, playerStats, weaponSlotManager, playerManager.isUsingLeftHand);
         }
 
         public void AttemptBackStabOrReposte()

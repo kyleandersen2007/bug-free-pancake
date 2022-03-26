@@ -9,16 +9,16 @@ namespace KA
     {
         public int healAmount;
 
-        public override void AttemptToCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponSlotManager)
+        public override void AttemptToCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponSlotManager, bool isLeftHanded)
         {
-            base.AttemptToCastSpell(animatorHandler, playerStats, weaponSlotManager);
-            animatorHandler.PlayTargetAnimation(spellAnimation, true);
+            base.AttemptToCastSpell(animatorHandler, playerStats, weaponSlotManager, isLeftHanded);
+            animatorHandler.PlayTargetAnimation(spellAnimation, true, false, isLeftHanded);
             Debug.Log("Attempting To Cast Spell...");
         }
 
-        public override void SuccessfullyCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponSlotManager)
+        public override void SuccessfullyCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponSlotManager, bool isLeftHanded)
         {
-            base.SuccessfullyCastSpell(animatorHandler, playerStats, weaponSlotManager);
+            base.SuccessfullyCastSpell(animatorHandler, playerStats, weaponSlotManager, isLeftHanded);
             playerStats.HealPlayer(healAmount);
             Debug.Log("Spell Cast Successful!");
         }

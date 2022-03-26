@@ -11,13 +11,13 @@ namespace KA
         public float projectileVelocity;
         Rigidbody rigidbody;
 
-        public override void AttemptToCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponSlotManager)
+        public override void AttemptToCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponSlotManager, bool isLeftHanded)
         {
             GameObject instantiatedWarpUpSpellFX = Instantiate(spellWarmUpFX, weaponSlotManager.rightHandSlot.transform);
             animatorHandler.PlayTargetAnimation(spellAnimation, true);
         }
 
-        public override void SuccessfullyCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponSlotManager)
+        public override void SuccessfullyCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponSlotManager, bool isLeftHanded)
         {
            
         }

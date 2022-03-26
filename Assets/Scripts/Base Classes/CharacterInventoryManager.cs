@@ -12,6 +12,7 @@ namespace KA
         public WeaponItem rightWeapon;
         public WeaponItem leftWeapon;
         public ConsumableItem currentConsumbale;
+        public RangedAmmoItem currentAmmo;
 
         [Header("Current Equipment")]
         public HelmetEquipment currentHelmetEquipment;

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
   itemName: Bow
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 5591989050753244456, guid: 47d692fb4b358d04eafe1e0be712fa06, type: 3}
   isUnarmed: 0
   weaponController: {fileID: 22100000, guid: 8839ed7d0f4809c48ac5e616dc03c4fd, type: 2}
   offHandIdleAnimation: Left_Arm_Idle_01

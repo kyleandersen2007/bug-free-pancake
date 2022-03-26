@@ -117,8 +117,9 @@ MonoBehaviour:
   interactableText: Open Chest
   playerStandingPosition: {fileID: 8430144441257173506}
   itemSpawner: {fileID: 8705288612573190802, guid: fc98804a880cba240ad70f8dfe6d522e, type: 3}
-  itemInChest: {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
+  itemInChest: {fileID: 11400000, guid: 19121b242eeaa5d4292033f3d9778224, type: 2}
   spawnItem: {fileID: 1995837829307145184}
+  chestAnimation: Big Chest Open
 --- !u!95 &8425359790330061033
 Animator:
   serializedVersion: 3

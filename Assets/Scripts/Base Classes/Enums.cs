@@ -14,6 +14,13 @@ namespace KA
         SpellCaster,
         Bow
     }
+
+    public enum AmmoType
+    {
+        Arrow,
+        Bolt
+    }
+
     public class Enums : MonoBehaviour
     {
 

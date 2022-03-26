@@ -9,6 +9,8 @@ namespace KA
         [Header("Damage FX")]
         public GameObject bloodSplatterFX;
 
+        public GameObject currentRangeEffects;
+
         public WeaponFX rightWeaponFX;
         public WeaponFX leftWeaponFX;
 

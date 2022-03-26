@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432725bbdd8b16a458951dc289138876, type: 3}
   m_Name: Great Shield
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 8502210999864137018, guid: faba03bbe7d2bd240a7612300dbafe7a, type: 3}
   itemName: Great Shield
   modelPrefab: {fileID: 1124779933736778268, guid: 41c8ff198d5f7f74e87783e3a82e54b8, type: 3}
   isUnarmed: 0
-  weaponController: {fileID: 0}
+  weaponController: {fileID: 22100000, guid: 4e063763b02c98a4b91be368312c5eed, type: 2}
   offHandIdleAnimation: Left_Arm_Idle_01
   heavyWeaponAttackMultiplier: 0
   physicalDamage: 0
