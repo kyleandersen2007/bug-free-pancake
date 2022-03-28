@@ -154,6 +154,11 @@ namespace KA
             cameraTransform.localRotation = targetRotationX;
         }
 
+        public void ResetAimCameraRotations()
+        {
+            cameraTransform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+
         //HANDLE COLLISIONS
         private void HandleCameraCollisions()
         {

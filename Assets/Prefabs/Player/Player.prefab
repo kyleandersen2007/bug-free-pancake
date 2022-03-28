@@ -68554,7 +68554,7 @@ MonoBehaviour:
   isUsingLeftHand: 0
   isInvulnerable: 0
   isHoldingArrow: 0
-  isAiming: 1
+  isAiming: 0
   isRotatingWithRootMotion: 0
   canRotate: 0
   interactableUIGameObject: {fileID: 0}

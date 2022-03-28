@@ -7,7 +7,7 @@ namespace KA
     public class RangedProjectileDamageCollider : DamageCollider
     {
         public RangedAmmoItem ammoItem;
-        protected bool hasAlreadyPenetratedASurface;
+        protected bool hasAlreadyPenetratedASurface = false;
         protected GameObject penetratedProjectile;
         protected override void OnTriggerEnter(Collider other)
         {
@@ -60,6 +60,20 @@ namespace KA
                     }
                 }
             }
+
+            if (!hasAlreadyPenetratedASurface && penetratedProjectile == null)
+            {
+                hasAlreadyPenetratedASurface = true;
+
+                Vector3 contactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
+                GameObject penetratedArrow = Instantiate(ammoItem.penetratedModel, contactPoint, Quaternion.Euler(0, 0, 0));
+
+                penetratedProjectile = penetratedArrow;
+                penetratedArrow.transform.parent = other.transform;
+                penetratedArrow.transform.rotation = Quaternion.LookRotation(gameObject.transform.forward);
+            }
+
+            Destroy(transform.root.gameObject);
         }
     }
 }

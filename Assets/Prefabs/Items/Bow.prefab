@@ -137,8 +137,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4072406786619825873}
   - component: {fileID: 77915780310442151}
-  - component: {fileID: 405896665458507783}
-  - component: {fileID: 271182450512238385}
+  - component: {fileID: 7851479068576113864}
+  - component: {fileID: 351539845324966822}
   m_Layer: 0
   m_Name: SM_Prop_Bow_Rigged_01
   m_TagString: Untagged
@@ -214,7 +214,7 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00008529425, y: 0, z: -0.04157804}
     m_Extent: {x: 0.031152422, y: 0.7186691, z: 0.09006943}
   m_DirtyAABB: 0
---- !u!65 &405896665458507783
+--- !u!65 &7851479068576113864
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,9 +225,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.062305164, y: 1.437339, z: 0.18013923}
-  m_Center: {x: 0.00008529971, y: -0.000000008657967, z: -0.041578054}
---- !u!114 &271182450512238385
+  m_Size: {x: 0.062304914, y: 1.4373381, z: 0.18013884}
+  m_Center: {x: 0.00008529199, y: -0.0000000074543935, z: -0.041578036}
+--- !u!114 &351539845324966822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterManager: {fileID: 0}
+  enableDamageColliderOnStartUp: 0
   teamIDNumber: 0
   poiseBreak: 0
   offensivePoiseDefence: 0

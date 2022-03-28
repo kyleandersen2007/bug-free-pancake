@@ -223,6 +223,7 @@ namespace KA
                 {
                     playerManager.isAiming = false;
                     uiManager.crosshair.SetActive(false);
+                    cameraHandler.ResetAimCameraRotations();
                 }
                 
                 if (blockingCollider.blockingCollider.enabled)

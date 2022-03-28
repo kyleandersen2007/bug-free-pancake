@@ -31,7 +31,14 @@ namespace KA
             damageCollider = GetComponent<Collider>();
             damageCollider.gameObject.SetActive(true);
             damageCollider.isTrigger = true;
-            damageCollider.enabled = false;
+            if(!enableDamageColliderOnStartUp)
+            {
+                damageCollider.enabled = false;
+            }
+            else
+            {
+                damageCollider.enabled = true;
+            }
         }
 
         public void EnableDamageCollider()

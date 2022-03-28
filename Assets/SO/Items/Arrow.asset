@@ -15,13 +15,13 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: Arrow
   ammoType: 0
-  forwardVelocity: 1000
+  forwardVelocity: 2000
   upwardVelocity: 0
   ammoMass: 1
   useGravity: 0
   carryLimit: 99
   currentAmmo: 99
-  physicalDamage: 200
+  physicalDamage: 50
   loadedItemModel: {fileID: 5499637165552957723, guid: bb8f5a964c65b4a45921d61c427f079f, type: 3}
-  liveAmmoModel: {fileID: 5499637165552957723, guid: c441b6fb805db68499aa323df19bf816, type: 3}
-  penetratedModel: {fileID: 0}
+  liveAmmoModel: {fileID: 2977499632913223723, guid: 337994735fcd7fa4590c77a9da5eff73, type: 3}
+  penetratedModel: {fileID: 5499637165552957723, guid: 2d384ecf2ad49164bb8025fe2e3d7546, type: 3}
