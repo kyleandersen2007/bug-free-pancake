@@ -10,6 +10,9 @@ namespace KA
         public EquipmentWindowUI equipmentWindowUI;
         private QuickSlotsUI quickSlotsUI;
 
+        [Header("HUD")]
+        public GameObject crosshair;
+
         [Header("UI Windows")]
         public GameObject hudWindow;
         public GameObject selectWindow;

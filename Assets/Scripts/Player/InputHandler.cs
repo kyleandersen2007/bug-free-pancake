@@ -45,7 +45,7 @@ namespace KA
         PlayerEffectsManager playerEffectsManager;
         PlayerManager playerManager;
         CameraHandler cameraHandler;
-        UIManager uiManager;
+        public UIManager uiManager;
         WeaponSlotManager weaponSlotManager;
         PlayerAnimatorManager animatorHandler;
         BlockingCollider blockingCollider;
@@ -59,14 +59,14 @@ namespace KA
 
         private void Awake()
         {
-            playerAttacker = GetComponentInChildren<PlayerCombatManager>();
+            playerAttacker = GetComponent<PlayerCombatManager>();
             playerInventory = GetComponent<PlayerInventory>();
-            weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
+            weaponSlotManager = GetComponent<WeaponSlotManager>();
             playerManager = GetComponent<PlayerManager>();
-            playerEffectsManager = GetComponentInChildren<PlayerEffectsManager>();
+            playerEffectsManager = GetComponent<PlayerEffectsManager>();
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
-            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
+            animatorHandler = GetComponent<PlayerAnimatorManager>();
             blockingCollider = GetComponentInChildren<BlockingCollider>();
             playerStats = GetComponent<PlayerStats>();
         }
@@ -219,11 +219,15 @@ namespace KA
             }
             else if(lb_Input == false)
             {
-                playerManager.isBlocking = false;
-                playerManager.isAiming = false;
-
+                if(playerManager.isAiming)
+                {
+                    playerManager.isAiming = false;
+                    uiManager.crosshair.SetActive(false);
+                }
+                
                 if (blockingCollider.blockingCollider.enabled)
                 {
+                    playerManager.isBlocking = false;
                     blockingCollider.DisableBlockingCollider();
                 }
 

@@ -80,8 +80,8 @@ namespace KA
 
             if (cameraHandler != null)
             {
-                cameraHandler.FollowTarget(delta);
-                cameraHandler.HandleCameraRotation(delta, inputHandler.mouseX, inputHandler.mouseY);
+                cameraHandler.FollowTarget();
+                cameraHandler.HandleCameraRotation();
             }
 
             if (isInAir)

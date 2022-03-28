@@ -44,24 +44,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bc2d7acffe564439051e40ca4d3941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerManager: {fileID: 0}
   targetTransform: {fileID: 0}
+  targetTransformWhileAiming: {fileID: 0}
   cameraTransform: {fileID: 8647044371806628842}
+  cameraObject: {fileID: 0}
   cameraPivotTransform: {fileID: 8647044372321776884}
   ignoreLayers:
     serializedVersion: 2
     m_Bits: 768
-  environmentLayer:
+  enviromentLayer:
     serializedVersion: 2
     m_Bits: 256
-  lookSpeed: 250
-  followSpeed: 0.1
-  pivotSpeed: 250
-  minimumPivot: -45
-  maximumPivot: 45
+  leftAndRightLookSpeed: 250
+  leftAndRightAimingLookSpeed: 25
+  followSpeed: 50
+  upAndDownLookSpeed: 250
+  upAndDownAimingLookSpeed: 25
+  minimumLookUpAngle: -35
+  maximumLookUpAngle: 35
   cameraSphereRadius: 0.2
   cameraCollisionOffSet: 0.2
   minimumCollisionOffset: 0.2
-  lockPivotPosition: 2
+  lockedPivotPosition: 2.25
   unlockedPivotPosition: 1.5
   currentLockOnTarget: {fileID: 0}
   nearestLockOnTarget: {fileID: 0}

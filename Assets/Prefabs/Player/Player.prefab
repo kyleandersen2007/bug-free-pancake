@@ -89,6 +89,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1816065476}
+  - {fileID: 5398554073312420914}
   m_Father: {fileID: 8918176394304981048}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -296,6 +297,36 @@ Transform:
   m_Father: {fileID: 7532859834083638617}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -0.503, y: 173.524, z: 148.402}
+--- !u!1 &1463811327760060946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5398554073312420914}
+  m_Layer: 12
+  m_Name: Aim Camera Follow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5398554073312420914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463811327760060946}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1762530043}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1486839669875213351
 GameObject:
   m_ObjectHideFlags: 0
@@ -68461,6 +68492,7 @@ MonoBehaviour:
   lockOnFlag: 0
   inventoryFlag: 0
   rollInputTimer: 0
+  uiManager: {fileID: 0}
   criticalAttackRayCastStartPoint: {fileID: 1859313481}
 --- !u!114 &8195003761832990611
 MonoBehaviour:
@@ -68522,6 +68554,7 @@ MonoBehaviour:
   isUsingLeftHand: 0
   isInvulnerable: 0
   isHoldingArrow: 0
+  isAiming: 1
   isRotatingWithRootMotion: 0
   canRotate: 0
   interactableUIGameObject: {fileID: 0}

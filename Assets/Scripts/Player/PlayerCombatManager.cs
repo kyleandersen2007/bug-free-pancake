@@ -230,14 +230,33 @@ namespace KA
             GameObject liveArrow = Instantiate(playerInventory.currentAmmo.liveAmmoModel, arrowInstantiationLocation.transform.position, cameraHandler.cameraPivotTransform.rotation);
             Rigidbody rigidbody = liveArrow.GetComponentInChildren<Rigidbody>();
             RangedProjectileDamageCollider damageCollider = liveArrow.GetComponentInChildren<RangedProjectileDamageCollider>();
-            if(cameraHandler.currentLockOnTarget != null)
+
+            if(playerManager.isAiming)
             {
-                Quaternion arrowRotation = Quaternion.LookRotation(transform.forward);
-                liveArrow.transform.rotation = arrowRotation;
+                Ray ray = cameraHandler.cameraObject.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+                RaycastHit hitPoint;
+
+                if(Physics.Raycast(ray, out hitPoint, 100))
+                {
+                    liveArrow.transform.LookAt(hitPoint.point);
+                    Debug.Log(hitPoint.transform.name);
+                }
+                else
+                {
+                    liveArrow.transform.rotation = Quaternion.Euler(cameraHandler.cameraTransform.localEulerAngles.x, playerManager.lockOnTransform.eulerAngles.y, 0);
+                }
             }
             else
             {
-                liveArrow.transform.rotation = Quaternion.Euler(cameraHandler.cameraPivotTransform.eulerAngles.x, playerManager.lockOnTransform.eulerAngles.y, 0);
+                if (cameraHandler.currentLockOnTarget != null)
+                {
+                    Quaternion arrowRotation = Quaternion.LookRotation(cameraHandler.currentLockOnTarget.lockOnTransform.position - liveArrow.gameObject.transform.position);
+                    liveArrow.transform.rotation = arrowRotation;
+                }
+                else
+                {
+                    liveArrow.transform.rotation = Quaternion.Euler(cameraHandler.cameraPivotTransform.eulerAngles.x, playerManager.lockOnTransform.eulerAngles.y, 0);
+                }
             }
             rigidbody.AddForce(liveArrow.transform.forward * playerInventory.currentAmmo.forwardVelocity);
             rigidbody.AddForce(liveArrow.transform.up * playerInventory.currentAmmo.upwardVelocity);
@@ -363,6 +382,7 @@ namespace KA
             if (playerManager.isAiming)
                 return;
 
+            inputHandler.uiManager.crosshair.SetActive(true);
             playerManager.isAiming = true;
         }
 
