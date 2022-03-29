@@ -19,3 +19,5 @@ MonoBehaviour:
   rightHandModelName: Chr_HandRight_Male_12
   lowerLeftArmModelName: Chr_ArmLowerLeft_Male_11
   lowerRightArmModelName: Chr_ArmLowerRight_Male_11
+  rightElbowModel: Chr_ElbowAttachRight_05
+  leftElbowModel: Chr_ElbowAttachLeft_05

@@ -27,6 +27,9 @@ namespace KA
         LeftHandModelChanger leftHandModelChanger;
         RightHandModelChanger rightHandModelChanger;
 
+        RightElbowAttachmentModelChanger rightElbowAttachmentModel;
+        LeftElbowAttachmentModelChanger leftElbowAttachmentModel;
+
         [Header("Default Naked Models")]
         public GameObject nakedHeadModel;
         public string nakedTorsoModel;
@@ -60,6 +63,8 @@ namespace KA
             rightHandModelChanger = GetComponentInChildren<RightHandModelChanger>();
             leftShoulderAttachmentModelChanger = GetComponentInChildren<LeftShoulderAttachmentModelChanger>();
             rightShoulderAttachmentModelChanger = GetComponentInChildren<RightShoulderAttachmentModelChanger>();
+            rightElbowAttachmentModel = GetComponentInChildren<RightElbowAttachmentModelChanger>();
+            leftElbowAttachmentModel = GetComponentInChildren<LeftElbowAttachmentModelChanger>();
         }
 
         private void Start()
@@ -137,6 +142,9 @@ namespace KA
                 lowerRightArmModelChanger.EquipModelByName(playerInventory.currentHandEquipment.lowerRightArmModelName);
                 leftHandModelChanger.EquipModelByName(playerInventory.currentHandEquipment.leftHandModelName);
                 rightHandModelChanger.EquipModelByName(playerInventory.currentHandEquipment.rightHandModelName);
+                leftElbowAttachmentModel.EquipModelByName(playerInventory.currentHandEquipment.leftElbowModel);
+                rightElbowAttachmentModel.EquipModelByName(playerInventory.currentHandEquipment.rightElbowModel);
+
                 playerStats.physicalDamageAbsorptionHands = playerInventory.currentHandEquipment.physicalDefense;
             }
             else

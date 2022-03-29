@@ -11,5 +11,7 @@ namespace KA
         public string rightHandModelName;
         public string lowerLeftArmModelName;
         public string lowerRightArmModelName;
+        public string rightElbowModel;
+        public string leftElbowModel;
     }
 }

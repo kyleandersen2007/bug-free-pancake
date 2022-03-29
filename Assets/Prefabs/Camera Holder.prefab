@@ -49,7 +49,7 @@ MonoBehaviour:
   targetTransform: {fileID: 0}
   targetTransformWhileAiming: {fileID: 0}
   cameraTransform: {fileID: 8647044371806628842}
-  cameraObject: {fileID: 0}
+  cameraObject: {fileID: 8647044371806628843}
   cameraPivotTransform: {fileID: 8647044372321776884}
   ignoreLayers:
     serializedVersion: 2
@@ -67,7 +67,7 @@ MonoBehaviour:
   cameraSphereRadius: 0.2
   cameraCollisionOffSet: 0.2
   minimumCollisionOffset: 0.2
-  lockedPivotPosition: 2.25
+  lockedPivotPosition: 2
   unlockedPivotPosition: 1.5
   currentLockOnTarget: {fileID: 0}
   nearestLockOnTarget: {fileID: 0}

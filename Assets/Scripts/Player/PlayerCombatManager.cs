@@ -25,6 +25,7 @@ namespace KA
         public string th_light_attack_2;
         public string th_heavy_attack_1;
         public string th_heavy_attack_2;
+        public string draw_Arrow;
 
         public string weaponArt;
 
@@ -46,7 +47,7 @@ namespace KA
             cameraHandler = FindObjectOfType<CameraHandler>();
         }
 
-        public void HandleWeaponCombo(WeaponItem weapon)
+        public void HandleLightWeaponCombo(WeaponItem weapon)
         {
             if (playerStats.currentStamina <= 0)
                 return;
@@ -63,6 +64,17 @@ namespace KA
                 {
                     animatorHandler.PlayTargetAnimation(th_light_attack_2, true);
                 }
+            }
+        }
+
+        public void HandleHeavyWeaponCombo(WeaponItem weapon)
+        {
+            if (playerStats.currentStamina <= 0)
+                return;
+
+            if (inputHandler.comboFlag)
+            {
+                animatorHandler.anim.SetBool("canDoCombo", false);
 
                 if (lastAttack == oh_heavy_attack_1)
                 {
@@ -121,7 +133,7 @@ namespace KA
             }
             else
             {
-                //Melee Attack (Bow Attack)
+                
             }
         }
 
@@ -130,6 +142,10 @@ namespace KA
             if (playerInventory.rightWeapon.weaponType == WeaponType.StraightSword || playerInventory.rightWeapon.weaponType == WeaponType.Unarmed)
             {
                 PerformRBMeleeAction();
+            }
+            else if(playerInventory.rightWeapon.weaponType == WeaponType.Bow)
+            {
+                FireArrowAction();
             }
             else if(playerInventory.rightWeapon.weaponType == WeaponType.SpellCaster || playerInventory.rightWeapon.weaponType == WeaponType.FaithCaster || playerInventory.rightWeapon.weaponType == WeaponType.PyroCaster)
             {
@@ -185,7 +201,7 @@ namespace KA
             if (playerManager.canDoCombo)
             {
                 inputHandler.comboFlag = true;
-                HandleWeaponCombo(playerInventory.rightWeapon);
+                HandleLightWeaponCombo(playerInventory.rightWeapon);
                 inputHandler.comboFlag = false;
             }
             else
@@ -222,10 +238,9 @@ namespace KA
             Animator bowAnimator = weaponSlotManager.rightHandSlot.GetComponentInChildren<Animator>();
             bowAnimator.SetBool("isDrawn", false);
             bowAnimator.Play("Bow_TH_Fire");
-            Destroy(playerEffectsManager.currentRangeEffects);
-
-            animatorHandler.PlayTargetAnimation("Bow_TH_Fire_01", true);
+            animatorHandler.PlayTargetAnimation("Bow_TH_Fire_01", true);           
             animatorHandler.anim.SetBool("isHoldingArrow", false);
+            Destroy(playerEffectsManager.currentRangeEffects);
 
             GameObject liveArrow = Instantiate(playerInventory.currentAmmo.liveAmmoModel, arrowInstantiationLocation.transform.position, cameraHandler.cameraPivotTransform.rotation);
             Rigidbody rigidbody = liveArrow.GetComponentInChildren<Rigidbody>();
@@ -295,7 +310,7 @@ namespace KA
             if (playerManager.canDoCombo)
             {
                 inputHandler.comboFlag = true;
-                HandleWeaponCombo(playerInventory.rightWeapon);
+                HandleHeavyWeaponCombo(playerInventory.rightWeapon);
                 inputHandler.comboFlag = false;
             }
             else

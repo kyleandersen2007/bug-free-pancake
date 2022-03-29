@@ -5176,7 +5176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7535899453341371493
 Transform:
   m_ObjectHideFlags: 0
@@ -28496,6 +28496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7533347504584504903}
+  - component: {fileID: 2887150493036711178}
   m_Layer: 12
   m_Name: All_08_Elbow_Attachment_Left
   m_TagString: Untagged
@@ -28523,6 +28524,19 @@ Transform:
   m_Father: {fileID: 7533233086803498825}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2887150493036711178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530428794864372411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af87b83c3bfa98d44bb52cda287e717b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  models: []
 --- !u!1 &7530431451121330433
 GameObject:
   m_ObjectHideFlags: 0
@@ -29661,7 +29675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7536150874862111779
 Transform:
   m_ObjectHideFlags: 0
@@ -36506,6 +36520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7536000043877066557}
+  - component: {fileID: 6145813868300956817}
   m_Layer: 12
   m_Name: All_07_Elbow_Attachment_Right
   m_TagString: Untagged
@@ -36533,6 +36548,19 @@ Transform:
   m_Father: {fileID: 7533233086803498825}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6145813868300956817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530542894839826081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef9836c839f5b148a3bc9849df37ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  models: []
 --- !u!1 &7530543066243810703
 GameObject:
   m_ObjectHideFlags: 0
@@ -40397,7 +40425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7535860971385347281
 Transform:
   m_ObjectHideFlags: 0
@@ -53884,7 +53912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7533222914737270963
 Transform:
   m_ObjectHideFlags: 0
@@ -64897,7 +64925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7536093676476002285
 Transform:
   m_ObjectHideFlags: 0
@@ -68511,7 +68539,7 @@ MonoBehaviour:
   leftWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
   currentConsumbale: {fileID: 11400000, guid: d83fe55f018682a458e2be97ff964a29, type: 2}
   currentAmmo: {fileID: 11400000, guid: f2f43d282957c734491d16a17d119701, type: 2}
-  currentHelmetEquipment: {fileID: 11400000, guid: d3d0bebca506275468b39fc73ae7c196, type: 2}
+  currentHelmetEquipment: {fileID: 0}
   currentTorsoEquipment: {fileID: 11400000, guid: 1e125767bbf1e4b47ac775cc8b1f267e, type: 2}
   currentLegEquipment: {fileID: 11400000, guid: b04423ffe402a8d408d659bba26769b8, type: 2}
   currentHandEquipment: {fileID: 11400000, guid: 7802b1264c3705041ba344b1232fbade, type: 2}

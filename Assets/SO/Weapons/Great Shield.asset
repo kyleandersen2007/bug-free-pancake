@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432725bbdd8b16a458951dc289138876, type: 3}
   m_Name: Great Shield
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 8502210999864137018, guid: faba03bbe7d2bd240a7612300dbafe7a, type: 3}
+  itemIcon: {fileID: 21300000, guid: 754d1a35067618c4d8fd29a994c5cd0e, type: 3}
   itemName: Great Shield
   modelPrefab: {fileID: 1124779933736778268, guid: 41c8ff198d5f7f74e87783e3a82e54b8, type: 3}
   isUnarmed: 0
