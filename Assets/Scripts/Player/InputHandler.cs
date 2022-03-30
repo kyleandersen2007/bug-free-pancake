@@ -184,7 +184,7 @@ namespace KA
         {
             if (rb_Input)
             {
-                playerAttacker.HandleRBAction();
+                playerInventory.rightWeapon.tap_RB_Action.PerformAction(playerManager);
             }
 
             if(rt_Input)

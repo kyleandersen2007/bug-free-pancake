@@ -47,26 +47,6 @@ namespace KA
             cameraHandler = FindObjectOfType<CameraHandler>();
         }
 
-        public void HandleLightWeaponCombo(WeaponItem weapon)
-        {
-            if (playerStats.currentStamina <= 0)
-                return;
-
-            if (inputHandler.comboFlag)
-            {
-                animatorHandler.anim.SetBool("canDoCombo", false);
-
-                if (lastAttack == oh_light_attack_1)
-                {
-                    animatorHandler.PlayTargetAnimation(oh_light_attack_2, true);
-                }
-                else if (lastAttack == th_light_attack_1)
-                {
-                    animatorHandler.PlayTargetAnimation(th_light_attack_2, true);
-                }
-            }
-        }
-
         public void HandleHeavyWeaponCombo(WeaponItem weapon)
         {
             if (playerStats.currentStamina <= 0)
@@ -139,18 +119,7 @@ namespace KA
 
         public void HandleRBAction()
         {
-            if (playerInventory.rightWeapon.weaponType == WeaponType.StraightSword || playerInventory.rightWeapon.weaponType == WeaponType.Unarmed)
-            {
-                PerformRBMeleeAction();
-            }
-            else if(playerInventory.rightWeapon.weaponType == WeaponType.Bow)
-            {
-                FireArrowAction();
-            }
-            else if(playerInventory.rightWeapon.weaponType == WeaponType.SpellCaster || playerInventory.rightWeapon.weaponType == WeaponType.FaithCaster || playerInventory.rightWeapon.weaponType == WeaponType.PyroCaster)
-            {
-                
-            }
+            
         }
 
         public void HandleRTAction()
@@ -194,29 +163,6 @@ namespace KA
                     animatorHandler.anim.SetBool("isUsingLeftHand", true);
                 }
             }
-        }
-
-        private void PerformRBMeleeAction()
-        {
-            if (playerManager.canDoCombo)
-            {
-                inputHandler.comboFlag = true;
-                HandleLightWeaponCombo(playerInventory.rightWeapon);
-                inputHandler.comboFlag = false;
-            }
-            else
-            {
-                if (playerManager.isInteracting)
-                    return;
-
-                if (playerManager.canDoCombo)
-                    return;
-
-                animatorHandler.anim.SetBool("isUsingRightHand", true);
-                HandleLightAttack(playerInventory.rightWeapon);
-            }
-
-            playerEffectsManager.PlayWeaponFX(false);
         }
 
         private void DrawArrowAction()

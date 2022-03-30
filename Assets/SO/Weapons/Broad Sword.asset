@@ -29,3 +29,5 @@ MonoBehaviour:
   lightAttackMultiplier: 1
   heavyAttackStaminaMultiplier: 0
   physicalDamageAbsorption: 0
+  tap_RB_Action: {fileID: 11400000, guid: 3a22b0f9073819947b668549bbcc678a, type: 2}
+  hold_RB_Action: {fileID: 0}

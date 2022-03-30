@@ -5,12 +5,16 @@ namespace KA
 {
     public class PlayerManager : CharacterManager
     {
-        InputHandler inputHandler;
-        Animator anim;
-        CameraHandler cameraHandler;
-        PlayerLocomotion playerLocomotion;
-        PlayerStats playerStats;
-        PlayerAnimatorManager animatorHandler;
+        public InputHandler inputHandler;
+        public Animator anim;
+        public CameraHandler cameraHandler;
+        public PlayerLocomotion playerLocomotion;
+        public PlayerStats playerStats;
+        public PlayerAnimatorManager animatorHandler;
+        public PlayerInventory playerInventory;
+        public PlayerEffectsManager playerEffectsManager;
+        public PlayerCombatManager playerCombatManager;
+        public WeaponSlotManager weaponSlotManager;
 
         InteractableUI interactableUI;
         public GameObject interactableUIGameObject;
@@ -26,6 +30,9 @@ namespace KA
             interactableUI = FindObjectOfType<InteractableUI>();
             playerStats = GetComponent<PlayerStats>();
             animatorHandler = GetComponent<PlayerAnimatorManager>();
+            playerCombatManager = GetComponent<PlayerCombatManager>();
+            playerInventory = GetComponent<PlayerInventory>();
+            weaponSlotManager = GetComponent<WeaponSlotManager>();
         }
 
         private void Update()

@@ -40425,7 +40425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7535860971385347281
 Transform:
   m_ObjectHideFlags: 0
@@ -68535,7 +68535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpell: {fileID: 11400000, guid: 9eedd7ae57d29d34e96e2ac47ec6b00d, type: 2}
-  rightWeapon: {fileID: 11400000, guid: 95ebdc840d2981c48aceca66e497a8da, type: 2}
+  rightWeapon: {fileID: 11400000, guid: 9cff65cb79bac494ab3cf06a30b28009, type: 2}
   leftWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
   currentConsumbale: {fileID: 11400000, guid: d83fe55f018682a458e2be97ff964a29, type: 2}
   currentAmmo: {fileID: 11400000, guid: f2f43d282957c734491d16a17d119701, type: 2}
@@ -68544,7 +68544,7 @@ MonoBehaviour:
   currentLegEquipment: {fileID: 11400000, guid: b04423ffe402a8d408d659bba26769b8, type: 2}
   currentHandEquipment: {fileID: 11400000, guid: 7802b1264c3705041ba344b1232fbade, type: 2}
   weaponsInRightHandSlots:
-  - {fileID: 11400000, guid: 95ebdc840d2981c48aceca66e497a8da, type: 2}
+  - {fileID: 11400000, guid: 9cff65cb79bac494ab3cf06a30b28009, type: 2}
   - {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
   weaponsInLeftHandSlots:
   - {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
@@ -68585,6 +68585,16 @@ MonoBehaviour:
   isAiming: 0
   isRotatingWithRootMotion: 0
   canRotate: 0
+  inputHandler: {fileID: 0}
+  anim: {fileID: 0}
+  cameraHandler: {fileID: 0}
+  playerLocomotion: {fileID: 0}
+  playerStats: {fileID: 0}
+  animatorHandler: {fileID: 0}
+  playerInventory: {fileID: 0}
+  playerEffectsManager: {fileID: 0}
+  playerCombatManager: {fileID: 0}
+  weaponSlotManager: {fileID: 0}
   interactableUIGameObject: {fileID: 0}
   itemInteractableGameObject: {fileID: 0}
 --- !u!114 &6808860019063928319
@@ -68694,6 +68704,7 @@ MonoBehaviour:
   th_light_attack_2: TH_Light_Attack2
   th_heavy_attack_1: TH_HeavyAttack1
   th_heavy_attack_2: TH_HeavyAttack2
+  draw_Arrow: 
   weaponArt: Parry
   lastAttack: 
   backStabLayer:

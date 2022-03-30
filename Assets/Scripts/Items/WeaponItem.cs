@@ -33,5 +33,9 @@ namespace KA
 
         [Header("Absorption")]
         public float physicalDamageAbsorption;
+
+        [Header("Weapon Actions")]
+        public ItemAction tap_RB_Action;
+        public ItemAction hold_RB_Action;
     }
 }
