@@ -2991,7 +2991,7 @@ MonoBehaviour:
   isPreformingAction: 0
   rotationSpeed: 25
   maximumAggroRadius: 1.5
-  detectionRadius: 0
+  detectionRadius: 20
   maximumDetectionAngle: 50
   minimumDetectionAngle: -50
   currentRecoveryTime: 0

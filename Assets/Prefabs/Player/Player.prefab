@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 7533186516033131679}
   - component: {fileID: 7596814895514166845}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_13
+  m_Name: MaleRightLeg14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4538,7 +4538,7 @@ GameObject:
   - component: {fileID: 7533362607875180041}
   - component: {fileID: 7594021144029447969}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_12
+  m_Name: MaleRightLeg13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7036,7 +7036,7 @@ GameObject:
   - component: {fileID: 7532947757187034035}
   - component: {fileID: 7596564889833676583}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_16
+  m_Name: MaleLeftLeg17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13584,7 +13584,7 @@ GameObject:
   - component: {fileID: 7533148767955548695}
   - component: {fileID: 7596658724460522329}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_13
+  m_Name: MaleLeftLeg14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16300,7 +16300,7 @@ GameObject:
   - component: {fileID: 7533351350622468229}
   - component: {fileID: 7596780406441606247}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_14
+  m_Name: MaleLeftLeg15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22517,7 +22517,7 @@ GameObject:
   - component: {fileID: 7533126729684264755}
   - component: {fileID: 7596612726162406897}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_19
+  m_Name: MaleRightLeg20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25951,7 +25951,7 @@ GameObject:
   - component: {fileID: 7535850656121910591}
   - component: {fileID: 7596837140991078217}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_10
+  m_Name: MaleLeftLeg11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29498,7 +29498,7 @@ GameObject:
   - component: {fileID: 7535867616780635435}
   - component: {fileID: 7593887395312190017}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_15
+  m_Name: MaleRightLeg16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29675,7 +29675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7536150874862111779
 Transform:
   m_ObjectHideFlags: 0
@@ -30391,7 +30391,7 @@ GameObject:
   - component: {fileID: 7535800724844659637}
   - component: {fileID: 7596864752034060709}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_17
+  m_Name: MaleRightLeg18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31420,7 +31420,7 @@ GameObject:
   - component: {fileID: 7535998840874996343}
   - component: {fileID: 7596467837681467091}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_18
+  m_Name: MaleRightLeg19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31623,7 +31623,7 @@ GameObject:
   - component: {fileID: 7532987939489177683}
   - component: {fileID: 7596856233607873265}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_16
+  m_Name: MaleRightLeg17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31709,7 +31709,7 @@ GameObject:
   - component: {fileID: 7535812207727364629}
   - component: {fileID: 7593788299018150621}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_11
+  m_Name: MaleLeftLeg12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35698,7 +35698,7 @@ GameObject:
   - component: {fileID: 7535914139581675711}
   - component: {fileID: 7593863569692417261}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_11
+  m_Name: MaleRightLeg12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37653,7 +37653,7 @@ GameObject:
   - component: {fileID: 7535650709772679547}
   - component: {fileID: 7597470939521767263}
   m_Layer: 12
-  m_Name: MaleRightLeg1
+  m_Name: MaleRightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44534,7 +44534,7 @@ GameObject:
   - component: {fileID: 7533149658137377025}
   - component: {fileID: 7596484380252158381}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_17
+  m_Name: MaleLeftLeg18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45448,7 +45448,7 @@ GameObject:
   - component: {fileID: 7533083704624996073}
   - component: {fileID: 7596706462953939821}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_19
+  m_Name: MaleLeftLeg20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45795,7 +45795,7 @@ GameObject:
   - component: {fileID: 7533072617572448987}
   - component: {fileID: 7597493307937156477}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_15
+  m_Name: MaleLeftLeg16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47180,7 +47180,7 @@ GameObject:
   - component: {fileID: 7535710119538406525}
   - component: {fileID: 7596494890641148905}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_10
+  m_Name: MaleRightLeg11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51298,7 +51298,7 @@ GameObject:
   - component: {fileID: 7536130258967095105}
   - component: {fileID: 7596535318245343731}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_18
+  m_Name: MaleLeftLeg19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53912,7 +53912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7533222914737270963
 Transform:
   m_ObjectHideFlags: 0
@@ -66323,7 +66323,7 @@ GameObject:
   - component: {fileID: 7532840899680336629}
   - component: {fileID: 7596806857476449151}
   m_Layer: 12
-  m_Name: Chr_LegRight_Male_12
+  m_Name: MaleLeftLeg13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67719,7 +67719,7 @@ GameObject:
   - component: {fileID: 7533390406336150917}
   - component: {fileID: 7597004173052833807}
   m_Layer: 12
-  m_Name: Chr_LegLeft_Male_14
+  m_Name: MaleRightLeg15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68535,16 +68535,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpell: {fileID: 11400000, guid: 9eedd7ae57d29d34e96e2ac47ec6b00d, type: 2}
-  rightWeapon: {fileID: 11400000, guid: 9cff65cb79bac494ab3cf06a30b28009, type: 2}
-  leftWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
+  rightWeapon: {fileID: 11400000, guid: b0cd880d55822f144805ac0c700b00d5, type: 2}
+  leftWeapon: {fileID: 0}
   currentConsumbale: {fileID: 11400000, guid: d83fe55f018682a458e2be97ff964a29, type: 2}
   currentAmmo: {fileID: 11400000, guid: f2f43d282957c734491d16a17d119701, type: 2}
-  currentHelmetEquipment: {fileID: 0}
-  currentTorsoEquipment: {fileID: 11400000, guid: 1e125767bbf1e4b47ac775cc8b1f267e, type: 2}
-  currentLegEquipment: {fileID: 11400000, guid: b04423ffe402a8d408d659bba26769b8, type: 2}
+  currentHelmetEquipment: {fileID: 11400000, guid: 0075713e2ec7efb419b0ad6aeab9eac5, type: 2}
+  currentTorsoEquipment: {fileID: 11400000, guid: 1b91361bd1b90d84480d7cf58864f4a9, type: 2}
+  currentLegEquipment: {fileID: 11400000, guid: e023c4e9976a3e944b9c5ff63c679cfb, type: 2}
   currentHandEquipment: {fileID: 11400000, guid: 7802b1264c3705041ba344b1232fbade, type: 2}
   weaponsInRightHandSlots:
-  - {fileID: 11400000, guid: 9cff65cb79bac494ab3cf06a30b28009, type: 2}
+  - {fileID: 11400000, guid: b0cd880d55822f144805ac0c700b00d5, type: 2}
   - {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
   weaponsInLeftHandSlots:
   - {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}

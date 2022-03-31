@@ -5,6 +5,7 @@ namespace KA
 {
     public class PlayerManager : CharacterManager
     {
+        [Header("Variables")]
         public InputHandler inputHandler;
         public Animator anim;
         public CameraHandler cameraHandler;
@@ -17,8 +18,8 @@ namespace KA
         public WeaponSlotManager weaponSlotManager;
 
         InteractableUI interactableUI;
-        public GameObject interactableUIGameObject;
-        public GameObject itemInteractableGameObject;
+        [HideInInspector] public GameObject interactableUIGameObject;
+        [HideInInspector] public GameObject itemInteractableGameObject;
 
         protected override void Awake()
         {
