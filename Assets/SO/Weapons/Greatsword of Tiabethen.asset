@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432725bbdd8b16a458951dc289138876, type: 3}
   m_Name: Greatsword of Tiabethen
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: d92875897c8cf534a927fd91c88f30d0, type: 3}
   itemName: Greatsword of Tiabethen
   modelPrefab: {fileID: 6706045112294729847, guid: ebbb3f7c9b8df4a4eace45997d14697c, type: 3}
   isUnarmed: 0
