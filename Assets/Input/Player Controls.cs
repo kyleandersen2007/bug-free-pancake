@@ -200,7 +200,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""RB"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""edcdb516-9d36-4012-9623-35e56270176d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",

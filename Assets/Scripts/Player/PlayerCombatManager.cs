@@ -47,64 +47,6 @@ namespace KA
             cameraHandler = FindObjectOfType<CameraHandler>();
         }
 
-        public void HandleHeavyWeaponCombo(WeaponItem weapon)
-        {
-            if (playerStats.currentStamina <= 0)
-                return;
-
-            if (inputHandler.comboFlag)
-            {
-                animatorHandler.anim.SetBool("canDoCombo", false);
-
-                if (lastAttack == oh_heavy_attack_1)
-                {
-                    animatorHandler.PlayTargetAnimation(oh_heavy_attack_2, true);
-                }
-                else if (lastAttack == th_heavy_attack_1)
-                {
-                    animatorHandler.PlayTargetAnimation(th_heavy_attack_2, true);
-                }
-            }
-        }
-
-        public void HandleLightAttack(WeaponItem weapon)
-        {
-            if (playerStats.currentStamina <= 0)
-                return;
-
-            weaponSlotManager.attackingWeapon = weapon;
-
-            if (inputHandler.twoHandFlag)
-            {
-                animatorHandler.PlayTargetAnimation(th_light_attack_1, true);
-                lastAttack = th_light_attack_1;
-            }
-            else
-            {
-                animatorHandler.PlayTargetAnimation(oh_light_attack_1, true);
-                lastAttack = oh_light_attack_1;
-            }
-        }
-
-        public void HandleHeavyAttack(WeaponItem weapon)
-        {
-            if (playerStats.currentStamina <= 0)
-                return;
-
-            weaponSlotManager.attackingWeapon = weapon;
-
-            if (inputHandler.twoHandFlag)
-            {
-                animatorHandler.PlayTargetAnimation(th_heavy_attack_1, true);
-                lastAttack = th_heavy_attack_1;
-            }
-            else
-            {
-                animatorHandler.PlayTargetAnimation(oh_heavy_attack_1, true);
-                lastAttack = oh_heavy_attack_1;
-            }
-        }
-
         public void HandleHoldRBAction()
         {
             if(playerManager.isTwoHandingWeapon)
@@ -120,14 +62,6 @@ namespace KA
         public void HandleRBAction()
         {
             
-        }
-
-        public void HandleRTAction()
-        {
-            if (playerInventory.rightWeapon.weaponType == WeaponType.StraightSword || playerInventory.rightWeapon.weaponType == WeaponType.Unarmed)
-            {
-                PerformRTMeleeAction();
-            }
         }
 
         public void HandleLTAction()
@@ -249,29 +183,6 @@ namespace KA
                     
                 }
             }
-        }
-
-        private void PerformRTMeleeAction()
-        {
-            if (playerManager.canDoCombo)
-            {
-                inputHandler.comboFlag = true;
-                HandleHeavyWeaponCombo(playerInventory.rightWeapon);
-                inputHandler.comboFlag = false;
-            }
-            else
-            {
-                if (playerManager.isInteracting)
-                    return;
-
-                if (playerManager.canDoCombo)
-                    return;
-
-                animatorHandler.anim.SetBool("isUsingRightHand", true);
-                HandleHeavyAttack(playerInventory.rightWeapon);
-            }
-
-            playerEffectsManager.PlayWeaponFX(false);
         }
 
         private void PerformMagicAction(WeaponItem weapon, bool isLeftHanded)

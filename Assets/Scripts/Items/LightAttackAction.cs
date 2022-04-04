@@ -9,12 +9,15 @@ namespace KA
     {
         public override void PerformAction(PlayerManager player)
         {
+            if (player.playerStats.currentStamina <= 0)
+                return;
+
             player.animatorHandler.EraseHandIKForWeapon();
 
             if (player.canDoCombo)
             {
                 player.inputHandler.comboFlag = true;
-                HandleLightWeaponCombo(player.playerInventory.rightWeapon, player);
+                HandleLightWeaponCombo(player);
                 player.inputHandler.comboFlag = false;
             }
             else
@@ -25,16 +28,16 @@ namespace KA
                 if (player.canDoCombo)
                     return;
 
-                HandleLightAttack(player.playerInventory.rightWeapon, player);
+                HandleLightAttack(player);
             }
         }
 
-        private void HandleLightAttack(WeaponItem weapon, PlayerManager player)
+        private void HandleLightAttack(PlayerManager player)
         {
             if(player.isUsingLeftHand)
             {
-                player.animatorHandler.PlayTargetAnimation(player.playerCombatManager.th_light_attack_1, true, false, true);
-                player.playerCombatManager.lastAttack = player.playerCombatManager.th_light_attack_1;
+                player.animatorHandler.PlayTargetAnimation(player.playerCombatManager.oh_light_attack_1, true, false, true);
+                player.playerCombatManager.lastAttack = player.playerCombatManager.oh_light_attack_1;
             } 
             else if(player.isUsingRightHand)
             {
@@ -51,7 +54,7 @@ namespace KA
             }
         }
 
-        private void HandleLightWeaponCombo(WeaponItem weapon, PlayerManager player)
+        private void HandleLightWeaponCombo(PlayerManager player)
         {
             if (player.playerStats.currentStamina <= 0)
                 return;

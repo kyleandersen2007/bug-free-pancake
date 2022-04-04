@@ -7,6 +7,9 @@ namespace KA
     public class CharacterInventoryManager : MonoBehaviour
     {
         protected CharacterWeaponSlotManager characterWeaponSlotManager;
+
+        public Item currentItemBeingUsed;
+
         [Header("Quick Slot Items")]
         public SpellItem currentSpell;
         public WeaponItem rightWeapon;

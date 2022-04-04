@@ -44,5 +44,19 @@ namespace KA
         {
             characterAnimatorManager.CheckHandIKWeight(characterWeaponSlotManager.rightHandIKTarget, characterWeaponSlotManager.leftHandIKTarget, isTwoHandingWeapon);
         }
+
+        public virtual void UpdateWhichHandCharacterIsUsing(bool usingRightHand)
+        {
+            if(usingRightHand)
+            {
+                isUsingLeftHand = false;
+                isUsingRightHand = true;
+            }
+            else
+            {
+                isUsingLeftHand = true;
+                isUsingRightHand = false;
+            }
+        }
     }
 }

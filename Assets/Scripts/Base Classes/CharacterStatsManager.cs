@@ -144,5 +144,10 @@ namespace KA
                 totalPoiseDefence = armorPoiseBonus;
             }
         }
+
+        public void DrainStaminaBasedOnAttackType()
+        {
+
+        }
     }
 }

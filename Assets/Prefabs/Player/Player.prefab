@@ -290,13 +290,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110815175327837193}
-  m_LocalRotation: {x: 0.9606095, y: 0.2720661, z: 0.05554088, w: 0.011165027}
-  m_LocalPosition: {x: 0.116, y: 0.019, z: 0.045}
+  m_LocalRotation: {x: 0.030626804, y: -0.9973455, z: -0.049930178, w: 0.04325594}
+  m_LocalPosition: {x: 0.039, y: -0.058, z: -0.009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7532859834083638617}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -0.503, y: 173.524, z: 148.402}
+  m_LocalEulerAnglesHint: {x: -5.563, y: -174.85, z: -3.768}
 --- !u!1 &1463811327760060946
 GameObject:
   m_ObjectHideFlags: 0
@@ -68534,9 +68534,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d26eafcb4f2dee4aaa221a579c62ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentItemBeingUsed: {fileID: 0}
   currentSpell: {fileID: 11400000, guid: 9eedd7ae57d29d34e96e2ac47ec6b00d, type: 2}
-  rightWeapon: {fileID: 11400000, guid: b0cd880d55822f144805ac0c700b00d5, type: 2}
-  leftWeapon: {fileID: 0}
+  rightWeapon: {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
+  leftWeapon: {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
   currentConsumbale: {fileID: 11400000, guid: d83fe55f018682a458e2be97ff964a29, type: 2}
   currentAmmo: {fileID: 11400000, guid: f2f43d282957c734491d16a17d119701, type: 2}
   currentHelmetEquipment: {fileID: 11400000, guid: 0075713e2ec7efb419b0ad6aeab9eac5, type: 2}
@@ -68544,10 +68545,10 @@ MonoBehaviour:
   currentLegEquipment: {fileID: 11400000, guid: e023c4e9976a3e944b9c5ff63c679cfb, type: 2}
   currentHandEquipment: {fileID: 11400000, guid: 7802b1264c3705041ba344b1232fbade, type: 2}
   weaponsInRightHandSlots:
-  - {fileID: 11400000, guid: b0cd880d55822f144805ac0c700b00d5, type: 2}
+  - {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
   - {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
   weaponsInLeftHandSlots:
-  - {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
+  - {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
   - {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
   currentRightWeaponIndex: 0
   currentLeftWeaponIndex: 0
@@ -68657,7 +68658,6 @@ MonoBehaviour:
   shieldSlot: {fileID: 0}
   leftHandDamageCollider: {fileID: 0}
   rightHandDamageCollider: {fileID: 0}
-  attackingWeapon: {fileID: 0}
   rightHandIKTarget: {fileID: 0}
   leftHandIKTarget: {fileID: 0}
 --- !u!114 &5856393853024905223

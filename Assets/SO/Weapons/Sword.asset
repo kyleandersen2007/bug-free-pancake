@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432725bbdd8b16a458951dc289138876, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 815a721f08be39648b518316561da954, type: 3}
+  itemIcon: {fileID: 21300000, guid: db6b0825e6b21c548955d20c8f4c4c32, type: 3}
   itemName: Sword
   modelPrefab: {fileID: 606200968384958666, guid: 4cbd2f2b1ecb12b46987017514d9966a, type: 3}
   isUnarmed: 0
@@ -29,3 +29,11 @@ MonoBehaviour:
   lightAttackMultiplier: 1
   heavyAttackStaminaMultiplier: 2
   physicalDamageAbsorption: 0
+  tap_RB_Action: {fileID: 11400000, guid: 3a22b0f9073819947b668549bbcc678a, type: 2}
+  hold_RB_Action: {fileID: 0}
+  tap_RT_Action: {fileID: 11400000, guid: fc451336baa58b2469c97c3a682a65f2, type: 2}
+  hold_RT_Input: {fileID: 0}
+  tap_LT_Action: {fileID: 11400000, guid: 3a22b0f9073819947b668549bbcc678a, type: 2}
+  hold_LT_Action: {fileID: 0}
+  tap_LB_Action: {fileID: 0}
+  hold_LB_Action: {fileID: 0}

@@ -52,8 +52,7 @@ namespace KA
         {
             HandleRecoveryTimer();
             HandleStateMachine();
-            isUsingLeftHand = enemyAnimatorHandler.anim.GetBool("isUsingLeftHand");
-            isUsingRightHand = enemyAnimatorHandler.anim.GetBool("isUsingRightHand");
+            
             isRotatingWithRootMotion = enemyAnimatorHandler.anim.GetBool("isRotatingWithRootMotion");
             isInteracting = enemyAnimatorHandler.anim.GetBool("isInteracting");
             canDoCombo = enemyAnimatorHandler.anim.GetBool("canDoCombo");

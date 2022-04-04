@@ -102,15 +102,5 @@ namespace KA
             LoadWeaponOnSlot(playerInventoryManager.rightWeapon, false);
 
         }
-
-        public void DrainStaminaLightAttack()
-        {
-            playerStatsManager.TakeStaminaDamage(Mathf.RoundToInt(attackingWeapon.baseStamina * attackingWeapon.lightAttackMultiplier));
-        }
-
-        public void DrainStaminaHeavyAttack()
-        {
-            playerStatsManager.TakeStaminaDamage(Mathf.RoundToInt(attackingWeapon.baseStamina * attackingWeapon.heavyAttackStaminaMultiplier));
-        }
     }
 }

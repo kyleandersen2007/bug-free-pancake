@@ -112,15 +112,19 @@ namespace KA
         {
             HandleMoveInput(delta);
             HandleRollInput(delta);
-            HandleCombatInput(delta);
+
+            HandleTapRBInput();
+            HandleHoldRBInput();
+            HandleTapRTInput();
+            HandleTapLTInput();
             HandleLBInput();
+            HandleFireBowInput();
+
             HandleQuickSlotsInput();
             HandleInventoryInput();
             HandleLockOnInput();
             HandleTwoHandInput();
-            HandleHoldRBInput();
             HandleUseConsumableInput();
-            HandleFireBowInput();
         }
 
         private void HandleMoveInput(float delta)
@@ -154,7 +158,7 @@ namespace KA
         {
             if (b_Input)
             {
-                rollInputTimer += delta;
+                rollInputTimer += Time.deltaTime;
 
                 if (playerStats.currentStamina <= 0)
                 {
@@ -180,27 +184,41 @@ namespace KA
             }
         }
 
-        private void HandleCombatInput(float delta)
+        private void HandleTapRBInput()
         {
             if (rb_Input)
             {
+                playerManager.UpdateWhichHandCharacterIsUsing(true);
+                playerInventory.currentItemBeingUsed = playerInventory.rightWeapon;
                 playerInventory.rightWeapon.tap_RB_Action.PerformAction(playerManager);
             }
+        }
 
-            if(rt_Input)
+        private void HandleTapRTInput()
+        {
+            if (rt_Input)
             {
-                playerAttacker.HandleRTAction();
+                playerManager.UpdateWhichHandCharacterIsUsing(true);
+                playerInventory.currentItemBeingUsed = playerInventory.rightWeapon;
+                playerInventory.rightWeapon.tap_RT_Action.PerformAction(playerManager);
             }
+        }
 
-            if(lt_Input)
+        private void HandleTapLTInput()
+        {
+            if (lt_Input)
             {
-                if(twoHandFlag)
+                if (playerManager.isTwoHandingWeapon)
                 {
-
+                    playerManager.UpdateWhichHandCharacterIsUsing(true);
+                    playerInventory.currentItemBeingUsed = playerInventory.rightWeapon;
+                    playerInventory.rightWeapon.tap_LT_Action.PerformAction(playerManager);
                 }
                 else
                 {
-                    playerAttacker.HandleLTAction();
+                    playerManager.UpdateWhichHandCharacterIsUsing(false);
+                    playerInventory.currentItemBeingUsed = playerInventory.leftWeapon;
+                    playerInventory.leftWeapon.tap_LT_Action.PerformAction(playerManager);
                 }
             }
         }

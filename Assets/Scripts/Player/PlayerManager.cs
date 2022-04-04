@@ -42,8 +42,6 @@ namespace KA
 
             isInteracting = anim.GetBool("isInteracting");
             canDoCombo = anim.GetBool("canDoCombo");
-            isUsingRightHand = anim.GetBool("isUsingRightHand");
-            isUsingLeftHand = anim.GetBool("isUsingLeftHand");
             isInvulnerable = anim.GetBool("isInvulnerable");
             isHoldingArrow = anim.GetBool("isHoldingArrow");
             anim.SetBool("isInAir", isInAir);

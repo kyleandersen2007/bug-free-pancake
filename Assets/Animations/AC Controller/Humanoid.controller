@@ -64,15 +64,15 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
+  m_MirrorParameterActive: 1
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: ab54ce82da0695a4099f3f509e851238, type: 2}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_MirrorParameter: isMirrored
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1102 &-8462192351000688383
@@ -591,10 +591,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47910acdb1fbb8643a12bf24a4be8001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUsingRightHand: 
-  isUsingRightHandStatus: 0
-  isUsingLeftHand: 
-  isUsingLeftHandStatus: 0
   isInteractingBool: isInteracting
   isInteractingStatus: 0
   isRotatingWithRootMotion: isRotatingWithRootMotion
@@ -764,10 +760,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47910acdb1fbb8643a12bf24a4be8001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUsingRightHand: isUsingRightHand
-  isUsingRightHandStatus: 0
-  isUsingLeftHand: isUsingLeftHand
-  isUsingLeftHandStatus: 0
   isInteractingBool: isInteracting
   isInteractingStatus: 0
   isRotatingWithRootMotion: isRotatingWithRootMotion
@@ -792,15 +784,15 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 1
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
+  m_MirrorParameterActive: 1
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 75506fc9c661ecd499f3c1ae111d65a1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_MirrorParameter: isMirrored
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1102 &-4750888069645467179
@@ -945,15 +937,15 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 1
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
+  m_MirrorParameterActive: 1
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 8f719b7cd0fcf9a4798f97c4384620e1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_MirrorParameter: isMirrored
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1101 &-4533760507186581477
@@ -1211,15 +1203,15 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 1
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
+  m_MirrorParameterActive: 1
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: d4946cc0d99acdd4fb65ac07ce2819b8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_MirrorParameter: isMirrored
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1101 &-3731186990408645037
@@ -1518,10 +1510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47910acdb1fbb8643a12bf24a4be8001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUsingRightHand: 
-  isUsingRightHandStatus: 0
-  isUsingLeftHand: 
-  isUsingLeftHandStatus: 0
   isInteractingBool: isInteracting
   isInteractingStatus: 0
   isRotatingWithRootMotion: isRotatingWithRootMotion
@@ -1747,91 +1735,79 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isInteracting
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Vertical
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Horizontal
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: canDoCombo
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isInAir
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: isUsingRightHand
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: isUsingLeftHand
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isInvulnerable
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: canRotate
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isBlocking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isRotatingWithRootMotion
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isTwoHandingWeapon
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isHoldingArrow
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isMirrored
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -2837,15 +2813,15 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 1
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
+  m_MirrorParameterActive: 1
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 1dd48ee83020700408629ff1c103cd16, type: 2}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_MirrorParameter: isMirrored
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1102 &3849419593814205112
@@ -3430,7 +3406,7 @@ AnimatorStateMachine:
     m_Position: {x: 440, y: -180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3974806579083007530}
-    m_Position: {x: 980, y: 510, z: 0}
+    m_Position: {x: 740, y: 460, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7196962330798024470}
     m_Position: {x: 440, y: 520, z: 0}
@@ -3460,19 +3436,19 @@ AnimatorStateMachine:
     m_Position: {x: 190, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5896502926714533819}
-    m_Position: {x: 930, y: 630, z: 0}
+    m_Position: {x: 740, y: 560, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2415429584349115004}
     m_Position: {x: 440, y: 620, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4129762855715551985}
-    m_Position: {x: 1230.1827, y: 406.29404, z: 0}
+    m_Position: {x: 740, y: 600, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6001645718280531353}
     m_Position: {x: 1230, y: 510, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4129185286848273757}
-    m_Position: {x: 1230, y: 460, z: 0}
+    m_Position: {x: 1020, y: 600, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 711983941907108465}
     m_Position: {x: 1230, y: 560, z: 0}
@@ -3559,15 +3535,15 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 1
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
+  m_MirrorParameterActive: 1
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: f96dc5c38a130eb45a0ad6ae7c4172e2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_MirrorParameter: isMirrored
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1101 &6031507336614825315
@@ -3634,10 +3610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47910acdb1fbb8643a12bf24a4be8001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUsingRightHand: 
-  isUsingRightHandStatus: 0
-  isUsingLeftHand: 
-  isUsingLeftHandStatus: 0
   isInteractingBool: isInteracting
   isInteractingStatus: 0
   isRotatingWithRootMotion: isRotatingWithRootMotion
@@ -3962,15 +3934,15 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
+  m_MirrorParameterActive: 1
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 6b6fc5952d3b0964182bd05964d289ed, type: 2}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_MirrorParameter: isMirrored
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1102 &8363722495525183804
@@ -3989,15 +3961,15 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 1
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
+  m_MirrorParameterActive: 1
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: d88f3629a6b72a8439cad75577ae2b0d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_MirrorParameter: isMirrored
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1101 &8483606561183736898
@@ -4038,15 +4010,15 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
+  m_MirrorParameterActive: 1
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 303ef388e05a38e4dbf5712c8f1b679b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_MirrorParameter: isMirrored
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1102 &8848068458339945974
@@ -4065,15 +4037,15 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
+  m_MirrorParameterActive: 1
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: ff168fa982630c24b94bcbdf630c1190, type: 2}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_MirrorParameter: isMirrored
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1101 &8919890107944798729
@@ -4113,10 +4085,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47910acdb1fbb8643a12bf24a4be8001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUsingRightHand: 
-  isUsingRightHandStatus: 0
-  isUsingLeftHand: 
-  isUsingLeftHandStatus: 0
   isInteractingBool: isInteracting
   isInteractingStatus: 0
   isRotatingWithRootMotion: isRotatingWithRootMotion
