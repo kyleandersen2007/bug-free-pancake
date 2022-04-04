@@ -196,6 +196,7 @@ namespace KA
 
             if (inputHandler.rollFlag)
             {
+                inputHandler.rollFlag = false;
                 moveDirection = cameraObject.forward * inputHandler.vertical;
                 moveDirection += cameraObject.right * inputHandler.horizontal;
 

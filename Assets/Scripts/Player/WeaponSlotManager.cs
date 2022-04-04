@@ -100,7 +100,6 @@ namespace KA
             damageCollider.bombRB.AddForce(activeModelBomb.transform.up * fireBombItem.upwardVelocity);
             damageCollider.teamIDNumber = playerStatsManager.teamIDNumber;
             LoadWeaponOnSlot(playerInventoryManager.rightWeapon, false);
-
         }
     }
 }

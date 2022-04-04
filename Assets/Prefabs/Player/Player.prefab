@@ -68536,16 +68536,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentItemBeingUsed: {fileID: 0}
   currentSpell: {fileID: 11400000, guid: 9eedd7ae57d29d34e96e2ac47ec6b00d, type: 2}
-  rightWeapon: {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
+  rightWeapon: {fileID: 11400000, guid: 95ebdc840d2981c48aceca66e497a8da, type: 2}
   leftWeapon: {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
   currentConsumbale: {fileID: 11400000, guid: d83fe55f018682a458e2be97ff964a29, type: 2}
   currentAmmo: {fileID: 11400000, guid: f2f43d282957c734491d16a17d119701, type: 2}
-  currentHelmetEquipment: {fileID: 11400000, guid: 0075713e2ec7efb419b0ad6aeab9eac5, type: 2}
-  currentTorsoEquipment: {fileID: 11400000, guid: 1b91361bd1b90d84480d7cf58864f4a9, type: 2}
-  currentLegEquipment: {fileID: 11400000, guid: e023c4e9976a3e944b9c5ff63c679cfb, type: 2}
+  currentHelmetEquipment: {fileID: 0}
+  currentTorsoEquipment: {fileID: 0}
+  currentLegEquipment: {fileID: 11400000, guid: b04423ffe402a8d408d659bba26769b8, type: 2}
   currentHandEquipment: {fileID: 11400000, guid: 7802b1264c3705041ba344b1232fbade, type: 2}
   weaponsInRightHandSlots:
-  - {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
+  - {fileID: 11400000, guid: 95ebdc840d2981c48aceca66e497a8da, type: 2}
   - {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
   weaponsInLeftHandSlots:
   - {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
