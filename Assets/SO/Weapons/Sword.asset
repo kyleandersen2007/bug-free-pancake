@@ -30,10 +30,10 @@ MonoBehaviour:
   heavyAttackStaminaMultiplier: 2
   physicalDamageAbsorption: 0
   tap_RB_Action: {fileID: 11400000, guid: 3a22b0f9073819947b668549bbcc678a, type: 2}
-  hold_RB_Action: {fileID: 0}
+  hold_RB_Action: {fileID: 11400000, guid: 7569b01c93f63e6468698f04a71125c3, type: 2}
   tap_RT_Action: {fileID: 11400000, guid: fc451336baa58b2469c97c3a682a65f2, type: 2}
   hold_RT_Input: {fileID: 0}
-  tap_LT_Action: {fileID: 11400000, guid: 3a22b0f9073819947b668549bbcc678a, type: 2}
+  tap_LT_Action: {fileID: 0}
   hold_LT_Action: {fileID: 0}
   tap_LB_Action: {fileID: 0}
   hold_LB_Action: {fileID: 0}

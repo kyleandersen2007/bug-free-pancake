@@ -5,10 +5,7 @@ namespace KA
 {
     public class AnimatorManager : MonoBehaviour
     {
-        public Animator anim;
         protected CharacterManager characterManager;
-        protected CharacterStatsManager characterStatsManager;
-        public bool canRotate;
 
         protected RigBuilder rigBuilder;
         public TwoBoneIKConstraint leftHandConstraint;
@@ -19,55 +16,55 @@ namespace KA
         protected virtual void Awake()
         {
             characterManager = GetComponent<CharacterManager>();
-            characterStatsManager = GetComponent<CharacterStatsManager>();
+            characterManager.characterStatsManager = GetComponent<CharacterStatsManager>();
             rigBuilder = GetComponent<RigBuilder>();
         }
 
         public void PlayTargetAnimation(string targetAnim, bool isInteracting, bool canRotate = false, bool mirrorAnim = false)
         {
-            anim.applyRootMotion = isInteracting;
-            anim.SetBool("canRotate", canRotate);
-            anim.SetBool("isInteracting", isInteracting);
-            anim.SetBool("isMirrored", mirrorAnim);
-            anim.CrossFade(targetAnim, 0.2f);
+            characterManager.anim.applyRootMotion = isInteracting;
+            characterManager.anim.SetBool("canRotate", canRotate);
+            characterManager.anim.SetBool("isInteracting", isInteracting);
+            characterManager.anim.SetBool("isMirrored", mirrorAnim);
+            characterManager.anim.CrossFade(targetAnim, 0.2f);
         }
 
         public void PlayTargetAnimationWithRootRotation(string targetAnim, bool isInteracting)
         {
-            anim.applyRootMotion = isInteracting;
-            anim.SetBool("isRotatingWithRootMotion", true);
-            anim.SetBool("isInteracting", isInteracting);
-            anim.CrossFade(targetAnim, 0.2f);
+            characterManager.anim.applyRootMotion = isInteracting;
+            characterManager.anim.SetBool("isRotatingWithRootMotion", true);
+            characterManager.anim.SetBool("isInteracting", isInteracting);
+            characterManager.anim.CrossFade(targetAnim, 0.2f);
         }
 
         public virtual void EnableCanRotate()
         {
-            anim.SetBool("canRotate", true);
+            characterManager.anim.SetBool("canRotate", true);
         }
 
         public virtual void DisableCanRotate()
         {
-            anim.SetBool("canRotate", false);
+            characterManager.anim.SetBool("canRotate", false);
         }
 
         public virtual void EnableCombo()
         {
-            anim.SetBool("canDoCombo", true);
+            characterManager.anim.SetBool("canDoCombo", true);
         }
 
         public virtual void DisableCombo()
         {
-            anim.SetBool("canDoCombo", false);
+            characterManager.anim.SetBool("canDoCombo", false);
         }
 
         public virtual void EnableIsInvulnerable()
         {
-            anim.SetBool("isInvulnerable", true);
+            characterManager.anim.SetBool("isInvulnerable", true);
         }
 
         public virtual void DisableIsInvulnerable()
         {
-            anim.SetBool("isInvulnerable", false);
+            characterManager.anim.SetBool("isInvulnerable", false);
         }
 
         public virtual void EnableIsParrying()
@@ -92,7 +89,7 @@ namespace KA
 
         public virtual void TakeCriticalDamageAnimationEvent()
         {
-            characterStatsManager.TakeDamageNoAnimation(characterManager.pendingCriticalDamage, 0);
+            characterManager.characterStatsManager.TakeDamageNoAnimation(characterManager.pendingCriticalDamage, 0);
             characterManager.pendingCriticalDamage = 0;
         }
 

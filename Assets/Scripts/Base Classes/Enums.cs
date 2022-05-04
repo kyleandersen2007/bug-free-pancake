@@ -8,6 +8,7 @@ namespace KA
     {
         StraightSword,
         Shield,
+        SmallShield,
         FaithCaster,
         PyroCaster,
         Unarmed,

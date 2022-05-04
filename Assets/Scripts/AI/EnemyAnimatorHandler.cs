@@ -5,15 +5,12 @@ namespace KA
 {
     public class EnemyAnimatorHandler : AnimatorManager
     {
-        EnemyManager enemyManager;
-        EnemyEffectsManager enemyEffectsManager;
+        EnemyManager enemy;
 
         protected override void Awake()
         {
             base.Awake();
-            anim = GetComponent<Animator>();
-            enemyManager = GetComponent<EnemyManager>();
-            enemyEffectsManager = GetComponent<EnemyEffectsManager>();
+            enemy = GetComponent<EnemyManager>();
         }
 
         public void AwardSoulsOnDeath()
@@ -23,7 +20,7 @@ namespace KA
 
             if (playerStats != null)
             {
-                playerStats.AddSouls(characterStatsManager.soulsAwardedOnDeath);
+                playerStats.AddSouls(enemy.characterStatsManager.soulsAwardedOnDeath);
 
                 if (soulCountBar != null)
                 {
@@ -34,21 +31,21 @@ namespace KA
 
         public void PlayWeaponTrailFX()
         {
-            enemyEffectsManager.PlayWeaponFX(false);
+            enemy.enemyEffectsManager.PlayWeaponFX(false);
         }
 
         private void OnAnimatorMove()
         {
             float delta = Time.deltaTime;
-            enemyManager.enemyRigidBody.drag = 0;
-            Vector3 deltaPosition = anim.deltaPosition;
+            enemy.enemyRigidBody.drag = 0;
+            Vector3 deltaPosition = enemy.anim.deltaPosition;
             deltaPosition.y = 0;
             Vector3 velocity = deltaPosition / delta;
-            enemyManager.enemyRigidBody.velocity = velocity;
+            enemy.enemyRigidBody.velocity = velocity;
 
-            if (enemyManager.isRotatingWithRootMotion)
+            if (enemy.isRotatingWithRootMotion)
             {
-                enemyManager.transform.rotation *= anim.deltaRotation;
+                enemy.transform.rotation *= enemy.anim.deltaRotation;
             }
         }
     }

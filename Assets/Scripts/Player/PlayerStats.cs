@@ -6,12 +6,11 @@ namespace KA
 {
     public class PlayerStats : CharacterStatsManager
     {
-        PlayerManager playerManager;
+        PlayerManager player;
 
         public HealthBar healthBar;
-        StaminaBar staminaBar;
-        FocusPointBar focusPointsBar;
-        PlayerAnimatorManager playerAnimatorManager;
+        public StaminaBar staminaBar;
+        public FocusPointBar focusPointsBar;
 
         public float staminaRegenerationAmount = 1;
         public float staminaRegenTimer = 0;
@@ -19,11 +18,10 @@ namespace KA
         protected override void Awake()
         {
             base.Awake();
-            playerManager = GetComponent<PlayerManager>();
+            player = GetComponent<PlayerManager>();
             healthBar = FindObjectOfType<HealthBar>();
             staminaBar = FindObjectOfType<StaminaBar>();
             focusPointsBar = FindObjectOfType<FocusPointBar>();
-            playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
         }
 
         void Start()
@@ -50,25 +48,25 @@ namespace KA
             {
                 poiseResetTimer = poiseResetTimer - Time.deltaTime;
             }
-            else if (poiseResetTimer <= 0 && !playerManager.isInteracting)
+            else if (poiseResetTimer <= 0 && !player.isInteracting)
             {
                 totalPoiseDefence = armorPoiseBonus;
             }
         }
 
-        private int SetMaxHealthFromHealthLevel()
+        public int SetMaxHealthFromHealthLevel()
         {
             maxHealth = healthLevel * 10;
             return maxHealth;
         }
 
-        private float SetMaxStaminaFromStaminaLevel()
+        public float SetMaxStaminaFromStaminaLevel()
         {
             maxStamina = staminaLevel * 10;
             return maxStamina;
         }
 
-        private float SetMaxFocusPointsFromFocusLevel()
+        public float SetMaxFocusPointsFromFocusLevel()
         {
             maxFocusPoints = focusLevel * 10;
             return maxFocusPoints;
@@ -76,18 +74,18 @@ namespace KA
 
         public override void TakeDamage(int physicalDamage, int fireDamage, string damageAnimation = "Damage_01")
         {
-            if (playerManager.isInvulnerable)
+            if (player.isInvulnerable)
                 return;
 
             base.TakeDamage(physicalDamage, fireDamage, damageAnimation = "Damage_01");
             healthBar.SetCurrentHealth(currentHealth);
-            playerAnimatorManager.PlayTargetAnimation(damageAnimation, true);
+            player.animatorHandler.PlayTargetAnimation(damageAnimation, true);
 
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                isDead = true;
-                playerAnimatorManager.PlayTargetAnimation("Player Death", true);
+                player.isDead = true;
+                player.animatorHandler.PlayTargetAnimation("Player Death", true);
             }
         }
 
@@ -105,7 +103,7 @@ namespace KA
 
         public void RegenerateStamina()
         {
-            if (playerManager.isInteracting)
+            if (player.isInteracting)
             {
                 staminaRegenTimer = 0;
             }

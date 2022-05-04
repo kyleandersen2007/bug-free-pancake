@@ -3,20 +3,10 @@ namespace KA
 {
     public class PlayerLocomotion : MonoBehaviour
     {
-        CameraHandler cameraHandler;
-        PlayerManager playerManager;
-        Transform cameraObject;
-        InputHandler inputHandler;
-        PlayerStats playerStats;
+        public PlayerManager playerManager;
         public Vector3 moveDirection;
 
-        [HideInInspector]
-        public Transform myTransform;
-        [HideInInspector]
-        public PlayerAnimatorManager animatorHandler;
-
         public new Rigidbody rigidbody;
-        public GameObject normalCamera;
 
         [Header("Ground & Air Detection Stats")]
         [SerializeField]
@@ -47,22 +37,14 @@ namespace KA
 
         private void Awake()
         {
-            cameraHandler = FindObjectOfType<CameraHandler>();
+            playerManager = GetComponent<PlayerManager>();
+            rigidbody = GetComponent<Rigidbody>();
         }
 
         private void Start()
         {
-            playerManager = GetComponent<PlayerManager>();
-            rigidbody = GetComponent<Rigidbody>();
-            inputHandler = GetComponent<InputHandler>();
-            animatorHandler = GetComponent<PlayerAnimatorManager>();
-            playerStats = GetComponent<PlayerStats>();
-            cameraObject = Camera.main.transform;
-            myTransform = transform;
-            animatorHandler.Initialize();
-
             playerManager.isGrounded = true;
-            ignoreForGroundCheck = ~(1 << 7 | 1 << 11);
+            ignoreForGroundCheck = ~(1 << 5 | 1 << 11);
         }
 
         #region Movement
@@ -71,23 +53,23 @@ namespace KA
 
         public void HandleRotation(float delta)
         {
-            if(animatorHandler.canRotate)
+            if(playerManager.canRotate)
             {
                 if(playerManager.isAiming)
                 {
-                    Quaternion targetRotation = Quaternion.Euler(0, cameraHandler.cameraTransform.eulerAngles.y, 0);
+                    Quaternion targetRotation = Quaternion.Euler(0, playerManager.cameraHandler.cameraTransform.eulerAngles.y, 0);
                     Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
                     transform.rotation = playerRotation;
                 }
                 else
                 {
-                    if (inputHandler.lockOnFlag)
+                    if (playerManager.inputHandler.lockOnFlag)
                     {
-                        if (inputHandler.sprintFlag || inputHandler.rollFlag)
+                        if (playerManager.inputHandler.sprintFlag || playerManager.inputHandler.rollFlag)
                         {
                             Vector3 targetDirection = Vector3.zero;
-                            targetDirection = cameraHandler.cameraTransform.forward * inputHandler.vertical;
-                            targetDirection += cameraHandler.cameraTransform.right * inputHandler.horizontal;
+                            targetDirection = playerManager.cameraHandler.cameraTransform.forward * playerManager.inputHandler.vertical;
+                            targetDirection += playerManager.cameraHandler.cameraTransform.right * playerManager.inputHandler.horizontal;
                             targetDirection.Normalize();
                             targetDirection.y = 0;
 
@@ -104,7 +86,7 @@ namespace KA
                         else
                         {
                             Vector3 rotationDirection = moveDirection;
-                            rotationDirection = cameraHandler.currentLockOnTarget.transform.position - transform.position;
+                            rotationDirection = playerManager.cameraHandler.currentLockOnTarget.transform.position - transform.position;
                             rotationDirection.y = 0;
                             rotationDirection.Normalize();
                             Quaternion tr = Quaternion.LookRotation(rotationDirection);
@@ -115,23 +97,23 @@ namespace KA
                     else
                     {
                         Vector3 targetDir = Vector3.zero;
-                        float moveOverride = inputHandler.moveAmount;
+                        float moveOverride = playerManager.inputHandler.moveAmount;
 
-                        targetDir = cameraObject.forward * inputHandler.vertical;
-                        targetDir += cameraObject.right * inputHandler.horizontal;
+                        targetDir = playerManager.cameraHandler.cameraObject.transform.forward * playerManager.inputHandler.vertical;
+                        targetDir += playerManager.cameraHandler.cameraObject.transform.right * playerManager.inputHandler.horizontal;
 
                         targetDir.Normalize();
                         targetDir.y = 0;
 
                         if (targetDir == Vector3.zero)
-                            targetDir = myTransform.forward;
+                            targetDir = transform.forward;
 
                         float rs = rotationSpeed;
 
                         Quaternion tr = Quaternion.LookRotation(targetDir);
-                        Quaternion targetRotation = Quaternion.Slerp(myTransform.rotation, tr, rs * delta);
+                        Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, rs * delta);
 
-                        myTransform.rotation = targetRotation;
+                        transform.rotation = targetRotation;
                     }
                 }
             }
@@ -139,29 +121,29 @@ namespace KA
 
         public void HandleMovement(float delta)
         {
-            if (inputHandler.rollFlag)
+            if (playerManager.inputHandler.rollFlag)
                 return;
 
             if (playerManager.isInteracting)
                 return;
 
-            moveDirection = cameraObject.forward * inputHandler.vertical;
-            moveDirection += cameraObject.right * inputHandler.horizontal;
+            moveDirection = playerManager.cameraHandler.cameraObject.transform.forward * playerManager.inputHandler.vertical;
+            moveDirection += playerManager.cameraHandler.cameraObject.transform.right * playerManager.inputHandler.horizontal;
             moveDirection.Normalize();
             moveDirection.y = 0;
 
             float speed = movementSpeed;
 
-            if (inputHandler.sprintFlag && inputHandler.moveAmount > 0.5)
+            if (playerManager.inputHandler.sprintFlag && playerManager.inputHandler.moveAmount > 0.5)
             {
                 speed = sprintSpeed;
                 playerManager.isSprinting = true;
                 moveDirection *= speed;
-                playerStats.TakeStaminaDamage(sprintStaminaCost);
+                playerManager.playerStats.TakeStaminaDamage(sprintStaminaCost);
             }
             else
             {
-                if (inputHandler.moveAmount <= 0.5)
+                if (playerManager.inputHandler.moveAmount <= 0.5)
                 {
                     moveDirection *= walkingSpeed;
                     playerManager.isSprinting = false;
@@ -176,43 +158,44 @@ namespace KA
             Vector3 projectedVelocity = Vector3.ProjectOnPlane(moveDirection, normalVector);
             rigidbody.velocity = projectedVelocity;
 
-            if (inputHandler.lockOnFlag && inputHandler.sprintFlag == false)
+            if (playerManager.inputHandler.lockOnFlag && playerManager.inputHandler.sprintFlag == false)
             {
-                animatorHandler.UpdateAnimatorValues(inputHandler.vertical, inputHandler.horizontal, playerManager.isSprinting);
+                playerManager.animatorHandler.UpdateAnimatorValues(playerManager.inputHandler.vertical, playerManager.inputHandler.horizontal, playerManager.isSprinting);
             }
             else
             {
-                animatorHandler.UpdateAnimatorValues(inputHandler.moveAmount, 0, playerManager.isSprinting);
+                playerManager.animatorHandler.UpdateAnimatorValues(playerManager.inputHandler.moveAmount, 0, playerManager.isSprinting);
             }
         }
 
         public void HandleRollingAndSprinting(float delta)
         {
-            if (animatorHandler.anim.GetBool("isInteracting"))
+            if (playerManager.anim.GetBool("isInteracting"))
                 return;
 
-            if (playerStats.currentStamina <= 0)
+            if (playerManager.playerStats.currentStamina <= 0)
                 return;
 
-            if (inputHandler.rollFlag)
+            if (playerManager.inputHandler.rollFlag)
             {
-                moveDirection = cameraObject.forward * inputHandler.vertical;
-                moveDirection += cameraObject.right * inputHandler.horizontal;
+                playerManager.inputHandler.rollFlag = false;
+                moveDirection = playerManager.cameraHandler.cameraObject.transform.forward * playerManager.inputHandler.vertical;
+                moveDirection += playerManager.cameraHandler.cameraObject.transform.right * playerManager.inputHandler.horizontal;
 
-                if (inputHandler.moveAmount > 0)
+                if (playerManager.inputHandler.moveAmount > 0)
                 {
-                    animatorHandler.PlayTargetAnimation("Rolling", true);
-                    animatorHandler.EraseHandIKForWeapon();
+                    playerManager.animatorHandler.PlayTargetAnimation("Rolling", true);
+                    playerManager.animatorHandler.EraseHandIKForWeapon();
                     moveDirection.y = 0;
                     Quaternion rollRotation = Quaternion.LookRotation(moveDirection);
-                    myTransform.rotation = rollRotation;
-                    playerStats.TakeStaminaDamage(rollStaminaCost);
+                    transform.rotation = rollRotation;
+                    playerManager.playerStats.TakeStaminaDamage(rollStaminaCost);
                 }
                 else
                 {
-                    animatorHandler.PlayTargetAnimation("Backstep", true);
-                    animatorHandler.EraseHandIKForWeapon();
-                    playerStats.TakeStaminaDamage(backstepStaminaCost);
+                    playerManager.animatorHandler.PlayTargetAnimation("Backstep", true);
+                    playerManager.animatorHandler.EraseHandIKForWeapon();
+                    playerManager.playerStats.TakeStaminaDamage(backstepStaminaCost);
                 }
             }
         }
@@ -221,10 +204,10 @@ namespace KA
         {
             playerManager.isGrounded = false;
             RaycastHit hit;
-            Vector3 origin = myTransform.position;
+            Vector3 origin = transform.position;
             origin.y += groundDetectionRayStartPoint;
 
-            if (Physics.Raycast(origin, myTransform.forward, out hit, 0.4f))
+            if (Physics.Raycast(origin, transform.forward, out hit, 0.4f))
             {
                 moveDirection = Vector3.zero;
             }
@@ -239,7 +222,7 @@ namespace KA
             dir.Normalize();
             origin = origin + dir * groundDirectionRayDistance;
 
-            targetPosition = myTransform.position;
+            targetPosition = transform.position;
 
             Debug.DrawRay(origin, -Vector3.up * minimumDistanceNeededToBeginFall, Color.red, 0.1f, false);
             if (Physics.Raycast(origin, -Vector3.up, out hit, minimumDistanceNeededToBeginFall, ignoreForGroundCheck))
@@ -254,12 +237,12 @@ namespace KA
                     if (inAirTimer > 0.5f)
                     {
                         Debug.Log("You were in the air for " + inAirTimer);
-                        animatorHandler.PlayTargetAnimation("Land", true);
+                        playerManager.animatorHandler.PlayTargetAnimation("Land", true);
                         inAirTimer = 0;
                     }
                     else
                     {
-                        animatorHandler.PlayTargetAnimation("Empty", false);
+                        playerManager.animatorHandler.PlayTargetAnimation("Empty", false);
                         inAirTimer = 0;
                     }
 
@@ -277,7 +260,7 @@ namespace KA
                 {
                     if (playerManager.isInteracting == false)
                     {
-                        animatorHandler.PlayTargetAnimation("Falling", true);
+                        playerManager.animatorHandler.PlayTargetAnimation("Falling", true);
                     }
 
                     Vector3 vel = rigidbody.velocity;
@@ -287,13 +270,13 @@ namespace KA
                 }
             }
 
-            if (playerManager.isInteracting || inputHandler.moveAmount > 0)
+            if (playerManager.isInteracting || playerManager.inputHandler.moveAmount > 0)
             {
-                myTransform.position = Vector3.Lerp(myTransform.position, targetPosition, Time.deltaTime / 0.1f);
+                transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime / 0.1f);
             }
             else
             {
-                myTransform.position = targetPosition;
+                transform.position = targetPosition;
             }
         }
 
@@ -302,17 +285,19 @@ namespace KA
             if (playerManager.isInteracting)
                 return;
 
-            if (inputHandler.jump_Input)
+            if (playerManager.inputHandler.jump_Input)
             {
-                if (inputHandler.moveAmount > 0)
+                playerManager.inputHandler.jump_Input = false;
+
+                if (playerManager.inputHandler.moveAmount > 0)
                 {
-                    moveDirection = cameraObject.forward * inputHandler.vertical;
-                    moveDirection += cameraObject.right * inputHandler.horizontal;
-                    animatorHandler.PlayTargetAnimation("Jump", true);
-                    animatorHandler.EraseHandIKForWeapon();
+                    moveDirection = playerManager.cameraHandler.cameraObject.transform.forward * playerManager.inputHandler.vertical;
+                    moveDirection += playerManager.cameraHandler.cameraObject.transform.right * playerManager.inputHandler.horizontal;
+                    playerManager.animatorHandler.PlayTargetAnimation("Jump", true);
+                    playerManager.animatorHandler.EraseHandIKForWeapon();
                     moveDirection.y = 0;
                     Quaternion jumpRotation = Quaternion.LookRotation(moveDirection);
-                    myTransform.rotation = jumpRotation;
+                    transform.rotation = jumpRotation;
                 }
             }
         }

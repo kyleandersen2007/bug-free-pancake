@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace KA
 {
-    public class HandEquipmentSlotUI : MonoBehaviour
+    public class WeaponEquipmentSlotUI : MonoBehaviour
     {
         UIManager uIManager;
 
@@ -36,7 +36,6 @@ namespace KA
             weapon = null;
             icon.sprite = null;
             icon.enabled = false;
-            gameObject.SetActive(false);
         }
 
         public void SelectThisSlot()

@@ -5,14 +5,13 @@ namespace KA
 {
     public class EnemyStats : CharacterStatsManager
     {
-        EnemyAnimatorHandler enemyAnimatorHandler;
-
+        EnemyManager enemyManager;
         public UIEnemyHealthBar enemyHealthBar;
 
         protected override void Awake()
         {
             base.Awake();
-            enemyAnimatorHandler = GetComponentInChildren<EnemyAnimatorHandler>();
+            enemyManager = GetComponent<EnemyManager>();
         }
 
         private void Start()
@@ -37,14 +36,14 @@ namespace KA
 
         public void BreakGuard()
         {
-            enemyAnimatorHandler.PlayTargetAnimation("Break Guard", true);
+            enemyManager.enemyAnimatorHandler.PlayTargetAnimation("Break Guard", true);
         }
 
         public override void TakeDamage(int physicalDamage, int fireDamage, string damageAnimation = "Damage_02")
         {
             base.TakeDamage(physicalDamage, fireDamage, damageAnimation);
             enemyHealthBar.SetHealth(currentHealth);
-            enemyAnimatorHandler.PlayTargetAnimation(damageAnimation, true);
+            enemyManager.enemyAnimatorHandler.PlayTargetAnimation(damageAnimation, true);
 
             if(currentHealth <= 0)
             {
@@ -55,8 +54,8 @@ namespace KA
         private void HandleDeath()
         {
             currentHealth = 0;
-            enemyAnimatorHandler.PlayTargetAnimation("Death01", true);
-            isDead = true;
+            enemyManager.enemyAnimatorHandler.PlayTargetAnimation("Death01", true);
+            enemyManager.isDead = true;
         }
     }
 }

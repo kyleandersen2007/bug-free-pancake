@@ -67,7 +67,7 @@ MonoBehaviour:
   cameraSphereRadius: 0.2
   cameraCollisionOffSet: 0.2
   minimumCollisionOffset: 0.2
-  lockedPivotPosition: 2
+  lockedPivotPosition: 1.7
   unlockedPivotPosition: 1.5
   currentLockOnTarget: {fileID: 0}
   nearestLockOnTarget: {fileID: 0}

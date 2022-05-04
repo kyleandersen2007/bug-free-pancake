@@ -6,32 +6,41 @@ namespace KA
 {
     public class CharacterStatsManager : MonoBehaviour
     {
-        AnimatorManager animatorManager;
+        CharacterManager character;
         
         [Header("Team ID")]
-        public int teamIDNumber = 0;
+        public int teamIDNumber;
 
-        public int healthLevel = 10;
         public int maxHealth;
         public int currentHealth;
 
-        public int staminaLevel = 10;
         public float maxStamina;
         public float currentStamina;
 
-        public int focusLevel = 10;
         public float maxFocusPoints;
         public float currentFocusPoints;
 
-        public int soulCount = 0;
-        public int soulsAwardedOnDeath = 50;
+        public int soulCount;
+        public int soulsAwardedOnDeath;
+
+        public int playerLevel = 1;
+
+        [Header("LEVEL")]
+        public int healthLevel;
+        public int staminaLevel;
+        public int focusLevel;
+        public int strengthLevel;
+        public int dexterityLevel;
+        public int intelligenceLevel;
+        public int faithLevel;
+        public int poiseLevel;
 
         [Header("Poise")]
         public float totalPoiseDefence; //The TOTAL poise during damage calculation
         public float offensivePoiseBonus; //The poise you GAIN during an attack with a weapon
         public float armorPoiseBonus; //The poise you GAIN from wearing what ever you have equipped
-        public float totalPoiseResetTime = 15;
-        public float poiseResetTimer = 0;
+        public float totalPoiseResetTime;
+        public float poiseResetTimer;
 
         [Header("Armor Absorptions")]
         public float physicalDamageAbsorptionHead;
@@ -49,11 +58,9 @@ namespace KA
         //Magic Absorption
         //Dark Absorption
 
-        public bool isDead;
-
         protected virtual void Awake()
         {
-            animatorManager = GetComponent<AnimatorManager>();
+            character = GetComponent<CharacterManager>();
         }
 
         protected virtual void Update()
@@ -68,10 +75,8 @@ namespace KA
 
         public virtual void TakeDamage(int physicalDamage, int fireDamage, string damageAnimation = "Damage_01")
         {
-            if (isDead)
+            if (character.isDead)
                 return;
-
-            animatorManager.EraseHandIKForWeapon();
 
             float totalPhysicalDamageAbsorption = 1 -
                 (1 - physicalDamageAbsorptionHead / 100) *
@@ -96,14 +101,14 @@ namespace KA
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                isDead = true;
+                character.isDead = true;
             }
 
         }
 
         public virtual void TakeDamageNoAnimation(int physicalDamage, int fireDamage)
         {
-            if (isDead)
+            if (character.isDead)
                 return;
 
             float totalPhysicalDamageAbsorption = 1 -
@@ -129,7 +134,7 @@ namespace KA
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                isDead = true;
+                character.isDead = true;
             }
         }
 

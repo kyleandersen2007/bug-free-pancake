@@ -8,12 +8,12 @@ namespace KA
     {
         public override void GrantWeaponAttackingPoiseBonus()
         {
-            characterStatsManager.totalPoiseDefence = characterStatsManager.totalPoiseDefence + characterStatsManager.offensivePoiseBonus;
+            characterManager.characterStatsManager.totalPoiseDefence = characterManager.characterStatsManager.totalPoiseDefence + characterManager.characterStatsManager.offensivePoiseBonus;
         }
 
         public override void ResetWeaponAttackingPoiseBonus()
         {
-            characterStatsManager.totalPoiseDefence = characterStatsManager.armorPoiseBonus;
+            characterManager.characterStatsManager.totalPoiseDefence = characterManager.characterStatsManager.armorPoiseBonus;
         }
     }
 }

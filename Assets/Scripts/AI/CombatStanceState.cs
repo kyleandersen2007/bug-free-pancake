@@ -14,17 +14,17 @@ namespace KA
 
         bool randomDestinationSet = false;
 
-        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorHandler enemyAnimatorHandler)
+        public override State Tick(EnemyManager enemyManager)
         {
             float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
-            enemyAnimatorHandler.anim.SetFloat("Vertical", verticalMovementValue, 0.2f, Time.deltaTime);
-            enemyAnimatorHandler.anim.SetFloat("Horizontal", horizontalMovementValue, 0.2f, Time.deltaTime);
+            enemyManager.anim.SetFloat("Vertical", verticalMovementValue, 0.2f, Time.deltaTime);
+            enemyManager.anim.SetFloat("Horizontal", horizontalMovementValue, 0.2f, Time.deltaTime);
             attackState.hasPerformedAttack = false;
 
             if (enemyManager.isInteracting)
             {
-                enemyAnimatorHandler.anim.SetFloat("Vertical", 0);
-                enemyAnimatorHandler.anim.SetFloat("Horizontal", 0);
+                enemyManager.anim.SetFloat("Vertical", 0);
+                enemyManager.anim.SetFloat("Horizontal", 0);
                 return this;
             }
 
@@ -36,7 +36,7 @@ namespace KA
             if(!randomDestinationSet)
             {
                 randomDestinationSet = true;
-                DecideCirclingAction(enemyAnimatorHandler);
+                DecideCirclingAction(enemyManager.enemyAnimatorHandler);
             }
 
             HandleRotateTowardsTarget(enemyManager);

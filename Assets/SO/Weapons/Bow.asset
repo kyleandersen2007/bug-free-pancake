@@ -22,10 +22,18 @@ MonoBehaviour:
   physicalDamage: 30
   fireDamage: 0
   criticalDamageMultiplier: 4
-  weaponType: 6
+  weaponType: 7
   poiseBreak: 0
   offensivePoiseBonus: 0
   baseStamina: 0
   lightAttackMultiplier: 0
   heavyAttackStaminaMultiplier: 0
   physicalDamageAbsorption: 0
+  tap_RB_Action: {fileID: 11400000, guid: 6e9c95e7c3b389240b548db4470cbd90, type: 2}
+  hold_RB_Action: {fileID: 11400000, guid: c7ccb540ec7f50b4dae4a8a27802127b, type: 2}
+  tap_RT_Action: {fileID: 0}
+  hold_RT_Input: {fileID: 0}
+  tap_LT_Action: {fileID: 0}
+  hold_LT_Action: {fileID: 0}
+  tap_LB_Action: {fileID: 0}
+  hold_LB_Action: {fileID: 0}

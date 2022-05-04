@@ -7,6 +7,7 @@ namespace KA
     public class PlayerInventory : CharacterInventoryManager
     {
         public List<WeaponItem> weaponInventory;
+        public List<HelmetEquipment> headEquipmentInventory;
 
         #region Handle Change Weapon
         public void ChangeRightWeapon()

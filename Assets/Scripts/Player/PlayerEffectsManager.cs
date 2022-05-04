@@ -6,23 +6,20 @@ namespace KA
 {
     public class PlayerEffectsManager : CharacterEffectsManager
     {
-        PlayerStats playerStats;
-        WeaponSlotManager weaponSlotManager;
+        PlayerManager player;
         public GameObject currentParticleFX;
         public GameObject instantiatedFXModel;
         public int amountToBeHealed;
 
         private void Awake()
         {
-            playerStats = GetComponentInParent<PlayerStats>();
-            weaponSlotManager = GetComponent<WeaponSlotManager>();
+            player = GetComponent<PlayerManager>();
         }
 
         public void HealPlayerFromEffect()
         {
-            playerStats.HealPlayer(amountToBeHealed);
-            //GameObject healParticles = Instantiate(currentParticleFX, playerStats.transform);
-            weaponSlotManager.LoadBothWeaponsOnSlots();
+            player.playerStats.HealPlayer(amountToBeHealed);
+            player.weaponSlotManager.LoadBothWeaponsOnSlots();
             Destroy(instantiatedFXModel.gameObject);
         }
     }

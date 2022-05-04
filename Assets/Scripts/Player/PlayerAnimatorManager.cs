@@ -5,20 +5,14 @@ namespace KA
 {
     public class PlayerAnimatorManager : AnimatorManager
     {
-        PlayerManager playerManager;
-        PlayerStats playerStats;
-        InputHandler inputHandler;
-        PlayerLocomotion playerLocomotion;
+        PlayerManager player;
         private int vertical;
         private int horizontal;
 
-        public void Initialize()
+        protected override void Awake()
         {
-            playerManager = GetComponent<PlayerManager>();
-            playerStats = GetComponent<PlayerStats>();
-            anim = GetComponent<Animator>();
-            inputHandler = GetComponent<InputHandler>();
-            playerLocomotion = GetComponent<PlayerLocomotion>();
+            base.Awake();
+            player = GetComponent<PlayerManager>();
             vertical = Animator.StringToHash("Vertical");
             horizontal = Animator.StringToHash("Horizontal");
         }
@@ -75,21 +69,21 @@ namespace KA
                 h = horizontalMovement;
             }
 
-            anim.SetFloat(vertical, v, 0.1f, Time.deltaTime);
-            anim.SetFloat(horizontal, h, 0.1f, Time.deltaTime);
+            player.anim.SetFloat(vertical, v, 0.1f, Time.deltaTime);
+            player.anim.SetFloat(horizontal, h, 0.1f, Time.deltaTime);
         }
 
         private void OnAnimatorMove()
         {
-            if (playerManager.isInteracting == false) return;
+            if (player.isInteracting == false) return;
 
             float delta = Time.deltaTime;
 
-            playerLocomotion.rigidbody.drag = 0;
-            Vector3 deltaPosition = anim.deltaPosition;
+            player.playerLocomotion.rigidbody.drag = 0;
+            Vector3 deltaPosition = player.anim.deltaPosition;
             deltaPosition.y = 0;
             Vector3 velocity = deltaPosition / delta;
-            playerLocomotion.rigidbody.velocity = velocity;
+            player.playerLocomotion.rigidbody.velocity = velocity;
         }
     }
 }

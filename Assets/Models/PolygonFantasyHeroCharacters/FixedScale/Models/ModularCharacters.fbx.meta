@@ -13727,7 +13727,7 @@ ModelImporter:
     - name: Finger_03
       parentName: Finger_02
       position: {x: -0.035133272, y: -3.00324e-16, z: 3.7747583e-17}
-      rotation: {x: -0.018261662, y: -0.02307901, z: 0.029866543, w: 0.99912053}
+      rotation: {x: -0.018261664, y: -0.02307901, z: 0.029866545, w: 0.99912053}
       scale: {x: 1, y: 1, z: 1}
     - name: Finger_04
       parentName: Finger_03
@@ -13737,7 +13737,7 @@ ModelImporter:
     - name: IndexFinger_01
       parentName: Hand_L
       position: {x: -0.10396561, y: 0.003987151, z: 0.026726495}
-      rotation: {x: 0.0009836755, y: -0.082880005, z: 0.005306958, w: 0.996545}
+      rotation: {x: 0.0009836754, y: -0.082880005, z: 0.0053069578, w: 0.996545}
       scale: {x: 1, y: 1, z: 1}
     - name: IndexFinger_02
       parentName: IndexFinger_01
@@ -13757,7 +13757,7 @@ ModelImporter:
     - name: Thumb_01
       parentName: Hand_L
       position: {x: -0.035140477, y: -0.011706916, z: 0.045055393}
-      rotation: {x: 0.0091499565, y: 0.29994527, z: 0.044017322, w: 0.9528964}
+      rotation: {x: 0.009149957, y: 0.29994527, z: 0.044017326, w: 0.9528964}
       scale: {x: 1, y: 1, z: 1}
     - name: Thumb_02
       parentName: Thumb_01
@@ -13777,7 +13777,7 @@ ModelImporter:
     - name: Shoulder_Attachment_R
       parentName: Clavicle_R
       position: {x: 0.1311913, y: -0.060628157, z: 0.000000047353428}
-      rotation: {x: 0.97026986, y: -0.0062989537, z: -0.24193852, w: -0.0015706554}
+      rotation: {x: 0.97026986, y: -0.006298954, z: -0.24193852, w: -0.0015706555}
       scale: {x: 1, y: 1, z: 1}
     - name: Shoulder_R
       parentName: Clavicle_R
@@ -13832,7 +13832,7 @@ ModelImporter:
     - name: IndexFinger_03 1
       parentName: IndexFinger_02 1
       position: {x: 0.037912127, y: 0.0000032499834, z: -0.00000004545292}
-      rotation: {x: -0.0069198445, y: -0.016685165, z: 0.037019957, w: 0.99915135}
+      rotation: {x: -0.0069198436, y: -0.016685165, z: 0.037019953, w: 0.99915135}
       scale: {x: 1, y: 1, z: 1}
     - name: IndexFinger_04 1
       parentName: IndexFinger_03 1

@@ -6,9 +6,10 @@ namespace KA
 {
     public class EnemyManager : CharacterManager
     {
-        EnemyLocomotion enemyLocomotion;
-        EnemyAnimatorHandler enemyAnimatorHandler;
-        EnemyStats enemyStats;
+        public EnemyLocomotion enemyLocomotion;
+        public EnemyEffectsManager enemyEffectsManager;
+        public EnemyAnimatorHandler enemyAnimatorHandler;
+        public EnemyStats enemyStats;
         public CharacterStatsManager currentTarget;
 
         public State currentState;
@@ -36,9 +37,10 @@ namespace KA
         {
             base.Awake();
             enemyLocomotion = GetComponent<EnemyLocomotion>();
-            enemyAnimatorHandler = GetComponentInChildren<EnemyAnimatorHandler>();
+            enemyAnimatorHandler = GetComponent<EnemyAnimatorHandler>();
             enemyStats = GetComponent<EnemyStats>();
             enemyRigidBody = GetComponent<Rigidbody>();
+            anim = GetComponent<Animator>();
             navmeshAgent = GetComponentInChildren<NavMeshAgent>();
             navmeshAgent.enabled = false;
         }
@@ -53,11 +55,11 @@ namespace KA
             HandleRecoveryTimer();
             HandleStateMachine();
             
-            isRotatingWithRootMotion = enemyAnimatorHandler.anim.GetBool("isRotatingWithRootMotion");
-            isInteracting = enemyAnimatorHandler.anim.GetBool("isInteracting");
-            canDoCombo = enemyAnimatorHandler.anim.GetBool("canDoCombo");
-            canRotate = enemyAnimatorHandler.anim.GetBool("canRotate");
-            enemyAnimatorHandler.anim.SetBool("isDead", enemyStats.isDead);
+            isRotatingWithRootMotion = anim.GetBool("isRotatingWithRootMotion");
+            isInteracting = anim.GetBool("isInteracting");
+            canDoCombo = anim.GetBool("canDoCombo");
+            canRotate = anim.GetBool("canRotate");
+            anim.SetBool("isDead", isDead);
         }
 
         private void LateUpdate()
@@ -68,7 +70,7 @@ namespace KA
 
         private void HandleStateMachine()
         {
-            if(enemyStats.isDead)
+            if(isDead)
             {
                 SwitchToNextState(null);
                 currentTarget = null;
@@ -76,7 +78,7 @@ namespace KA
 
             if (currentState != null)
             {
-                State nextState = currentState.Tick(this, enemyStats, enemyAnimatorHandler);
+                State nextState = currentState.Tick(this);
 
                 if (nextState != null)
                 {

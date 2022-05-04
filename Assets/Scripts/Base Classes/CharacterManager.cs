@@ -6,15 +6,18 @@ namespace KA
 {
     public class CharacterManager : MonoBehaviour
     {
-        AnimatorManager characterAnimatorManager;
-        CharacterWeaponSlotManager characterWeaponSlotManager;
+        public AnimatorManager characterAnimatorManager;
+        public CharacterWeaponSlotManager characterWeaponSlotManager;
+        public CharacterInventoryManager characterInventoryManager;
+        public CharacterStatsManager characterStatsManager;
+        public CharacterEffectsManager characterEffectsManager;
         public Transform lockOnTransform;
         public CriticalDamageCollider backStabCollider;
         public CriticalDamageCollider riposteCollider;
-
+        public Animator anim;
         public int pendingCriticalDamage;
 
-        [Header("Combat Flags")]
+        [Header("Flags")]
         public bool isInteracting;
         public bool canBeRiposted;
         public bool isParrying;
@@ -30,6 +33,7 @@ namespace KA
         public bool isInvulnerable;
         public bool isHoldingArrow;
         public bool isAiming;
+        public bool isDead;
 
         public bool isRotatingWithRootMotion;
         public bool canRotate;
@@ -38,6 +42,9 @@ namespace KA
         {
             characterAnimatorManager = GetComponent<AnimatorManager>();
             characterWeaponSlotManager = GetComponent<CharacterWeaponSlotManager>();
+            characterInventoryManager = GetComponent<CharacterInventoryManager>();
+            characterStatsManager = GetComponent<CharacterStatsManager>();
+            characterEffectsManager = GetComponent<CharacterEffectsManager>();
         }
 
         protected virtual void FixedUpdate()

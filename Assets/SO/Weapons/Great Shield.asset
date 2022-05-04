@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432725bbdd8b16a458951dc289138876, type: 3}
   m_Name: Great Shield
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 754d1a35067618c4d8fd29a994c5cd0e, type: 3}
+  itemIcon: {fileID: 21300000, guid: 28da32fba8448a342bdb90835fe8bc75, type: 3}
   itemName: Great Shield
   modelPrefab: {fileID: 1124779933736778268, guid: 41c8ff198d5f7f74e87783e3a82e54b8, type: 3}
   isUnarmed: 0
@@ -22,10 +22,18 @@ MonoBehaviour:
   physicalDamage: 0
   fireDamage: 0
   criticalDamageMultiplier: 4
-  weaponType: 1
+  weaponType: 2
   poiseBreak: 0
   offensivePoiseBonus: 0
   baseStamina: 0
   lightAttackMultiplier: 0
   heavyAttackStaminaMultiplier: 0
   physicalDamageAbsorption: 70
+  tap_RB_Action: {fileID: 0}
+  hold_RB_Action: {fileID: 0}
+  tap_RT_Action: {fileID: 0}
+  hold_RT_Input: {fileID: 0}
+  tap_LT_Action: {fileID: 11400000, guid: f212f96e1f7474e4a955cc1de353dd66, type: 2}
+  hold_LT_Action: {fileID: 0}
+  tap_LB_Action: {fileID: 0}
+  hold_LB_Action: {fileID: 11400000, guid: 7b338797ce6a6304bb538efb2b35bf9e, type: 2}

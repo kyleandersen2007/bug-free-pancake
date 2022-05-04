@@ -9,7 +9,7 @@ namespace KA
 
         public LayerMask detectionLayer;
 
-        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorHandler enemyAnimatorHandler)
+        public override State Tick(EnemyManager enemyManager)
         {
             #region Handle Enemy Target Detection
             Collider[] colliders = Physics.OverlapSphere(transform.position, enemyManager.detectionRadius, detectionLayer);
@@ -19,14 +19,14 @@ namespace KA
 
                 if (characterStats != null)
                 {
-                    if (characterStats.teamIDNumber != enemyStats.teamIDNumber)
+                    if (characterStats.teamIDNumber != enemyManager.enemyStats.teamIDNumber)
                     {
                         Vector3 targetDirection = characterStats.transform.position - transform.position;
                         float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
 
                         if (viewableAngle > enemyManager.minimumDetectionAngle && viewableAngle < enemyManager.maximumDetectionAngle)
                         {
-                            if (!enemyStats.isDead)
+                            if (!enemyManager.isDead)
                                 enemyManager.currentTarget = characterStats;
                         }
                     }

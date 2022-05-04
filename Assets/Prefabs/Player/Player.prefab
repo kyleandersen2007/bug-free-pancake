@@ -471,9 +471,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
-  m_Height: 1.5
+  m_Height: 1.3
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!54 &6474700193062196515
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14453,7 +14453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7535957359326248769
 Transform:
   m_ObjectHideFlags: 0
@@ -37653,7 +37653,7 @@ GameObject:
   - component: {fileID: 7535650709772679547}
   - component: {fileID: 7597470939521767263}
   m_Layer: 12
-  m_Name: MaleRightLeg
+  m_Name: MaleRightLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56423,7 +56423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7535989709730698631
 Transform:
   m_ObjectHideFlags: 0
@@ -68423,7 +68423,7 @@ GameObject:
   m_Layer: 12
   m_Name: Player
   m_TagString: Character
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: 108d618ffadd71e48af3d64f01fb8f9a, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -68460,11 +68460,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5c5645ee943874d995688bdebdb296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
   moveDirection: {x: 0, y: 0, z: 0}
-  myTransform: {fileID: 0}
-  animatorHandler: {fileID: 0}
   rigidbody: {fileID: 0}
-  normalCamera: {fileID: 0}
   groundDetectionRayStartPoint: 0.5
   minimumDistanceNeededToBeginFall: 1
   groundDirectionRayDistance: 0.2
@@ -68497,12 +68495,13 @@ MonoBehaviour:
   b_Input: 0
   y_Input: 0
   x_Input: 0
-  rb_Input: 0
-  lt_Input: 0
-  lb_Input: 0
+  tap_rb_Input: 0
+  hold_rb_Input: 0
+  tap_rt_Input: 0
+  hold_LB_Input: 0
+  tap_lb_Input: 0
+  tap_lt_Input: 0
   use_Input: 0
-  hold_RB_Input: 0
-  rt_Input: 0
   jump_Input: 0
   inventory_Input: 0
   lockOnInput: 0
@@ -68520,7 +68519,6 @@ MonoBehaviour:
   lockOnFlag: 0
   inventoryFlag: 0
   rollInputTimer: 0
-  uiManager: {fileID: 0}
   criticalAttackRayCastStartPoint: {fileID: 1859313481}
 --- !u!114 &8195003761832990611
 MonoBehaviour:
@@ -68537,22 +68535,24 @@ MonoBehaviour:
   currentItemBeingUsed: {fileID: 0}
   currentSpell: {fileID: 11400000, guid: 9eedd7ae57d29d34e96e2ac47ec6b00d, type: 2}
   rightWeapon: {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
-  leftWeapon: {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
+  leftWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
   currentConsumbale: {fileID: 11400000, guid: d83fe55f018682a458e2be97ff964a29, type: 2}
   currentAmmo: {fileID: 11400000, guid: f2f43d282957c734491d16a17d119701, type: 2}
-  currentHelmetEquipment: {fileID: 11400000, guid: 0075713e2ec7efb419b0ad6aeab9eac5, type: 2}
-  currentTorsoEquipment: {fileID: 11400000, guid: 1b91361bd1b90d84480d7cf58864f4a9, type: 2}
-  currentLegEquipment: {fileID: 11400000, guid: e023c4e9976a3e944b9c5ff63c679cfb, type: 2}
+  currentHelmetEquipment: {fileID: 0}
+  currentTorsoEquipment: {fileID: 11400000, guid: 1e125767bbf1e4b47ac775cc8b1f267e, type: 2}
+  currentLegEquipment: {fileID: 11400000, guid: b04423ffe402a8d408d659bba26769b8, type: 2}
   currentHandEquipment: {fileID: 11400000, guid: 7802b1264c3705041ba344b1232fbade, type: 2}
   weaponsInRightHandSlots:
   - {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
-  - {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
+  - {fileID: 0}
   weaponsInLeftHandSlots:
-  - {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
-  - {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   currentRightWeaponIndex: 0
   currentLeftWeaponIndex: 0
   weaponInventory: []
+  headEquipmentInventory:
+  - {fileID: 11400000, guid: d3d0bebca506275468b39fc73ae7c196, type: 2}
 --- !u!114 &6210010102106405742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68565,9 +68565,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7882c51a14f712b47a25d096914878a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterAnimatorManager: {fileID: 0}
+  characterWeaponSlotManager: {fileID: 0}
+  characterInventoryManager: {fileID: 0}
+  characterStatsManager: {fileID: 0}
+  characterEffectsManager: {fileID: 0}
   lockOnTransform: {fileID: 1484830489}
   backStabCollider: {fileID: 0}
   riposteCollider: {fileID: 0}
+  anim: {fileID: 0}
   pendingCriticalDamage: 0
   isInteracting: 0
   canBeRiposted: 0
@@ -68584,18 +68590,22 @@ MonoBehaviour:
   isInvulnerable: 0
   isHoldingArrow: 0
   isAiming: 0
+  isDead: 0
   isRotatingWithRootMotion: 0
   canRotate: 0
   inputHandler: {fileID: 0}
-  anim: {fileID: 0}
   cameraHandler: {fileID: 0}
   playerLocomotion: {fileID: 0}
   playerStats: {fileID: 0}
   animatorHandler: {fileID: 0}
-  playerInventory: {fileID: 0}
+  playerInventoryManager: {fileID: 0}
   playerEffectsManager: {fileID: 0}
   playerCombatManager: {fileID: 0}
   weaponSlotManager: {fileID: 0}
+  playerEquipmentManager: {fileID: 0}
+  uIManager: {fileID: 0}
+  quickSlotsUI: {fileID: 0}
+  blockingCollider: {fileID: 0}
   interactableUIGameObject: {fileID: 0}
   itemInteractableGameObject: {fileID: 0}
 --- !u!114 &6808860019063928319
@@ -68611,17 +68621,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamIDNumber: 1
-  healthLevel: 10
   maxHealth: 10
   currentHealth: 0
-  staminaLevel: 10
   maxStamina: 0
   currentStamina: 0
-  focusLevel: 10
   maxFocusPoints: 0
   currentFocusPoints: 0
-  soulCount: 0
+  soulCount: 8500
   soulsAwardedOnDeath: 50
+  playerLevel: 1
+  healthLevel: 10
+  staminaLevel: 10
+  focusLevel: 10
+  strengthLevel: 10
+  dexterityLevel: 10
+  intelligenceLevel: 10
+  faithLevel: 10
+  poiseLevel: 10
   totalPoiseDefence: 100
   offensivePoiseBonus: 0
   armorPoiseBonus: 0
@@ -68635,8 +68651,9 @@ MonoBehaviour:
   flameDamageAbsorptionBody: 0
   flameDamageAbsorptionLegs: 0
   flameDamageAbsorptionHands: 0
-  isDead: 0
   healthBar: {fileID: 0}
+  staminaBar: {fileID: 0}
+  focusPointsBar: {fileID: 0}
   staminaRegenerationAmount: 30
   staminaRegenTimer: 0
 --- !u!114 &474233326009355866
@@ -68672,6 +68689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e18b89f59830a4f9dac128b3e8f8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  facialFeatures: []
   nakedHeadModel: {fileID: 7530161345466146395}
   nakedTorsoModel: Chr_Torso_Male_00
   nakedHipModel: Chr_Hips_Male_00
@@ -68744,8 +68763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d787f37553ec94fb8bc4c6d8152535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 725445529270018716}
-  canRotate: 1
   leftHandConstraint: {fileID: 1876244020}
   rightHandConstraint: {fileID: 2137937821}
 --- !u!54 &8918176394304981051
@@ -68775,9 +68792,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
-  m_Height: 1.5
+  m_Height: 1.3
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!95 &725445529270018716
 Animator:
   serializedVersion: 3

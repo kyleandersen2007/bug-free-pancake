@@ -61,7 +61,7 @@ namespace KA
 
             if (player.inputHandler.comboFlag)
             {
-                player.animatorHandler.anim.SetBool("canDoCombo", false);
+                player.anim.SetBool("canDoCombo", false);
 
                 if (player.isUsingLeftHand)
                 {

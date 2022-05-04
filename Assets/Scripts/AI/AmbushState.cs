@@ -15,11 +15,11 @@ namespace KA
 
         public PursueTargetState pursueTargetState;
 
-        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorHandler enemyAnimatorHandler)
+        public override State Tick(EnemyManager enemyManager)
         {
             if (isSleeping && enemyManager.isInteracting == false)
             {
-                enemyAnimatorHandler.PlayTargetAnimation(sleepAnimation, true);
+                enemyManager.enemyAnimatorHandler.PlayTargetAnimation(sleepAnimation, true);
             }
 
             #region Handle Target Detection
@@ -40,7 +40,7 @@ namespace KA
                     {
                         enemyManager.currentTarget = characterStats;
                         isSleeping = false;
-                        enemyAnimatorHandler .PlayTargetAnimation(wakeAnimation, true);
+                        enemyManager.enemyAnimatorHandler .PlayTargetAnimation(wakeAnimation, true);
                     }
                 }
             }

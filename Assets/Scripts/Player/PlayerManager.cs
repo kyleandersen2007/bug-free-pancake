@@ -7,19 +7,22 @@ namespace KA
     {
         [Header("Variables")]
         public InputHandler inputHandler;
-        public Animator anim;
         public CameraHandler cameraHandler;
         public PlayerLocomotion playerLocomotion;
         public PlayerStats playerStats;
         public PlayerAnimatorManager animatorHandler;
-        public PlayerInventory playerInventory;
+        public PlayerInventory playerInventoryManager;
         public PlayerEffectsManager playerEffectsManager;
         public PlayerCombatManager playerCombatManager;
         public WeaponSlotManager weaponSlotManager;
+        public PlayerEquipmentManager playerEquipmentManager;
+        public UIManager uIManager;
+        public QuickSlotsUI quickSlotsUI;
+        public BlockingCollider blockingCollider;
 
         InteractableUI interactableUI;
-        [HideInInspector] public GameObject interactableUIGameObject;
-        [HideInInspector] public GameObject itemInteractableGameObject;
+        public GameObject interactableUIGameObject;
+        public GameObject itemInteractableGameObject;
 
         protected override void Awake()
         {
@@ -32,8 +35,13 @@ namespace KA
             playerStats = GetComponent<PlayerStats>();
             animatorHandler = GetComponent<PlayerAnimatorManager>();
             playerCombatManager = GetComponent<PlayerCombatManager>();
-            playerInventory = GetComponent<PlayerInventory>();
+            playerInventoryManager = GetComponent<PlayerInventory>();
             weaponSlotManager = GetComponent<WeaponSlotManager>();
+            playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
+            playerEffectsManager = GetComponent<PlayerEffectsManager>();
+            uIManager = FindObjectOfType<UIManager>();
+            quickSlotsUI = FindObjectOfType<QuickSlotsUI>();
+            blockingCollider = GetComponentInChildren<BlockingCollider>();
         }
 
         private void Update()
@@ -42,15 +50,16 @@ namespace KA
 
             isInteracting = anim.GetBool("isInteracting");
             canDoCombo = anim.GetBool("canDoCombo");
+            canRotate = anim.GetBool("canRotate");
             isInvulnerable = anim.GetBool("isInvulnerable");
             isHoldingArrow = anim.GetBool("isHoldingArrow");
             anim.SetBool("isInAir", isInAir);
             anim.SetBool("isBlocking", isBlocking);
-            anim.SetBool("isDead", playerStats.isDead);
+            anim.SetBool("isDead", isDead);
             anim.SetBool("isTwoHandingWeapon", isTwoHandingWeapon); 
 
             inputHandler.TickInput(delta);
-            animatorHandler.canRotate = anim.GetBool("canRotate");
+            
             playerLocomotion.HandleRollingAndSprinting(delta);
             playerLocomotion.HandleJumping();
             playerStats.RegenerateStamina();
@@ -64,22 +73,21 @@ namespace KA
             float delta = Time.fixedDeltaTime;
 
             playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);
+            if(cameraHandler == null)
+            {
+                return;
+            }
             playerLocomotion.HandleMovement(delta);
             playerLocomotion.HandleRotation(delta);
         }
 
         private void LateUpdate()
         {
-            inputHandler.rollFlag = false;
-            inputHandler.rb_Input = false;
-            inputHandler.rt_Input = false;
-            inputHandler.lt_Input = false;
             inputHandler.d_Pad_Up = false;
             inputHandler.d_Pad_Down = false;
             inputHandler.d_Pad_Left = false;
             inputHandler.d_Pad_Right = false;
             inputHandler.y_Input = false;
-            inputHandler.jump_Input = false;
             inputHandler.inventory_Input = false;
 
             float delta = Time.deltaTime;
