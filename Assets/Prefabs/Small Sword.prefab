@@ -126,7 +126,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff936f6c73be684fb25a8ea664f9410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWeaponDamage: 30
+  characterManager: {fileID: 0}
+  enableDamageColliderOnStartUp: 0
+  teamIDNumber: 0
+  poiseBreak: 0
+  offensivePoiseDefence: 0
+  physicalDamage: 30
+  fireDamage: 0
+  magicDamage: 0
 --- !u!65 &711323387044983041
 BoxCollider:
   m_ObjectHideFlags: 0

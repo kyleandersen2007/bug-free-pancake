@@ -77,13 +77,13 @@ namespace KA
 
             if (player.playerInventoryManager.currentHelmetEquipment != null)
             {
-                //if (player.playerInventoryManager.currentHelmetEquipment.hideFacialFeatures)
-                //{
-                //    foreach (var feature in facialFeatures)
-                //    {
-                //        feature.SetActive(false);
-                //    }
-                //}
+                if (player.playerInventoryManager.currentHelmetEquipment)
+                {
+                    foreach (var feature in facialFeatures)
+                    {
+                        feature.SetActive(false);
+                    }
+                }
 
                 nakedHeadModel.SetActive(false);
                 helmetModelChanger.EquipHelmetModelByName(player.playerInventoryManager.currentHelmetEquipment.helmetModelName);

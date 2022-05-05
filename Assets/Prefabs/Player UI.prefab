@@ -2588,7 +2588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac80df324018a7a4c939c4a84acc6ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 5748478905110888264}
+  icon: {fileID: 7066803813980952930}
   rightHandSlot01: 0
   rightHandSlot02: 1
   leftHandSlot01: 0
@@ -15176,7 +15176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac80df324018a7a4c939c4a84acc6ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 3639474874635537513}
+  icon: {fileID: 2245624775676803623}
   rightHandSlot01: 0
   rightHandSlot02: 0
   leftHandSlot01: 0
@@ -15942,7 +15942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac80df324018a7a4c939c4a84acc6ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 7943125718620028134}
+  icon: {fileID: 5043532042588721302}
   rightHandSlot01: 0
   rightHandSlot02: 0
   leftHandSlot01: 1

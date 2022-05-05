@@ -9804,7 +9804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7535902986483632381
 Transform:
   m_ObjectHideFlags: 0
@@ -29675,7 +29675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7536150874862111779
 Transform:
   m_ObjectHideFlags: 0
@@ -53912,7 +53912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7533222914737270963
 Transform:
   m_ObjectHideFlags: 0
@@ -68535,18 +68535,18 @@ MonoBehaviour:
   currentItemBeingUsed: {fileID: 0}
   currentSpell: {fileID: 11400000, guid: 9eedd7ae57d29d34e96e2ac47ec6b00d, type: 2}
   rightWeapon: {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
-  leftWeapon: {fileID: 11400000, guid: 628519d461bbab646be6d08e565baa4a, type: 2}
+  leftWeapon: {fileID: 11400000, guid: 19121b242eeaa5d4292033f3d9778224, type: 2}
   currentConsumbale: {fileID: 11400000, guid: d83fe55f018682a458e2be97ff964a29, type: 2}
   currentAmmo: {fileID: 11400000, guid: f2f43d282957c734491d16a17d119701, type: 2}
   currentHelmetEquipment: {fileID: 0}
-  currentTorsoEquipment: {fileID: 11400000, guid: 1e125767bbf1e4b47ac775cc8b1f267e, type: 2}
-  currentLegEquipment: {fileID: 11400000, guid: b04423ffe402a8d408d659bba26769b8, type: 2}
-  currentHandEquipment: {fileID: 11400000, guid: 7802b1264c3705041ba344b1232fbade, type: 2}
+  currentTorsoEquipment: {fileID: 0}
+  currentLegEquipment: {fileID: 0}
+  currentHandEquipment: {fileID: 0}
   weaponsInRightHandSlots:
   - {fileID: 11400000, guid: b75190eea5210fd43abd1358b40461ce, type: 2}
   - {fileID: 0}
   weaponsInLeftHandSlots:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 19121b242eeaa5d4292033f3d9778224, type: 2}
   - {fileID: 0}
   currentRightWeaponIndex: 0
   currentLeftWeaponIndex: 0
@@ -68565,15 +68565,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7882c51a14f712b47a25d096914878a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterAnimatorManager: {fileID: 0}
-  characterWeaponSlotManager: {fileID: 0}
-  characterInventoryManager: {fileID: 0}
-  characterStatsManager: {fileID: 0}
-  characterEffectsManager: {fileID: 0}
+  characterAnimatorManager: {fileID: 3182431455288311271}
+  characterWeaponSlotManager: {fileID: 474233326009355866}
+  characterInventoryManager: {fileID: 8195003761832990611}
+  characterStatsManager: {fileID: 6808860019063928319}
+  characterEffectsManager: {fileID: 465055293895581962}
   lockOnTransform: {fileID: 1484830489}
   backStabCollider: {fileID: 0}
   riposteCollider: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 725445529270018716}
   pendingCriticalDamage: 0
   isInteracting: 0
   canBeRiposted: 0
@@ -68593,19 +68593,19 @@ MonoBehaviour:
   isDead: 0
   isRotatingWithRootMotion: 0
   canRotate: 0
-  inputHandler: {fileID: 0}
+  inputHandler: {fileID: 8918176394304980998}
   cameraHandler: {fileID: 0}
-  playerLocomotion: {fileID: 0}
-  playerStats: {fileID: 0}
-  animatorHandler: {fileID: 0}
-  playerInventoryManager: {fileID: 0}
-  playerEffectsManager: {fileID: 0}
-  playerCombatManager: {fileID: 0}
-  weaponSlotManager: {fileID: 0}
-  playerEquipmentManager: {fileID: 0}
+  playerLocomotion: {fileID: 8918176394304980999}
+  playerStats: {fileID: 6808860019063928319}
+  animatorHandler: {fileID: 3182431455288311271}
+  playerInventoryManager: {fileID: 8195003761832990611}
+  playerEffectsManager: {fileID: 465055293895581962}
+  playerCombatManager: {fileID: 7666798645532598775}
+  weaponSlotManager: {fileID: 474233326009355866}
+  playerEquipmentManager: {fileID: 5856393853024905223}
   uIManager: {fileID: 0}
   quickSlotsUI: {fileID: 0}
-  blockingCollider: {fileID: 0}
+  blockingCollider: {fileID: 6522285178992779619}
   interactableUIGameObject: {fileID: 0}
   itemInteractableGameObject: {fileID: 0}
 --- !u!114 &6808860019063928319
@@ -68690,7 +68690,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  facialFeatures: []
+  facialFeatures:
+  - {fileID: 7530143104223630907}
+  - {fileID: 7530448702241341989}
+  - {fileID: 7531064705261437547}
   nakedHeadModel: {fileID: 7530161345466146395}
   nakedTorsoModel: Chr_Torso_Male_00
   nakedHipModel: Chr_Hips_Male_00
