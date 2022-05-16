@@ -25,10 +25,13 @@ namespace KA
 
         public void AddItem(WeaponItem newWeapon)
         {
-            weapon = newWeapon;
-            icon.sprite = weapon.itemIcon;
-            icon.enabled = true;
-            gameObject.SetActive(true);
+            if(weapon != null)
+            {
+                weapon = newWeapon;
+                icon.sprite = weapon.itemIcon;
+                icon.enabled = true;
+                gameObject.SetActive(true);
+            }
         }
 
         public void ClearItem()
@@ -40,6 +43,8 @@ namespace KA
 
         public void SelectThisSlot()
         {
+            uIManager.ResetAllSelectedSlots();
+
             if(rightHandSlot01)
             {
                 uIManager.rightHandSlot01Selected = true;
@@ -56,6 +61,8 @@ namespace KA
             {
                 uIManager.leftHandSlot02Selected = true;
             }
+
+            uIManager.itemStatsWindowUI.UpdateWeaponItemStats(weapon);
         }
     }
 }

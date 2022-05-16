@@ -36,7 +36,7 @@ namespace KA
                 {
                     if(character.teamIDNumber != teamIDNumber)
                     {
-                        character.TakeDamage(0, explosiveDamage);
+                        character.TakeDamage(0, explosiveDamage, currentDamageAnimation,characterManager);
                     }
                 }
 
@@ -57,7 +57,7 @@ namespace KA
                 {
                     if (character.teamIDNumber != teamIDNumber)
                     {
-                        character.TakeDamage(0, explosionSplashDamage);
+                        character.TakeDamage(0, explosionSplashDamage, currentDamageAnimation, characterManager);
                     }
                 }
             }

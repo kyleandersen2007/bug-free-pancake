@@ -13,6 +13,13 @@ namespace KA
                 return;
 
             player.animatorHandler.EraseHandIKForWeapon();
+            player.playerEffectsManager.PlayWeaponFX(false);
+
+            if (player.isSprinting)
+            {
+                HandleRunningAttack(player);
+                return;
+            }
 
             if (player.canDoCombo)
             {
@@ -50,6 +57,28 @@ namespace KA
                 {
                     player.animatorHandler.PlayTargetAnimation(player.playerCombatManager.oh_light_attack_1, true);
                     player.playerCombatManager.lastAttack = player.playerCombatManager.oh_light_attack_1;
+                }
+            }
+        }
+
+        private void HandleRunningAttack(PlayerManager player)
+        {
+            if (player.isUsingLeftHand)
+            {
+                player.animatorHandler.PlayTargetAnimation(player.playerCombatManager.oh_running_attack_01, true, false, true);
+                player.playerCombatManager.lastAttack = player.playerCombatManager.oh_running_attack_01;
+            }
+            else if (player.isUsingRightHand)
+            {
+                if (player.inputHandler.twoHandFlag)
+                {
+                    player.animatorHandler.PlayTargetAnimation(player.playerCombatManager.th_running_attack_01, true);
+                    player.playerCombatManager.lastAttack = player.playerCombatManager.th_running_attack_01;
+                }
+                else
+                {
+                    player.animatorHandler.PlayTargetAnimation(player.playerCombatManager.oh_running_attack_01, true);
+                    player.playerCombatManager.lastAttack = player.playerCombatManager.oh_running_attack_01;
                 }
             }
         }

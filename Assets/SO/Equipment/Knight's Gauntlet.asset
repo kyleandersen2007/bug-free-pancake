@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434f95b7be0069b4d89a422843c86f33, type: 3}
   m_Name: Knight's Gauntlet
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: a8de1cfccce7a6c4786ad9358f1f44d5, type: 3}
   itemName: Soul Gauntlet
   physicalDefense: 10
   leftHandModelName: Chr_HandLeft_Male_12

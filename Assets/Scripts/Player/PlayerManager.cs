@@ -8,7 +8,7 @@ namespace KA
         [Header("Variables")]
         public InputHandler inputHandler;
         public CameraHandler cameraHandler;
-        public PlayerLocomotion playerLocomotion;
+        public PlayerLocomotionManager playerLocomotion;
         public PlayerStats playerStats;
         public PlayerAnimatorManager animatorHandler;
         public PlayerInventory playerInventoryManager;
@@ -30,7 +30,7 @@ namespace KA
             cameraHandler = FindObjectOfType<CameraHandler>();
             inputHandler = GetComponent<InputHandler>();
             anim = GetComponent<Animator>();
-            playerLocomotion = GetComponent<PlayerLocomotion>();
+            playerLocomotion = GetComponent<PlayerLocomotionManager>();
             interactableUI = FindObjectOfType<InteractableUI>();
             playerStats = GetComponent<PlayerStats>();
             animatorHandler = GetComponent<PlayerAnimatorManager>();
@@ -56,8 +56,8 @@ namespace KA
             anim.SetBool("isInAir", isInAir);
             anim.SetBool("isBlocking", isBlocking);
             anim.SetBool("isDead", isDead);
-            anim.SetBool("isTwoHandingWeapon", isTwoHandingWeapon); 
-
+            anim.SetBool("isTwoHandingWeapon", isTwoHandingWeapon);
+            isPerformingFullyChargedAttack = anim.GetBool("isPerformingFullyChargedAttack");
             inputHandler.TickInput(delta);
             
             playerLocomotion.HandleRollingAndSprinting(delta);

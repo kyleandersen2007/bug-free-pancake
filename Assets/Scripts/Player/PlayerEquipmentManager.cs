@@ -10,6 +10,7 @@ namespace KA
 
         [Header("Equipment Model Changers")]
         HelmetModelChanger helmetModelChanger;
+        HelmetAttachmentModelChanger helmetAttachmentModelChanger;
         TorsoEquipmentChanger torsoEquipmentChanger;
         HipModelChanger hipModelChanger;
         RightLegModelChanger rightLegModelChanger;
@@ -27,6 +28,7 @@ namespace KA
 
         RightElbowAttachmentModelChanger rightElbowAttachmentModel;
         LeftElbowAttachmentModelChanger leftElbowAttachmentModel;
+
 
         [Header("Facial Features")]
         public GameObject[] facialFeatures;
@@ -64,6 +66,7 @@ namespace KA
             rightShoulderAttachmentModelChanger = GetComponentInChildren<RightShoulderAttachmentModelChanger>();
             rightElbowAttachmentModel = GetComponentInChildren<RightElbowAttachmentModelChanger>();
             leftElbowAttachmentModel = GetComponentInChildren<LeftElbowAttachmentModelChanger>();
+            helmetAttachmentModelChanger = GetComponentInChildren<HelmetAttachmentModelChanger>();
         }
 
         private void Start()
@@ -74,6 +77,7 @@ namespace KA
         public void EquipAllEquipmentModels()
         {
             helmetModelChanger.UnEquipAllHelmetModels();
+            helmetAttachmentModelChanger.UnEquipAllModels();
 
             if (player.playerInventoryManager.currentHelmetEquipment != null)
             {
@@ -87,6 +91,7 @@ namespace KA
 
                 nakedHeadModel.SetActive(false);
                 helmetModelChanger.EquipHelmetModelByName(player.playerInventoryManager.currentHelmetEquipment.helmetModelName);
+                helmetAttachmentModelChanger.EquipModelByName(player.playerInventoryManager.currentHelmetEquipment.helmetAttachment);
                 player.playerStats.physicalDamageAbsorptionHead = player.playerInventoryManager.currentHelmetEquipment.physicalDefense;
             }
             else
@@ -104,6 +109,7 @@ namespace KA
             {
                 nakedHeadModel.SetActive(false);
                 helmetModelChanger.EquipHelmetModelByName(player.playerInventoryManager.currentHelmetEquipment.helmetModelName);
+                helmetAttachmentModelChanger.EquipModelByName(player.playerInventoryManager.currentHelmetEquipment.helmetAttachment);
                 player.playerStats.physicalDamageAbsorptionHead = player.playerInventoryManager.currentHelmetEquipment.physicalDefense;
             }
             else

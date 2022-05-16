@@ -39,9 +39,9 @@ namespace KA
             enemyManager.enemyAnimatorHandler.PlayTargetAnimation("Break Guard", true);
         }
 
-        public override void TakeDamage(int physicalDamage, int fireDamage, string damageAnimation = "Damage_02")
+        public override void TakeDamage(int physicalDamage, int fireDamage, string damageAnimation, CharacterManager enemyCharacterDamagingMe)
         {
-            base.TakeDamage(physicalDamage, fireDamage, damageAnimation);
+            base.TakeDamage(physicalDamage, fireDamage, damageAnimation, enemyCharacterDamagingMe);
             enemyHealthBar.SetHealth(currentHealth);
             enemyManager.enemyAnimatorHandler.PlayTargetAnimation(damageAnimation, true);
 

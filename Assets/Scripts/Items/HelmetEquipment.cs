@@ -8,5 +8,6 @@ namespace KA
     public class HelmetEquipment : EquipmentItem
     {
         public string helmetModelName;
+        public string helmetAttachment;
     }
 }

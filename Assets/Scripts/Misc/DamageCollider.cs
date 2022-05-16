@@ -101,7 +101,7 @@ namespace KA
                     }
                     else
                     {
-                        enemyStats.TakeDamage(physicalDamage, 0, currentDamageAnimation);
+                        enemyStats.TakeDamage(physicalDamage, 0, currentDamageAnimation, characterManager);
                     }
                 }
             }
@@ -125,7 +125,7 @@ namespace KA
 
                 if (enemyStats != null)
                 {
-                    enemyStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), 0, "Block Guard");
+                    enemyStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), 0, "Block Guard", characterManager);
                     shieldHasBeenHit = true;
                 }
             }
@@ -135,23 +135,23 @@ namespace KA
         {
             if(direction >= 145 && direction <= 180)
             {
-                Debug.Log("Hit From Front");
+                currentDamageAnimation = "straight_sword_oh_hit_F_01";
             }
             else if(direction <= -145 && direction >= -180)
             {
-                Debug.Log("Hit From Front");
+                currentDamageAnimation = "straight_sword_oh_hit_F_01";
             }
             else if(direction >= -45 && direction <= 45)
             {
-                Debug.Log("Hit From Back");
+                currentDamageAnimation = "straight_sword_oh_hit_B_01";
             }
             else if (direction >= -144 && direction <= -45)
             {
-                Debug.Log("Hit From Right");
+                currentDamageAnimation = "straight_sword_oh_hit_L_01";
             }
             else if (direction >= 45 && direction <= 144)
             {
-                Debug.Log("Hit From Left");
+                currentDamageAnimation = "straight_sword_oh_hit_R_01";
             }
         }
     }

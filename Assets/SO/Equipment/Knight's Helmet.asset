@@ -16,3 +16,4 @@ MonoBehaviour:
   itemName: Knight's Helmet
   physicalDefense: 20
   helmetModelName: Helmet05
+  helmetAttachment: Chr_HelmetAttachment_03

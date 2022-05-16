@@ -11,7 +11,7 @@ namespace KA
 
         public Image icon;
 
-        HelmetEquipment headItem;
+        HelmetEquipment item;
 
         private void Awake()
         {
@@ -20,15 +20,15 @@ namespace KA
 
         public void AddItem(HelmetEquipment helmetEquipment)
         {
-            headItem = helmetEquipment;
-            icon.sprite = headItem.itemIcon;
+            item = helmetEquipment;
+            icon.sprite = item.itemIcon;
             icon.enabled = true;
             gameObject.SetActive(true);
         }
 
         public void ClearItem()
         {
-            headItem = null;
+            item = null;
             icon.sprite = null;
             icon.enabled = false;
         }

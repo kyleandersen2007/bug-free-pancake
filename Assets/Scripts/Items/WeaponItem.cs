@@ -43,5 +43,14 @@ namespace KA
         public ItemAction hold_LT_Action;
         public ItemAction tap_LB_Action;
         public ItemAction hold_LB_Action;
+
+        public ItemAction th_tap_RB_Action;
+        public ItemAction th_hold_RB_Action;
+        public ItemAction th_tap_RT_Action;
+        public ItemAction th_hold_RT_Input;
+        public ItemAction th_tap_LT_Action;
+        public ItemAction th_hold_LT_Action;
+        public ItemAction th_tap_LB_Action;
+        public ItemAction th_hold_LB_Action;
     }
 }

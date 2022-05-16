@@ -16,6 +16,7 @@ namespace KA
         public bool tap_rb_Input;
         public bool hold_rb_Input;
         public bool tap_rt_Input;
+        public bool hold_rt_Input;
 
         public bool hold_LB_Input;
         public bool tap_lb_Input;
@@ -65,6 +66,8 @@ namespace KA
                 inputActions.PlayerActions.RB.performed += i => tap_rb_Input = true;
                 inputActions.PlayerActions.HoldRB.performed += i => hold_rb_Input = true;
                 inputActions.PlayerActions.HoldRB.canceled += i => hold_rb_Input = false;
+                inputActions.PlayerActions.HoldRT.performed += i => hold_rt_Input = true;
+                inputActions.PlayerActions.HoldRT.canceled += i => hold_rt_Input = false;
                 inputActions.PlayerActions.RT.performed += i => tap_rt_Input = true;
                 inputActions.PlayerActions.Roll.performed += i => b_Input = true;
                 inputActions.PlayerActions.Roll.canceled += i => b_Input = false;
@@ -100,6 +103,7 @@ namespace KA
 
             HandleHoldRBInput();
             HandleHoldLBInput();
+            HandleHoldRTInput();
 
             HandleTapLBInput();
             HandleTapRBInput();
@@ -209,6 +213,32 @@ namespace KA
                     player.UpdateWhichHandCharacterIsUsing(true);
                     player.playerInventoryManager.currentItemBeingUsed = player.playerInventoryManager.rightWeapon;
                     player.playerInventoryManager.rightWeapon.tap_RT_Action.PerformAction(player);
+                }
+            }
+        }
+
+        private void HandleHoldRTInput()
+        {
+            player.anim.SetBool("isChargingAttack", hold_rt_Input);
+
+            if(hold_rt_Input)
+            {
+                player.UpdateWhichHandCharacterIsUsing(true);
+                player.playerInventoryManager.currentItemBeingUsed = player.playerInventoryManager.rightWeapon;
+                
+                if(player.isTwoHandingWeapon)
+                {
+                    if(player.playerInventoryManager.rightWeapon.th_hold_RT_Input)
+                    {
+                        player.playerInventoryManager.rightWeapon.th_hold_RT_Input.PerformAction(player);
+                    }
+                }
+                else
+                {
+                    if (player.playerInventoryManager.rightWeapon.hold_RT_Input)
+                    {
+                        player.playerInventoryManager.rightWeapon.hold_RT_Input.PerformAction(player);
+                    }
                 }
             }
         }

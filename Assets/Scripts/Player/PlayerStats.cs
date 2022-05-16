@@ -72,12 +72,12 @@ namespace KA
             return maxFocusPoints;
         }
 
-        public override void TakeDamage(int physicalDamage, int fireDamage, string damageAnimation = "Damage_01")
+        public override void TakeDamage(int physicalDamage, int fireDamage, string damageAnimation, CharacterManager enemyCharacterDamagingMe)
         {
             if (player.isInvulnerable)
                 return;
 
-            base.TakeDamage(physicalDamage, fireDamage, damageAnimation = "Damage_01");
+            base.TakeDamage(physicalDamage, fireDamage, damageAnimation = "Damage_01", enemyCharacterDamagingMe);
             healthBar.SetCurrentHealth(currentHealth);
             player.animatorHandler.PlayTargetAnimation(damageAnimation, true);
 

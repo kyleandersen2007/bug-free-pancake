@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432725bbdd8b16a458951dc289138876, type: 3}
+  m_Name: Straight Sword
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: db6b0825e6b21c548955d20c8f4c4c32, type: 3}
+  itemName: Straight Sword
+  modelPrefab: {fileID: 606200968384958666, guid: 4cbd2f2b1ecb12b46987017514d9966a, type: 3}
+  isUnarmed: 0
+  weaponController: {fileID: 22100000, guid: 4e063763b02c98a4b91be368312c5eed, type: 2}
+  offHandIdleAnimation: Left_Arm_Idle_01
+  heavyWeaponAttackMultiplier: 2
+  physicalDamage: 30
+  fireDamage: 0
+  criticalDamageMultiplier: 4
+  weaponType: 0
+  poiseBreak: 0
+  offensivePoiseBonus: 25
+  baseStamina: 10
+  lightAttackMultiplier: 1
+  heavyAttackStaminaMultiplier: 2
+  physicalDamageAbsorption: 0
+  tap_RB_Action: {fileID: 11400000, guid: 3a22b0f9073819947b668549bbcc678a, type: 2}
+  hold_RB_Action: {fileID: 11400000, guid: 7569b01c93f63e6468698f04a71125c3, type: 2}
+  tap_RT_Action: {fileID: 11400000, guid: fc451336baa58b2469c97c3a682a65f2, type: 2}
+  hold_RT_Input: {fileID: 11400000, guid: d3bc7f7a20682de4784c14d4b56171bc, type: 2}
+  tap_LT_Action: {fileID: 11400000, guid: 3a22b0f9073819947b668549bbcc678a, type: 2}
+  hold_LT_Action: {fileID: 0}
+  tap_LB_Action: {fileID: 0}
+  hold_LB_Action: {fileID: 0}
+  th_tap_RB_Action: {fileID: 0}
+  th_hold_RB_Action: {fileID: 0}
+  th_tap_RT_Action: {fileID: 0}
+  th_hold_RT_Input: {fileID: 11400000, guid: d3bc7f7a20682de4784c14d4b56171bc, type: 2}
+  th_tap_LT_Action: {fileID: 0}
+  th_hold_LT_Action: {fileID: 0}
+  th_tap_LB_Action: {fileID: 0}
+  th_hold_LB_Action: {fileID: 0}

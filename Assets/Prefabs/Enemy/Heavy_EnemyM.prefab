@@ -2996,7 +2996,7 @@ MonoBehaviour:
   isPreformingAction: 0
   rotationSpeed: 25
   maximumAggroRadius: 1.5
-  detectionRadius: 20
+  detectionRadius: 0
   maximumDetectionAngle: 50
   minimumDetectionAngle: -50
   currentRecoveryTime: 0
@@ -3024,7 +3024,7 @@ MonoBehaviour:
   soulCount: 0
   soulsAwardedOnDeath: 50
   playerLevel: 1
-  healthLevel: 15
+  healthLevel: 1000
   staminaLevel: 0
   focusLevel: 0
   strengthLevel: 0

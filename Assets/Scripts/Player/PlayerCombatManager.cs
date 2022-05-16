@@ -17,6 +17,16 @@ namespace KA
         public string th_light_attack_2;
         public string th_heavy_attack_1;
         public string th_heavy_attack_2;
+        public string oh_running_attack_01;
+        public string oh_jumping_attack_01;
+        public string th_running_attack_01;
+        public string th_jumping_attack_01;
+
+        public string oh_charge_attack_01;
+        public string oh_charge_attack_02;
+
+        public string th_charge_attack_01;
+        public string th_charge_attack_02;
         public string draw_Arrow;
 
         public string weaponArt;

@@ -56,7 +56,7 @@ namespace KA
                     }
                     else
                     {
-                        enemyStats.TakeDamage(physicalDamage, 0, currentDamageAnimation);
+                        enemyStats.TakeDamage(physicalDamage, 0, currentDamageAnimation, characterManager);
                     }
                 }
             }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5ba32429e1caf4e98a173ce8948716, type: 3}
   m_Name: Knight's Chestplate
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 2237cc7dae4ca2549856010bf4cb3609, type: 3}
   itemName: Knight's Chestplate
   physicalDefense: 20
   torsoModelName: Chr_Torso_Male_20

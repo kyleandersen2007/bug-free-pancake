@@ -8,6 +8,9 @@ namespace KA
     {
         public List<WeaponItem> weaponInventory;
         public List<HelmetEquipment> headEquipmentInventory;
+        public List<BodyEquipment> bodyEquipmentInventory;
+        public List<LegEquipment> legEquipmentInventory;
+        public List<HandEquipment> handEquipmentInventory;
 
         #region Handle Change Weapon
         public void ChangeRightWeapon()

@@ -207,7 +207,15 @@
                     "id": "58716b6c-fb17-485a-8f86-0ecc4da401f1",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Tap"
+                },
+                {
+                    "name": "Hold RT",
+                    "type": "PassThrough",
+                    "id": "3c223720-fdbe-40fe-b121-0cfaffe02cec",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold"
                 },
                 {
                     "name": "Y",
@@ -536,6 +544,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Hold RB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c8f42fe3-8235-465d-9352-f1b2ee6b5c61",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hold RT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df6d9ca7-f1d1-43c4-a445-d2eac3d59322",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hold RT",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

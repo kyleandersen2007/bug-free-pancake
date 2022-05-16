@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8647044370670332293}
   - component: {fileID: 8647044370670332294}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Camera Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ MonoBehaviour:
   cameraPivotTransform: {fileID: 8647044372321776884}
   ignoreLayers:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 311
   enviromentLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 8647044371806628842}
   - component: {fileID: 8647044371806628843}
   - component: {fileID: 8647044371806628836}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8647044372321776884}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: CameraPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

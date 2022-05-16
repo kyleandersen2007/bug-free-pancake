@@ -6,6 +6,9 @@ namespace KA
     {
         public WeaponEquipmentSlotUI[] weaponEquipmentSlots;
         public HeadEquipmentUI headEquipmentSlot;
+        public BodyEquipmentSlotUI bodyEquipmentSlotUI;
+        public LegEquipmentSlotUI legEquipmentSlotUI;
+        public HandEquipmentSlotUI handEquipmentSlotUI;
 
         public void LoadWeaponOnEquipmentScreen(PlayerInventory playerInventory)
         {
@@ -39,6 +42,33 @@ namespace KA
             else
             {
                 headEquipmentSlot.ClearItem();
+            }
+
+            if (playerInventory.currentTorsoEquipment != null)
+            {
+                bodyEquipmentSlotUI.AddItem(playerInventory.currentTorsoEquipment);
+            }
+            else
+            {
+                bodyEquipmentSlotUI.ClearItem();
+            }
+
+            if (playerInventory.currentLegEquipment != null)
+            {
+                legEquipmentSlotUI.AddItem(playerInventory.currentLegEquipment);
+            }
+            else
+            {
+                legEquipmentSlotUI.ClearItem();
+            }
+
+            if (playerInventory.currentHandEquipment != null)
+            {
+                handEquipmentSlotUI.AddItem(playerInventory.currentHandEquipment);
+            }
+            else
+            {
+                handEquipmentSlotUI.ClearItem();
             }
         }
     }
